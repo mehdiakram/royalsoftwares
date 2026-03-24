@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Accounts - Comprehensive Tutorial</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; }
+        .sidebar { height: 100vh; width: 280px; position: fixed; top: 0; left: 0; background-color: #ffffff; box-shadow: 2px 0 5px rgba(0,0,0,0.05); padding: 20px 0; overflow-y: auto; z-index: 1000; }
+        .sidebar-brand { text-align: center; padding: 0 20px 20px; border-bottom: 1px solid #eee; margin-bottom: 20px; }
+        .sidebar-brand img { max-width: 150px; height: auto; }
+        .nav-item { padding: 5px 20px; }
+        .nav-link { color: #495057; font-weight: 500; border-radius: 5px; transition: all 0.2s; font-size: 0.95rem; }
+        .nav-link:hover, .nav-link.active { background-color: #e9ecef; color: #0d6efd; }
+        .content-area { margin-left: 280px; padding: 40px; }
+        .lang-bn { display: none; } /* Hidden by default */
+        .tutorial-section { background: #fff; padding: 35px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-bottom: 35px; border-left: 5px solid #0d6efd; }
+        html { scroll-behavior: smooth; scroll-padding-top: 20px; }
+        .example-box { background-color: #f8f9fa; border: 1px solid #dee2e6; padding: 20px; margin-top: 20px; border-radius: 6px; }
+        .example-box h5 { color: #0d6efd; font-weight: bold; margin-bottom: 15px; }
+        .footer-info { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd; color: #6c757d; font-size: 0.9rem; }
+        .table-custom { background: white; margin-top: 15px; }
+        .table-custom th { background-color: #f1f5f9; color: #495057; font-weight: 600; }
+        .ledger-box { background: #eef2f5; padding: 10px 15px; border-radius: 4px; display: inline-block; font-family: monospace; font-size: 1.1em; font-weight: bold; color: #212529; border: 1px solid #ced4da; margin: 2px 4px; }
+        
+        @media (max-width: 991px) {
+            .sidebar { width: 100%; height: auto; position: relative; }
+            .content-area { margin-left: 0; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <img src="images/logo.png" alt="Royal Accounts Logo">
+        </div>
+        <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link" href="#introduction">
+                <span class="lang-en">1. Introduction to Double-Entry</span><span class="lang-bn">১. ডাবল-এন্ট্রি পরিচিতি</span>
+            </a></li>
+            <li class="nav-item"><a class="nav-link" href="#chart-of-accounts">
+                <span class="lang-en">2. Chart of Accounts Setup</span><span class="lang-bn">২. চার্ট অফ একাউন্টস সেটআপ</span>
+            </a></li>
+            <li class="nav-item"><a class="nav-link" href="#opening-balances">
+                <span class="lang-en">3. Opening Balances</span><span class="lang-bn">৩. ওপেনিং ব্যালেন্স</span>
+            </a></li>
+            <li class="nav-item"><a class="nav-link" href="#vouchers">
+                <span class="lang-en">4. The 4 Types of Vouchers</span><span class="lang-bn">৪. ভাউচার এন্ট্রি (৪ প্রকার)</span>
+            </a></li>
+            <li class="nav-item"><a class="nav-link" href="#day-book">
+                <span class="lang-en">5. Checking the Day Book</span><span class="lang-bn">৫. ডে বুক (দৈনিক খাতা)</span>
+            </a></li>
+            <li class="nav-item"><a class="nav-link" href="#ledger">
+                <span class="lang-en">6. Reading a Ledger</span><span class="lang-bn">৬. লেজার বা খতিয়ান</span>
+            </a></li>
+            <li class="nav-item"><a class="nav-link" href="#trial-balance">
+                <span class="lang-en">7. Trial Balance Matching</span><span class="lang-bn">৭. রেওয়ামিল মেলানো</span>
+            </a></li>
+            <li class="nav-item"><a class="nav-link" href="#financials">
+                <span class="lang-en">8. Financial Reports (P&L, Balance Sheet)</span><span class="lang-bn">৮. আর্থিক প্রতিবেদন</span>
+            </a></li>
+            <li class="nav-item"><a class="nav-link" href="#pdc">
+                <span class="lang-en">9. PDC & Bank Reconciliation</span><span class="lang-bn">৯. এডভান্স চেক ও ব্যাংক সমন্বয়</span>
+            </a></li>
+        </ul>
+    </div>
+
+    <div class="content-area">
+        <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom flex-wrap gap-3">
+            <h2 class="mb-0 fw-bold">
+                <span class="lang-en">Mastering Royal Accounts</span>
+                <span class="lang-bn">রয়্যাল একাউন্টস মাস্টারক্লাস টিউটোরিয়াল</span>
+            </h2>
+            <button id="langToggle" class="btn btn-outline-primary d-flex align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-2" viewBox="0 0 16 16">
+                    <path d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286H4.545zm1.634-.736L5.5 3.956h-.049l-.679 2.022H6.18z"/>
+                    <path d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm7.138 9.995c.193.301.402.583.63.846-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6.066 6.066 0 0 1-.415-.492 1.988 1.988 0 0 1-.94.31z"/>
+                </svg>
+                <span id="langText">বাংলায় পড়ুন</span>
+            </button>
+        </div>
+
+        <div class="text-center mb-5 mt-2">
+            <h1 class="display-4 fw-bold text-primary">Royal Accounts</h1>
+            <p class="lead text-secondary"><span class="lang-en">Innovative Accounts Solutions for Modern Businesses</span><span class="lang-bn">আপনার ব্যবসার নির্ভরযোগ্য একাউন্টিং সফটওয়্যার</span></p>
+        </div>
+
+        <div id="introduction" class="tutorial-section">
+            <h3 class="fw-bold"><span class="lang-en">1. Introduction to Double-Entry</span><span class="lang-bn">১. ডাবল-এন্ট্রি পরিচিতি</span></h3>
+            <div class="lang-en">
+                <p>Accounting isn't just about noting down cash. To get a true picture of profit and business value, the world uses the <strong>Double-Entry System</strong>. Royal Accounts automates the hard math, but you need to understand the basic rule:</p>
+                <p>Every transaction has <strong>two sides</strong>. If money goes out of your pocket, it must be going into somewhere else (like an expense folder). If you pay $50 for internet, your Cash loses $50 (Credit), and your Internet Expense gains $50 (Debit). Money is never created or destroyed; it just moves from one ledger to another.</p>
+            </div>
+            <div class="lang-bn">
+                <p>একাউন্টিং মানে শুধু ডায়েরিতে ক্যাশ কয় টাকা আসলো আর গেলো তা লিখে রাখা নয়। ব্যবসার সত্যিকারের লাভ-লোকসান বের করার জন্য পুরো বিশ্ব <strong>Double-Entry System (দু'তরফা দাখিলা পদ্ধতি)</strong> ব্যবহার করে। রয়্যাল একাউন্টস কঠিন অংকের ক্যালকুলেশনগুলো নিজে করে নেবে, কিন্তু আপনাকে এর মূল নিয়মটি বুঝতে হবে:</p>
+                <p>প্রতিটি লেনদেনের <strong>দুটি দিক</strong> থাকে। আপনার পকেট থেকে টাকা বেরিয়ে গেলে, সেটি নিশ্চয়ই খাতার অন্য কোথাও (যেমন- কোনো খরচের খাতায়) গিয়ে ঢুকছে। ধরুন আপনি ৫০০ টাকার ইন্টারনেট বিল দিলেন। এর মানে আপনার <strong>Cash (নগদ)</strong> খাত থেকে ৫০০ টাকা ক্রেডিট (কমে গেল) হলো, আর <strong>Internet Expense (ইন্টারনেট বিল)</strong> খাতে ৫০০ টাকা ডেবিট (বেড়ে গেল) হলো। টাকা কখনো গায়েব হয় না, এক খাতা থেকে আরেক খাতায় স্থানান্তরিত হয় মাত্র।</p>
+            </div>
+        </div>
+
+        <div id="chart-of-accounts" class="tutorial-section">
+            <h3 class="fw-bold"><span class="lang-en">2. Chart of Accounts Setup</span><span class="lang-bn">২. চার্ট অফ একাউন্টস সেটআপ</span></h3>
+            <div class="lang-en">
+                <p>Before entering any vouchers, you must define your "Ledgers" (the folders where money is tracked). You must place them under the correct Master Category.</p>
+                <table class="table table-bordered table-custom">
+                    <thead><tr><th>Category</th><th>What goes here?</th><th>Examples to create</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Assets</strong></td><td>Things you own or money owed TO you.</td><td>Cash in Hand, DBBL Bank A/c, Mr. Rahim (Customer Receivables), Computer.</td></tr>
+                        <tr><td><strong>Liabilities</strong></td><td>Debts or money you owe to others.</td><td>Bank Loan, Supplier ABC (Payables), Salary Payable.</td></tr>
+                        <tr><td><strong>Incomes</strong></td><td>Revenue generated by the business.</td><td>Product Sales, Service Charges, Commission Received.</td></tr>
+                        <tr><td><strong>Expenses</strong></td><td>Day-to-day costs of running the business.</td><td>Office Rent, Staff Salary, Electricity Bill, Marketing.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="lang-bn">
+                <p>ভাউচার এন্ট্রি শুরু করার আগে আপনাকে আপনার খাতা বা "Ledger" তৈরি করে নিতে হবে এবং সেগুলোকে সঠিক ক্যাটাগরির অধীনে রাখতে হবে। নিচে বিস্তারিত দেওয়া হলো:</p>
+                <table class="table table-bordered table-custom">
+                    <thead><tr><th>ক্যাটাগরি</th><th>এর মানে কী?</th><th>কী কী খাতা খুলবেন (উদাহরণ)</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>সম্পদ (Assets)</strong></td><td>যা আপনার নিজের বা অন্যের কাছে যে টাকা পাবেন।</td><td>ক্যাশ ইন হ্যান্ড, ইসলামী ব্যাংক একাউন্ট, কাস্টমার রহিম এর খাতা, দোকানের ফার্নিচার।</td></tr>
+                        <tr><td><strong>দায় (Liabilities)</strong></td><td>যে টাকা আপনাকে ভবিষ্যতে পরিশোধ করতে হবে।</td><td>ব্যাংক লোন, সাপ্লায়ার বা মহাজনের খাতা, বকেয়া বেতন।</td></tr>
+                        <tr><td><strong>আয় (Incomes)</strong></td><td>যেসব খাত থেকে ব্যবসায় লাভ বা টাকা আসছে।</td><td>পণ্য বিক্রয়, সার্ভিস ফি, কমিশন আয়, ডেলিভারি ফি।</td></tr>
+                        <tr><td><strong>ব্যয় (Expenses)</strong></td><td>ব্যবসা পরিচালনা করার দৈনন্দিন খরচসমূহ।</td><td>দোকান ভাড়া, কর্মচারীর বেতন, বিদ্যুৎ বিল, বিজ্ঞাপন খরচ, চাং-নাস্তা।</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="opening-balances" class="tutorial-section">
+            <h3 class="fw-bold"><span class="lang-en">3. Opening Balances</span><span class="lang-bn">৩. ওপেনিং ব্যালেন্স</span></h3>
+            <div class="lang-en">
+                <p>If you are shifting from an old paper system to Royal Accounts in the middle of the year, you need to input the starting amount for your ledgers. This is done from the <strong>Opening Balances</strong> menu.</p>
+                <ul>
+                    <li>If you have $50,000 cash in the drawer today, go to Opening Balances, find "Cash", and put 50,000 in the <strong>Debit</strong> column and click save.</li>
+                    <li>If you owe a supplier $10,000, find the supplier's ledger and put 10,000 in the <strong>Credit</strong> column.</li>
+                </ul>
+            </div>
+            <div class="lang-bn">
+                <p>আপনি যদি পুরোনো কাগজের খাতা থেকে হিসাব নিয়ে নতুন করে রয়্যাল একাউন্টস-এ শুরু করেন, তবে খাতার পুরোনো ব্যালেন্স সফটওয়্যারে ওঠাতে হবে। এটি <strong>Opening Balances</strong> মেনু থেকে করতে হয়।</p>
+                <ul>
+                    <li>আপনার ক্যাশ বাক্সে আজ ৫০,০০০ টাকা থাকলে, Opening Balances-এ গিয়ে "Cash" লেজারটি খুঁজুন, এবং <strong>Debit</strong> ঘরে 50,000 লিখে Action কলামের টিক চিহ্নে বা সেভ বাটনে ক্লিক করুন।</li>
+                    <li>কোনো পাইকারি মহাজন আপনার কাছে যদি ১০,০০০ টাকা পায়, তবে তার খাতা খুঁজে <strong>Credit</strong> ঘরে 10,000 দিন। মনে রাখবেন: সাধারণত সম্পদের ব্যালেন্স ডেবিট হয়, এবং দায়ের ব্যালেন্স ক্রেডিট হয়।</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="vouchers" class="tutorial-section">
+            <h3 class="fw-bold"><span class="lang-en">4. The 4 Types of Vouchers (With Examples)</span><span class="lang-bn">৪. ভাউচার এন্ট্রি (৪ প্রকার এবং উদাহরণ)</span></h3>
+            
+            <div class="example-box">
+                <h5><span class="lang-en">Scenario A: Receiving Cash from a Sale</span><span class="lang-bn">দৃশ্যপট এ: পণ্য বিক্রয় করে টাকা পাওয়া</span></h5>
+                <p class="lang-en">You sold products to Mr. Rahim for 5,000 Tk in cash.</p>
+                <p class="lang-bn">আপনি রহিম সাহেবের কাছে নগদে ৫,০০০ টাকার পণ্য বিক্রি করেছেন।</p>
+                <ul>
+                    <li><span class="lang-en"><strong>Voucher Type:</strong> Receipt Voucher (Because money is coming IN).</span><span class="lang-bn"><strong>ভাউচার টাইপ:</strong> Receipt Voucher (যেহেতু ক্যাশে টাকা ঢুকছে)।</span></li>
+                    <li><span class="lang-en"><strong>Debit Account (Receiving):</strong> <span class="ledger-box">Cash in Hand</span> (Amount: 5,000)</span><span class="lang-bn"><strong>কোথায় জমা হবে:</strong> <span class="ledger-box">Cash in Hand</span> সিলেক্ট করুন (পরিমাণ: ৫,০০০)।</span></li>
+                    <li><span class="lang-en"><strong>Credit Account (Source):</strong> <span class="ledger-box">Sales Income</span> (Amount: 5,000)</span><span class="lang-bn"><strong>কিসের টাকা (Source):</strong> <span class="ledger-box">Sales Income</span> সিলেক্ট করুন।</span></li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h5><span class="lang-en">Scenario B: Paying the Monthly Utility Bill</span><span class="lang-bn">দৃশ্যপট বি: ব্যাংক থেকে ইন্টারনেটের বিল দেওয়া</span></h5>
+                <p class="lang-en">You paid the 2,000 Tk Internet bill online using your DBBL Bank account.</p>
+                <p class="lang-bn">আপনি ডাচ-বাংলা ব্যাংক থেকে অনলাইনে ২,০০০ টাকা ইন্টারনেট বিল পেমেন্ট করেছেন।</p>
+                <ul>
+                    <li><span class="lang-en"><strong>Voucher Type:</strong> Payment Voucher (Because money is going OUT).</span><span class="lang-bn"><strong>ভাউচার টাইপ:</strong> Payment Voucher (যেহেতু আপনার পকেট/ব্যাংক থেকে টাকা বেরিয়ে যাচ্ছে)।</span></li>
+                    <li><span class="lang-en"><strong>Credit Account (Paying From):</strong> <span class="ledger-box">DBBL Bank</span> (Amount: 2,000)</span><span class="lang-bn"><strong>কোথা থেকে দিচ্ছেন:</strong> <span class="ledger-box">DBBL Bank</span> সিলেক্ট করুন।</span></li>
+                    <li><span class="lang-en"><strong>Debit Account (Destination Expense):</strong> <span class="ledger-box">Internet Expense</span> (Amount: 2,000)</span><span class="lang-bn"><strong>কিসের বিল:</strong> <span class="ledger-box">Internet Expense</span> সিলেক্ট করুন।</span></li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h5><span class="lang-en">Scenario C: Withdrawing Cash from ATM</span><span class="lang-bn">দৃশ্যপট সি: ব্যাংক থেকে ক্যাশে টাকা আনা (নিজের একাউন্ট)</span></h5>
+                <p class="lang-en">You withdrew 10,000 Tk cash from your Bank for daily office expenses.</p>
+                <p class="lang-bn">অফিসের দৈনন্দিন খরচের জন্য আপনি ব্যাংক থেকে নগদ ১০,০০০ টাকা তুলে এনে ক্যাশবাক্সে রেখেছেন।</p>
+                <ul>
+                    <li><span class="lang-en"><strong>Voucher Type:</strong> Contra Voucher (Internal transfer between Bank & Cash).</span><span class="lang-bn"><strong>ভাউচার টাইপ:</strong> Contra Voucher (কারণ এখানে বাইরের কারো লেনদেন নেই, নিজের ব্যাংক থেকে নিজের ক্যাশে টাকা আসলো)।</span></li>
+                    <li><span class="lang-en"><strong>Debit (Receiving):</strong> <span class="ledger-box">Cash in Hand</span></span><span class="lang-bn"><strong>যেখানে ঢুকলো (Debit):</strong> <span class="ledger-box">Cash in Hand</span></span></li>
+                    <li><span class="lang-en"><strong>Credit (Source):</strong> <span class="ledger-box">DBBL Bank</span></span><span class="lang-bn"><strong>যেখান থেকে আসলো (Credit):</strong> <span class="ledger-box">DBBL Bank</span></span></li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h5><span class="lang-en">Scenario D: Giving a Custom Discount (No Cash Involved)</span><span class="lang-bn">দৃশ্যপট ডি: কাস্টমারকে বাকি মওকুফ করা (ক্যাশ বা ব্যাংকের লেনদেন ছাড়া)</span></h5>
+                <p class="lang-en">Mr. Rahim owes you 500 Tk, but you agreed to write it off as a discount. No cash is exchanged.</p>
+                <p class="lang-bn">রহিম সাহেবের কাছে আগের ৫০০ টাকা বকেয়া পেতেন, তিনি সেটা দিতে পারছেন না তাই আপনি তাকে ছাড় বা ডিসকাউন্ট দিলেন। এখানে আপনাকে কেউ ক্যাশ টাকা দেয়নি।</p>
+                <ul>
+                    <li><span class="lang-en"><strong>Voucher Type:</strong> Journal Voucher (Adjustments without Cash/Bank).</span><span class="lang-bn"><strong>ভাউচার টাইপ:</strong> Journal Voucher (যেহেতু ক্যাশ বক্স বা ব্যাংকের কোনো অংক পরিবর্তন হচ্ছে না)।</span></li>
+                    <li><span class="lang-en"><strong>Debit (Expense/Loss):</strong> <span class="ledger-box">Discount Allowed</span></span><span class="lang-bn"><strong>ডেবিট (খরচ খাত):</strong> <span class="ledger-box">Discount Allowed</span></span></li>
+                    <li><span class="lang-en"><strong>Credit (Reducing Customer Balance):</strong> <span class="ledger-box">Mr. Rahim</span></span><span class="lang-bn"><strong>ক্রেডিট (পাওনা কমানো হলো):</strong> <span class="ledger-box">Mr. Rahim</span></span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="day-book" class="tutorial-section">
+            <h3 class="fw-bold"><span class="lang-en">5. Checking the Day Book</span><span class="lang-bn">৫. ডে বুক (দৈনিক খাতা)</span></h3>
+            <div class="lang-en">
+                <p>At the end of the day, if you want to verify all your entries, you go to the <strong>Day Book</strong>. It's a master list of exactly what you typed in.</p>
+                <p>Just select today's date, and it will list Scenario A, B, C, and D chronologically with their exact voucher numbers. You can click on any voucher to edit or delete it (if you made a typo) before finalizing.</p>
+            </div>
+            <div class="lang-bn">
+                <p>সারাদিনের বেচাকেনা ও হিসাব শেষে, "আজ সারাদিন সফটওয়্যারে কী কী এন্ট্রি দিলাম?" তা এক নজরে দেখার জায়গা হলো <strong>Day Book</strong>।</p>
+                <p>তারিখ সিলেক্ট করলেই এটি উপরের সবগুলো দৃশ্যপট এ, বি, সি, ডি সিরিয়াল অনুযায়ী আপনার সামনে তুলে ধরবে। কোনো এন্ট্রিতে টাকার অংক ভুল লিখে থাকলে আপনি ডে বুক থেকে সেই ভাউচারে ক্লিক করে এডিট (Edit) বা মুছে (Delete) ফেলতে পারবেন।</p>
+            </div>
+        </div>
+
+        <div id="ledger" class="tutorial-section">
+            <h3 class="fw-bold"><span class="lang-en">6. Reading a Ledger</span><span class="lang-bn">৬. লেজার বা খতিয়ান</span></h3>
+            <div class="lang-en">
+                <p>If Mr. Rahim walks into your office and asks, "How much do I owe you?", you don't check the Day Book. You check his Ledger.</p>
+                <p>Go to the <strong>Ledger Report</strong>, select "Mr. Rahim", and click search. You will see a table like this:</p>
+                <table class="table table-sm table-bordered mt-3 text-center" style="max-width: 600px;">
+                    <thead class="bg-light"><tr><th>Date</th><th>Narration</th><th>Debit (Bill)</th><th>Credit (Paid)</th><th>Balance</th></tr></thead>
+                    <tbody>
+                        <tr><td>01-Jan</td><td>Purchased Goods on Credit</td><td>10,000</td><td>-</td><td>10,000 Dr</td></tr>
+                        <tr><td>10-Jan</td><td>Cash Payment Received</td><td>-</td><td>9,500</td><td>500 Dr</td></tr>
+                        <tr><td>15-Jan</td><td>Discount Allowed (Journal)</td><td>-</td><td>500</td><td><strong>0 (Cleared)</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="lang-bn">
+                <p>হঠাৎ রহিম সাহেব এসে যদি আপনাকে জিজ্ঞেস করেন, "ভাই আপনার দোকানে আমার আর কত টাকা বাকি আছে?"—তখন আপনি ডে বুক খুঁজবেন না। আপনি লেজার বা খতিয়ান খুলবেন।</p>
+                <p><strong>Ledger Report</strong>-এ গিয়ে "Mr. Rahim" সিলেক্ট করে সার্চ দিলে আপনি শুধু রহিম সাহেবের পুরো ইতিহাস দেখতে পাবেন। নিচের টেবিলটি খেয়াল করুন:</p>
+                <table class="table table-sm table-bordered mt-3 text-center" style="max-width: 600px;">
+                    <thead class="bg-light"><tr><th>তারিখ</th><th>বিবরণ</th><th>ডেবিট (বাকি নিল)</th><th>ক্রেডিট (জমা দিল)</th><th>ব্যালেন্স</th></tr></thead>
+                    <tbody>
+                        <tr><td>০১-জানু</td><td>বাকিতে পণ্য কিনেছে</td><td>১০,০০০</td><td>-</td><td>১০,০০০ (পাওয়া যাবে)</td></tr>
+                        <tr><td>১০-জানু</td><td>নগদ টাকা জমা দিয়েছে</td><td>-</td><td>৯,৫০০</td><td>৫০০ (পাওয়া যাবে)</td></tr>
+                        <tr><td>১৫-জানু</td><td>ডিসকাউন্ট দিয়ে দেওয়া হলো</td><td>-</td><td>৫০০</td><td><strong>০ (হিসাব ক্লিয়ার)</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="trial-balance" class="tutorial-section">
+            <h3 class="fw-bold"><span class="lang-en">7. Trial Balance Matching</span><span class="lang-bn">৭. রেওয়ামিল মেলানো</span></h3>
+            <div class="lang-en">
+                <p>The Trial Balance lists the final "Closing Balances" of ALL your ledgers together. The magic of double-entry accounting is that the Total Debit column and Total Credit column at the bottom of the Trial Balance <strong>MUST be identical</strong>.</p>
+                <p>Because every voucher you entered had an equal debit and credit pair, the grand totals will automatically match. If they match, your math is perfectly accurate. Royal Accounts enforces this automatically, meaning your books will mathematically never be "unbalanced".</p>
+            </div>
+            <div class="lang-bn">
+                <p>আপনার ব্যবসার শুরু থেকে আজ পর্যন্ত সবগুলোর খাতার (ক্যাশ, ব্যাংক, কাস্টমার, সাপ্লায়ার, খরচ, আয়) <strong>বর্তমান ব্যালেন্স</strong> একসাথে এক পেজে দেখার রিপোর্ট হলো রেওয়ামিল (Trial Balance)।</p>
+                <p>ডাবল এন্ট্রির ম্যাজিক হলো—এই পেজের একদম নিচে মোট ডেবিট এবং মোট ক্রেডিটের যোগফল <strong>সবসময় সমান হবে</strong>। যেহেতু আপনি ভাউচারে যতো টাকা ক্রেডিট করেছেন, ঠিক ততো টাকাই অন্য খাতায় ডেবিট করেছেন, তাই অংকের দিক থেকে এই রিপোর্ট কখনোই অমিল হবে না। রয়্যাল একাউন্টস আপনাকে ভুল এন্ট্রি দিতেই দেবে না, তাই ট্রায়াল ব্যালেন্স সবসময় ১০০% মিলে যাবে।</p>
+            </div>
+        </div>
+
+        <div id="financials" class="tutorial-section">
+            <h3 class="fw-bold"><span class="lang-en">8. Financial Reports (P&L & Balance Sheet)</span><span class="lang-bn">৮. আর্থিক প্রতিবেদন (লাভ-ক্ষতি ও ব্যালেন্স শিট)</span></h3>
+            <div class="lang-en">
+                <p>At the end of the month, you don't calculate profit manually. You just open the <strong>Profit & Loss Statement</strong>.</p>
+                <ul>
+                    <li>The system aggregates all ledgers categorized under <strong>Incomes</strong> (e.g., 50,000 Tk Sales) and aggregates all ledgers under <strong>Expenses</strong> (e.g., 30,000 Tk Rent & Salary).</li>
+                    <li>It subtracts Expense from Income automatically -> <strong>Net Profit: 20,000 Tk.</strong></li>
+                </ul>
+                <p>Then you check the <strong>Balance Sheet</strong> to see where that profit is physically stored (e.g., Is it sitting in Cash? Is it sitting in Bank? Or is it stuck as Customer due?).</p>
+            </div>
+            <div class="lang-bn">
+                <p>মাস শেষে আপনাকে ক্যালকুলেটর নিয়ে লাভ-ক্ষতি হিসাব করতে বসতে হবে না। আপনি শুধু <strong>Profit & Loss Statement</strong> মেনুতে ক্লিক করবেন।</p>
+                <ul>
+                    <li>সিস্টেম নিজে নিজেই আপনার <strong>আয় (Incomes)</strong> লেজারের সব টাকা যোগ করবে (ধরি সেলস ৫০,০০০ টাকা)। তারপর <strong>ব্যয় (Expenses)</strong> এর সব টাকা যোগ করবে (ধরি ভাড়া ও বেতন ৩০,০০০ টাকা)।</li>
+                    <li>আয় থেকে ব্যয় বাদ দিয়ে সেকেন্ডের মধ্যে আপনাকে <strong>নিট লাভ (Net Profit): ২০,০০০ টাকা</strong> দেখিয়ে দেবে।</li>
+                </ul>
+                <p>লাভ তো হলো, কিন্তু সেই লাভের ২০ হাজার টাকা কোথায় আছে? সেটি কি ক্যাশবাক্সে জমা হয়েছে, নাকি ব্যাংকে আছে, নাকি কাস্টমাররা এখনো বাকি হিসেবে আটকে রেখেছে? —এই সঠিক চিত্রটি দেখার জন্য আপনাকে <strong>Balance Sheet (উদ্বৃত্তপত্র)</strong> দেখতে হবে।</p>
+            </div>
+        </div>
+
+        <div id="pdc" class="tutorial-section">
+            <h3 class="fw-bold"><span class="lang-en">9. PDC & Bank Reconciliation</span><span class="lang-bn">৯. এডভান্স চেক (PDC) ও ব্যাংক সমন্বয়</span></h3>
+            
+            <div class="example-box">
+                <h5><span class="lang-en">Step-by-step Cheque Workflow</span><span class="lang-bn">চেক লেনদেনের সঠিক ধাপসমূহ</span></h5>
+                <ol>
+                    <li class="mb-2">
+                        <span class="lang-en"><strong>Jan 1st:</strong> You receive a cheque from a customer, but the date written on it is Jan 15th. You enter it in the <strong>PDC (Post-Dated Cheque)</strong> menu. Status becomes <span class="badge bg-warning text-dark">Pending</span>. At this point, your Bank Ledger does NOT include this money.</span>
+                        <span class="lang-bn"><strong>১ জানুয়ারি:</strong> কাস্টমার আপনাকে একটি চেক দিলো, কিন্তু চেকের গায়ে লেখা তারিখ ১৫ জানুয়ারির। আপনি সফটওয়্যারের <strong>PDC (Post-Dated Cheque)</strong> মেনুতে গিয়ে এন্ট্রি দিলেন। স্ট্যাটাস দেখাবে <span class="badge bg-warning text-dark">Pending</span>। এই মুহূর্তে এটি আপনার ব্যাংক ব্যালেন্সকে বাড়াবে না।</span>
+                    </li>
+                    <li class="mb-2">
+                        <span class="lang-en"><strong>Jan 15th:</strong> You go to the bank and deposit the physical piece of paper.</span>
+                        <span class="lang-bn"><strong>১৫ জানুয়ারি:</strong> চেকের তারিখ এলো। আপনি ফিজিক্যাল চেকটি ব্যাংকে জমা দিয়ে আসলেন।</span>
+                    </li>
+                    <li class="mb-2">
+                        <span class="lang-en"><strong>Jan 16th:</strong> You get an SMS saying 5,000 Tk has hit your account. You log into Royal Accounts, open the PDC Register, find the pending cheque, click Action -> <strong>Mark as Cleared</strong>.</span>
+                        <span class="lang-bn"><strong>১৬ জানুয়ারি:</strong> আপনার মোবাইলে ব্যাংকের মেসেজ আসলো যে একাউন্টে টাকা ঢুকেছে। এবার আপনি রয়্যাল একাউন্টস-এ ঢুকে PDC রেজিস্টারে গিয়ে সেই পেন্ডিং চেকটির Action বাটনে ক্লিক করে <strong>Mark as Cleared</strong> করে দিবেন।</span>
+                    </li>
+                    <li>
+                        <span class="lang-en"><strong>Result:</strong> Only now does the system generate the official Receipt Voucher, debiting your Bank Ledger and crediting the customer's ledger!</span>
+                        <span class="lang-bn"><strong>ফলাফল:</strong> ঠিক এই মুহূর্তেই সফটওয়্যার নিজে নিজে একটি রিসিপ্ট ভাউচার তৈরি করে নেবে। আপনার ব্যাংক ব্যালেন্স বেড়ে যাবে এবং কাস্টমারের বকেয়া কমে যাবে!</span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <p class="mb-1 fw-bold text-dark">Royal Technologies</p>
+            <p class="mb-1">Innovative Accounts Solutions for Modern Businesses</p>
+            <p class="mb-0">Website: <a href="https://royaltechbd.com" target="_blank">royaltechbd.com</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('langToggle').addEventListener('click', function() {
+            const bnElements = Array.from(document.querySelectorAll('.lang-bn'));
+            const isBanglaHidden = window.getComputedStyle(bnElements[0]).display === 'none';
+            const enElements = document.querySelectorAll('.lang-en');
+            
+            if (isBanglaHidden) {
+                // Switch to Bangla
+                enElements.forEach(el => el.style.display = 'none');
+                bnElements.forEach(el => el.style.display = 'block');
+                document.getElementById('langText').innerText = 'Read in English';
+            } else {
+                // Switch to English
+                bnElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = 'block');
+                document.getElementById('langText').innerText = 'বাংলায় পড়ুন';
+            }
+        });
+    </script>
+</body>
+</html>
