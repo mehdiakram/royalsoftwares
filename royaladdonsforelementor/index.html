@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Addons for Elementor - Tutorial</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { margin:0;padding:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background-color:#f8f9fa; }
+        .sidebar { height:100vh;width:280px;position:fixed;top:0;left:0;background:#fff;box-shadow:2px 0 5px rgba(0,0,0,.05);padding:20px 0;overflow-y:auto;z-index:1000; }
+        .sidebar-brand { text-align:center;padding:0 20px 20px;border-bottom:1px solid #eee;margin-bottom:20px; }
+        .sidebar-brand img { max-width:150px;height:auto; }
+        .nav-item { padding:5px 20px; }
+        .nav-link { color:#495057;font-weight:500;border-radius:5px;transition:all .2s;font-size:.95rem; }
+        .nav-link:hover,.nav-link.active { background:#e9ecef;color:#0d6efd; }
+        .content-area { margin-left:280px;padding:40px; }
+        .lang-bn { display:none; }
+        .tutorial-section { background:#fff;padding:35px;border-radius:8px;box-shadow:0 4px 15px rgba(0,0,0,.03);margin-bottom:35px;border-left:5px solid #0d6efd; }
+        html { scroll-behavior:smooth;scroll-padding-top:20px; }
+        .example-box { background:#f8f9fa;border:1px solid #dee2e6;padding:20px;margin-top:20px;border-radius:6px; }
+        .example-box h5 { color:#0d6efd;font-weight:bold;margin-bottom:15px; }
+        .footer-info { text-align:center;margin-top:50px;padding-top:20px;border-top:1px solid #ddd;color:#6c757d;font-size:.9rem; }
+        .table-custom th { background-color:#f1f5f9;color:#495057;font-weight:600; }
+        @media(max-width:991px){.sidebar{width:100%;height:auto;position:relative;}.content-area{margin-left:0;padding:20px;}}
+    </style>
+</head>
+<body>
+<div class="sidebar">
+    <div class="sidebar-brand"><a href="https://www.royaltechbd.com/" target="_blank"><img src="../images/logo.png" alt="Royal Technologies"></a></div>
+    <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="#intro"><span class="lang-en">1. What is Royal Addons?</span><span class="lang-bn">১. রয়্যাল অ্যাডন্স কী?</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#install"><span class="lang-en">2. Installation &amp; Activation</span><span class="lang-bn">২. ইন্সটলেশন ও একটিভেশন</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#categories"><span class="lang-en">3. Widget Categories</span><span class="lang-bn">৩. উইজেট ক্যাটাগরি</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#add-widget"><span class="lang-en">4. Adding a Widget</span><span class="lang-bn">৪. উইজেট যোগ করা</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#custom-css"><span class="lang-en">5. Custom CSS</span><span class="lang-bn">৫. কাস্টম CSS</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#templates"><span class="lang-en">6. Template Library</span><span class="lang-bn">৬. টেমপ্লেট লাইব্রেরি</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#top-widgets"><span class="lang-en">7. Top 10 Widgets</span><span class="lang-bn">৭. সেরা ১০ উইজেট</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#license"><span class="lang-en">8. License &amp; Updates</span><span class="lang-bn">৮. লাইসেন্স ও আপডেট</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#tech-stack"><span class="lang-en">Tech Stack & Requirements</span><span class="lang-bn">টেক স্ট্যাক ও রিকোয়ারমেন্টস</span></a></li>
+    </ul>
+</div>
+<div class="content-area">
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom flex-wrap gap-3">
+        <h2 class="mb-0 fw-bold"><span class="lang-en">Mastering Royal Addons for Elementor</span><span class="lang-bn">রয়্যাল অ্যাডন্স মাস্টারক্লাস টিউটোরিয়াল</span></h2>
+        <button id="langToggle" class="btn btn-outline-primary"><span id="langText">বাংলায় পড়ুন</span></button>
+    </div>
+    <div class="text-center mb-5"><h1 class="display-4 fw-bold text-primary">Royal Addons for Elementor</h1>
+    <p class="lead text-secondary"><span class="lang-en">130+ Premium Widgets to Power Your WordPress Website</span><span class="lang-bn">১৩০+ প্রিমিয়াম উইজেট দিয়ে আপনার সাইটকে শক্তিশালী করুন</span></p></div>
+
+    <div id="intro" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">1. What is Royal Addons for Elementor?</span><span class="lang-bn">১. রয়্যাল অ্যাডন্স ফর এলিমেন্টর কী?</span></h3>
+        <div class="lang-en"><p>Royal Addons for Elementor extends the Elementor page builder with <strong>130+ custom widgets</strong>. Instead of writing code, simply drag and drop sliders, carousels, navigation menus, post grids, WooCommerce displays, social feeds, charts, and more onto any page. Think of Elementor as a canvas and Royal Addons as a massive professional toolkit of brushes.</p></div>
+        <div class="lang-bn"><p>রয়্যাল অ্যাডন্স ফর এলিমেন্টর, এলিমেন্টর পেজ বিল্ডারকে <strong>১৩০+ কাস্টম উইজেট</strong> দিয়ে সমৃদ্ধ করে। কোনো কোড ছাড়াই স্লাইডার, ক্যারোসেল, মেনু, পোস্ট গ্রিড, WooCommerce ডিসপ্লে, সোশ্যাল ফিড, চার্ট ইত্যাদি পেজে ড্র্যাগ করে যোগ করুন।</p></div>
+    </div>
+
+    <div id="install" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">2. Installation &amp; Activation</span><span class="lang-bn">২. ইন্সটলেশন ও একটিভেশন</span></h3>
+        <div class="lang-en">
+            <p><strong>Requirements:</strong> WordPress 6.7+, PHP 7.4+, Elementor (free or pro) installed first.</p>
+            <ol>
+                <li>Go to <strong>Plugins → Add New → Upload Plugin</strong> and upload the zip file.</li>
+                <li>Click <strong>Activate Plugin</strong>. A "Royal Addons" menu appears in the sidebar.</li>
+                <li>Go to <strong>Royal Addons → License</strong> and enter your license key to unlock all widgets.</li>
+                <li>Open any page in Elementor and search "Royal" in the widget panel to find all widgets.</li>
+            </ol>
+        </div>
+        <div class="lang-bn">
+            <p><strong>প্রয়োজনীয়:</strong> WordPress 6.7+, PHP 7.4+, এবং Elementor আগে ইন্সটল থাকতে হবে।</p>
+            <ol>
+                <li><strong>Plugins → Add New → Upload Plugin</strong> থেকে zip ফাইল আপলোড করুন।</li>
+                <li><strong>Activate Plugin</strong> ক্লিক করুন। সাইডবারে "Royal Addons" মেনু দেখা যাবে।</li>
+                <li><strong>Royal Addons → License</strong>-এ গিয়ে লাইসেন্স কী দিন এবং সব উইজেট আনলক করুন।</li>
+                <li>Elementor দিয়ে পেজ খুলুন এবং "Royal" লিখে সার্চ করুন।</li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="categories" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">3. Widget Categories Overview</span><span class="lang-bn">৩. উইজেট ক্যাটাগরি সমূহ</span></h3>
+        <div class="lang-en">
+            <table class="table table-bordered table-custom mt-2">
+                <thead><tr><th>Category</th><th>What it contains</th><th>Examples</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Navigation</strong></td><td>Menus &amp; breadcrumbs</td><td>Nav Menu, Mobile Menu, Breadcrumbs</td></tr>
+                    <tr><td><strong>Sliders</strong></td><td>Image/content sliders</td><td>Slider General, Slider Dragon, Camera Slider</td></tr>
+                    <tr><td><strong>Posts &amp; Content</strong></td><td>Blog posts, portfolio</td><td>Post Grid, Post Carousel, Portfolio</td></tr>
+                    <tr><td><strong>WooCommerce</strong></td><td>Shop &amp; product widgets</td><td>Woo Products Grid, Woo Slider, Mini Cart</td></tr>
+                    <tr><td><strong>Charts &amp; Stats</strong></td><td>Data visualization</td><td>Chart Bar, Pie Chart, Progress Bar</td></tr>
+                    <tr><td><strong>Social &amp; Media</strong></td><td>Social feeds &amp; videos</td><td>Instagram Feed, Facebook Feed, YouTube</td></tr>
+                    <tr><td><strong>Utility</strong></td><td>Timers, maps, tools</td><td>Countdown, Map, Prayer Times, Zakat Calculator</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="lang-bn">
+            <table class="table table-bordered table-custom mt-2">
+                <thead><tr><th>ক্যাটাগরি</th><th>কী থাকে</th><th>উদাহরণ</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>নেভিগেশন</strong></td><td>মেনু ও ব্রেডক্রাম্ব</td><td>Nav Menu, Mobile Menu, Breadcrumbs</td></tr>
+                    <tr><td><strong>স্লাইডার</strong></td><td>ছবি/কন্টেন্ট স্লাইডার</td><td>Slider General, Slider Dragon, Camera Slider</td></tr>
+                    <tr><td><strong>পোস্ট ও কন্টেন্ট</strong></td><td>ব্লগ পোস্ট, পোর্টফোলিও</td><td>Post Grid, Post Carousel, Portfolio</td></tr>
+                    <tr><td><strong>WooCommerce</strong></td><td>শপ ও পণ্য উইজেট</td><td>Woo Products Grid, Woo Slider, Mini Cart</td></tr>
+                    <tr><td><strong>চার্ট ও পরিসংখ্যান</strong></td><td>ডেটা ভিজ্যুয়ালাইজেশন</td><td>Chart Bar, Pie Chart, Progress Bar</td></tr>
+                    <tr><td><strong>সোশ্যাল ও মিডিয়া</strong></td><td>সোশ্যাল ফিড ও ভিডিও</td><td>Instagram Feed, Facebook Feed, YouTube</td></tr>
+                    <tr><td><strong>ইউটিলিটি</strong></td><td>টাইমার, ম্যাপ, টুলস</td><td>Countdown, Map, Prayer Times, Zakat Calculator</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="add-widget" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">4. Adding a Widget to a Page</span><span class="lang-bn">৪. পেজে একটি উইজেট যোগ করা</span></h3>
+        <div class="example-box">
+            <h5><span class="lang-en">Example: Adding Royal Post Grid to your Blog page</span><span class="lang-bn">উদাহরণ: Blog পেজে Royal Post Grid যোগ করা</span></h5>
+            <ol>
+                <li class="mb-2"><span class="lang-en"><strong>Step 1:</strong> Edit your Blog page with Elementor and click <strong>"+"</strong> to add a new section.</span><span class="lang-bn"><strong>ধাপ ১:</strong> Elementor দিয়ে Blog পেজ এডিট করুন এবং <strong>"+"</strong> ক্লিক করে নতুন সেকশন যোগ করুন।</span></li>
+                <li class="mb-2"><span class="lang-en"><strong>Step 2:</strong> In the widget panel, type "Royal Post Grid" and drag it into the section.</span><span class="lang-bn"><strong>ধাপ ২:</strong> উইজেট প্যানেলে "Royal Post Grid" লিখে সার্চ করুন এবং টেনে সেকশনে ছাড়ুন।</span></li>
+                <li class="mb-2"><span class="lang-en"><strong>Step 3:</strong> In settings, choose Post Type, number of columns, posts count, and Layout Style (Card/Classic/List).</span><span class="lang-bn"><strong>ধাপ ৩:</strong> সেটিংসে Post Type, কলাম সংখ্যা, পোস্ট সংখ্যা এবং Layout Style (Card/Classic/List) বেছে নিন।</span></li>
+                <li class="mb-2"><span class="lang-en"><strong>Step 4:</strong> Switch to the <strong>Style</strong> tab to customize colors, typography, and hover effects.</span><span class="lang-bn"><strong>ধাপ ৪:</strong> <strong>Style</strong> ট্যাবে গিয়ে রং, টাইপোগ্রাফি ও হোভার ইফেক্ট কাস্টমাইজ করুন।</span></li>
+                <li><span class="lang-en"><strong>Step 5:</strong> Click <strong>Update</strong>. Your posts now display in a beautiful grid!</span><span class="lang-bn"><strong>ধাপ ৫:</strong> <strong>Update</strong> ক্লিক করুন। পোস্টগুলো সুন্দর গ্রিডে দেখাচ্ছে!</span></li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="custom-css" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">5. Custom CSS Feature</span><span class="lang-bn">৫. কাস্টম CSS ফিচার</span></h3>
+        <div class="lang-en"><p>Royal Addons includes a built-in <strong>Custom CSS editor</strong> for writing global CSS that applies across your entire site without editing theme files.</p>
+        <ul><li>Go to <strong>Royal Addons → Custom CSS</strong>.</li><li>Write your CSS rules (e.g., button colors, font sizes, spacing) in the code editor.</li><li>Click <strong>Save Changes</strong>. CSS is automatically loaded on the front-end.</li><li><strong>Tip:</strong> Use Browser Inspect to find the correct selector first.</li></ul></div>
+        <div class="lang-bn"><p>রয়্যাল অ্যাডন্সে একটি বিল্ট-ইন <strong>Custom CSS এডিটর</strong> আছে। থিম ফাইল না ছুঁয়েই পুরো সাইটে গ্লোবাল CSS লেখা যায়।</p>
+        <ul><li><strong>Royal Addons → Custom CSS</strong>-এ যান।</li><li>কোড এডিটরে CSS নিয়ম লিখুন (বাটনের রং, ফন্ট সাইজ, স্পেসিং পরিবর্তন করতে)।</li><li><strong>Save Changes</strong> ক্লিক করুন। CSS স্বয়ংক্রিয়ভাবে ফ্রন্ট-এন্ডে লোড হবে।</li><li><strong>টিপস:</strong> প্রথমে ব্রাউজারের Inspect টুল দিয়ে সঠিক সিলেক্টর খুঁজুন।</li></ul></div>
+    </div>
+
+    <div id="templates" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">6. Royal Template Library</span><span class="lang-bn">৬. রয়্যাল টেমপ্লেট লাইব্রেরি</span></h3>
+        <div class="lang-en"><p>Import ready-made, professionally designed page templates with a single click.</p>
+        <ol><li>Open any page in Elementor.</li><li>Click the <strong>Folder icon</strong> (Templates library) in the Elementor toolbar.</li><li>Switch to the <strong>"Royal Templates"</strong> tab, browse, and click <strong>"Insert"</strong>.</li><li>The template loads instantly. Replace demo text and images with your own content.</li></ol></div>
+        <div class="lang-bn"><p>মাত্র একটি ক্লিকে রেডিমেড, প্রফেশনাল পেজ টেমপ্লেট ইম্পোর্ট করুন।</p>
+        <ol><li>Elementor দিয়ে যেকোনো পেজ খুলুন।</li><li>Elementor টুলবারে <strong>ফোল্ডার আইকনে</strong> ক্লিক করুন।</li><li><strong>"Royal Templates"</strong> ট্যাবে যান, টেমপ্লেট বেছে <strong>"Insert"</strong> করুন।</li><li>টেমপ্লেট লোড হলে ডেমো টেক্সট ও ছবি নিজের কন্টেন্ট দিয়ে বদলান।</li></ol></div>
+    </div>
+
+    <div id="top-widgets" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">7. Top 10 Recommended Widgets</span><span class="lang-bn">৭. সেরা ১০টি সর্বাধিক ব্যবহৃত উইজেট</span></h3>
+        <div class="lang-en">
+            <table class="table table-bordered table-custom">
+                <thead><tr><th>#</th><th>Widget</th><th>Best Use</th></tr></thead>
+                <tbody>
+                    <tr><td>1</td><td><strong>Royal Slider General</strong></td><td>Full-screen hero sliders with animation &amp; video</td></tr>
+                    <tr><td>2</td><td><strong>Royal Nav Menu</strong></td><td>Mega menus with dropdowns inside Elementor</td></tr>
+                    <tr><td>3</td><td><strong>Royal Post Grid</strong></td><td>Filterable, paginated blog post display</td></tr>
+                    <tr><td>4</td><td><strong>Royal Call To Action Box</strong></td><td>Compelling CTA sections with background effects</td></tr>
+                    <tr><td>5</td><td><strong>Royal Testimonial Carousel</strong></td><td>Client reviews with star ratings</td></tr>
+                    <tr><td>6</td><td><strong>Royal Countdown</strong></td><td>Launch timers and offer deadlines</td></tr>
+                    <tr><td>7</td><td><strong>Royal Pricing Table</strong></td><td>Professional pricing plans with highlight ribbons</td></tr>
+                    <tr><td>8</td><td><strong>Royal Event Calendar</strong></td><td>Interactive event calendar with filters</td></tr>
+                    <tr><td>9</td><td><strong>Royal Instagram Feed</strong></td><td>Live Instagram grid on your webpage</td></tr>
+                    <tr><td>10</td><td><strong>Royal Zakat Calculator</strong></td><td>Interactive Zakat calculation tool</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="lang-bn">
+            <table class="table table-bordered table-custom">
+                <thead><tr><th>#</th><th>উইজেট</th><th>সেরা ব্যবহার</th></tr></thead>
+                <tbody>
+                    <tr><td>১</td><td><strong>Royal Slider General</strong></td><td>অ্যানিমেশন ও ভিডিও সহ ফুলস্ক্রিন হিরো স্লাইডার</td></tr>
+                    <tr><td>২</td><td><strong>Royal Nav Menu</strong></td><td>Elementor-এ ড্রপডাউন সহ মেগা মেনু</td></tr>
+                    <tr><td>৩</td><td><strong>Royal Post Grid</strong></td><td>ফিল্টারযোগ্য ব্লগ পোস্ট গ্রিড</td></tr>
+                    <tr><td>৪</td><td><strong>Royal Call To Action Box</strong></td><td>ব্যাকগ্রাউন্ড ইফেক্ট সহ CTA সেকশন</td></tr>
+                    <tr><td>৫</td><td><strong>Royal Testimonial Carousel</strong></td><td>স্টার রেটিং সহ ক্লায়েন্ট রিভিউ</td></tr>
+                    <tr><td>৬</td><td><strong>Royal Countdown</strong></td><td>লঞ্চ টাইমার ও অফার ডেডলাইন</td></tr>
+                    <tr><td>৭</td><td><strong>Royal Pricing Table</strong></td><td>হাইলাইট রিবন সহ প্রফেশনাল মূল্য পরিকল্পনা</td></tr>
+                    <tr><td>৮</td><td><strong>Royal Event Calendar</strong></td><td>ফিল্টার সহ ইন্টারঅ্যাক্টিভ ইভেন্ট ক্যালেন্ডার</td></tr>
+                    <tr><td>৯</td><td><strong>Royal Instagram Feed</strong></td><td>ওয়েবপেজে সরাসরি Instagram গ্রিড</td></tr>
+                    <tr><td>১০</td><td><strong>Royal Zakat Calculator</strong></td><td>ইন্টারঅ্যাক্টিভ যাকাত হিসাবের টুল</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="license" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">8. License &amp; Updates</span><span class="lang-bn">৮. লাইসেন্স ও আপডেট</span></h3>
+        <div class="lang-en"><ul>
+            <li><strong>Get License:</strong> Purchase at <a href="https://royaltechbd.com" target="_blank">royaltechbd.com</a> and retrieve your key from your account.</li>
+            <li><strong>Activate:</strong> Paste the key in <strong>Royal Addons → License</strong> and save.</li>
+            <li><strong>Auto-Updates:</strong> New versions appear in <strong>Dashboard → Updates</strong> automatically.</li>
+            <li><strong>One License = One Domain.</strong> Deactivate from old site before moving to a new one.</li>
+        </ul></div>
+        <div class="lang-bn"><ul>
+            <li><strong>লাইসেন্স পান:</strong> <a href="https://royaltechbd.com" target="_blank">royaltechbd.com</a>-এ কিনুন এবং একাউন্ট থেকে কী সংগ্রহ করুন।</li>
+            <li><strong>একটিভেট:</strong> <strong>Royal Addons → License</strong>-এ কী পেস্ট করে সেভ করুন।</li>
+            <li><strong>অটো-আপডেট:</strong> নতুন ভার্সন <strong>Dashboard → Updates</strong>-এ দেখা যাবে।</li>
+            <li><strong>এক লাইসেন্স = এক ডোমেইন।</strong> নতুন সাইটে নেওয়ার আগে পুরনো সাইট থেকে ডিঅ্যাক্টিভেট করুন।</li>
+        </ul></div>
+    </div>
+
+    <div id="tech-stack" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">Technical Stack & Minimum Requirements</span><span class="lang-bn">টেকনিক্যাল স্ট্যাক ও রিকোয়ারমেন্টস</span></h3>
+        <div class="lang-en">
+            <ul>
+                <li><strong>Type:</strong> WordPress Plugin (Elementor Extension)</li>
+                <li><strong>Framework/Language:</strong> PHP, JavaScript, React (for Elementor), CSS.</li>
+                <li><strong>Minimum Server Requirements:</strong>
+                    <ul>
+                        <li>WordPress 6.0+</li>
+                        <li>Elementor Free Plugin installed</li>
+                        <li>PHP 7.4 or 8.0+</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <ul>
+                <li><strong>ধরন (Type):</strong> ওয়ার্ডপ্রেস প্লাগইন (WordPress Plugin for Elementor)</li>
+                <li><strong>ফ্রেমওয়ার্ক/ল্যাঙ্গুয়েজ:</strong> PHP, JavaScript, React (এলিমেন্টরের জন্য), CSS। এটি মূলত ওয়ার্ডপ্রেস ও এলিমেন্টরের আর্কিটেকচার ব্যবহার করে তৈরি।</li>
+                <li><strong>মিনিমাম রিকোয়ারমেন্ট:</strong>
+                    <ul>
+                        <li>WordPress 6.0 বা লেটেস্ট ভার্সন</li>
+                        <li>Elementor (Free) প্লাগইন ইনস্টল থাকা বাধ্যতামূলক</li>
+                        <li>PHP 7.4 বা 8.0+</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <p class="mb-1 fw-bold text-dark">Royal Technologies</p>
+        <p class="mb-1">Innovative Solutions for Modern Businesses</p>
+        <p class="mb-0">Website: <a href="https://royaltechbd.com" target="_blank">royaltechbd.com</a></p>
+    </div>
+</div>
+<script>
+    document.getElementById('langToggle').addEventListener('click', function() {
+        const bn = Array.from(document.querySelectorAll('.lang-bn'));
+        const isHidden = window.getComputedStyle(bn[0]).display === 'none';
+        const en = document.querySelectorAll('.lang-en');
+        if (isHidden) { en.forEach(e=>e.style.display='none'); bn.forEach(e=>e.style.display='block'); document.getElementById('langText').innerText='Read in English'; }
+        else { bn.forEach(e=>e.style.display='none'); en.forEach(e=>e.style.display='block'); document.getElementById('langText').innerText='বাংলায় পড়ুন'; }
+    });
+</script>
+</body>
+</html>

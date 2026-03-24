@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Client Management - Tutorial</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{margin:0;padding:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background-color:#f8f9fa;}
+        .sidebar{height:100vh;width:280px;position:fixed;top:0;left:0;background:#fff;box-shadow:2px 0 5px rgba(0,0,0,.05);padding:20px 0;overflow-y:auto;z-index:1000;}
+        .sidebar-brand{text-align:center;padding:0 20px 20px;border-bottom:1px solid #eee;margin-bottom:20px;}
+        .sidebar-brand img{max-width:150px;height:auto;}
+        .nav-item{padding:5px 20px;}
+        .nav-link{color:#495057;font-weight:500;border-radius:5px;transition:all .2s;font-size:.95rem;}
+        .nav-link:hover,.nav-link.active{background:#e9ecef;color:#0d6efd;}
+        .content-area{margin-left:280px;padding:40px;}
+        .lang-bn{display:none;}
+        .tutorial-section{background:#fff;padding:35px;border-radius:8px;box-shadow:0 4px 15px rgba(0,0,0,.03);margin-bottom:35px;border-left:5px solid #0d6efd;}
+        html{scroll-behavior:smooth;scroll-padding-top:20px;}
+        .example-box{background:#f8f9fa;border:1px solid #dee2e6;padding:20px;margin-top:20px;border-radius:6px;}
+        .example-box h5{color:#0d6efd;font-weight:bold;margin-bottom:15px;}
+        .footer-info{text-align:center;margin-top:50px;padding-top:20px;border-top:1px solid #ddd;color:#6c757d;font-size:.9rem;}
+        .table-custom th{background-color:#f1f5f9;color:#495057;font-weight:600;}
+        @media(max-width:991px){.sidebar{width:100%;height:auto;position:relative;}.content-area{margin-left:0;padding:20px;}}
+    </style>
+</head>
+<body>
+<div class="sidebar">
+    <div class="sidebar-brand"><a href="https://www.royaltechbd.com/" target="_blank"><img src="../images/logo.png" alt="Royal Technologies"></a></div>
+    <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="#intro"><span class="lang-en">1. Introduction</span><span class="lang-bn">১. পরিচিতি</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#install"><span class="lang-en">2. Installation &amp; Setup</span><span class="lang-bn">২. ইন্সটলেশন ও সেটআপ</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#clients"><span class="lang-en">3. Managing Clients</span><span class="lang-bn">৩. ক্লায়েন্ট ম্যানেজমেন্ট</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#services"><span class="lang-en">4. Services &amp; Packages</span><span class="lang-bn">৪. সার্ভিস ও প্যাকেজ</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#invoices"><span class="lang-en">5. Creating Invoices</span><span class="lang-bn">৫. ইনভয়েস তৈরি</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#payments"><span class="lang-en">6. Recording Payments</span><span class="lang-bn">৬. পেমেন্ট রেকর্ড</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#expenses"><span class="lang-en">7. Expenses &amp; Purchases</span><span class="lang-bn">৭. খরচ ও ক্রয়</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#staff"><span class="lang-en">8. Staff &amp; Commissions</span><span class="lang-bn">৮. স্টাফ ও কমিশন</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#reports"><span class="lang-en">9. Reports</span><span class="lang-bn">৯. রিপোর্ট</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#tech-stack"><span class="lang-en">Tech Stack & Requirements</span><span class="lang-bn">টেক স্ট্যাক ও রিকোয়ারমেন্টস</span></a></li>
+    </ul>
+</div>
+<div class="content-area">
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom flex-wrap gap-3">
+        <h2 class="mb-0 fw-bold"><span class="lang-en">Mastering Royal Client Management</span><span class="lang-bn">রয়্যাল ক্লায়েন্ট ম্যানেজমেন্ট মাস্টারক্লাস</span></h2>
+        <button id="langToggle" class="btn btn-outline-primary"><span id="langText">বাংলায় পড়ুন</span></button>
+    </div>
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-primary">Royal Client Management</h1>
+        <p class="lead text-secondary"><span class="lang-en">Complete CRM &amp; Invoicing Solution for WordPress</span><span class="lang-bn">ওয়ার্ডপ্রেসের জন্য সম্পূর্ণ CRM ও ইনভয়েসিং সমাধান</span></p>
+    </div>
+
+    <div id="intro" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">1. Introduction</span><span class="lang-bn">১. পরিচিতি</span></h3>
+        <div class="lang-en">
+            <p>Royal Client Management is a complete <strong>CRM (Customer Relationship Management)</strong> and invoicing plugin for WordPress. It manages your clients, services, invoices, payments, expenses, purchases, staff, and commissions — all from inside your WordPress admin panel.</p>
+            <p>It is built for service-based businesses: agencies, freelancers, consultants, IT firms, and any business that needs professional client tracking and billing without paying for SaaS subscriptions.</p>
+        </div>
+        <div class="lang-bn">
+            <p>রয়্যাল ক্লায়েন্ট ম্যানেজমেন্ট হলো ওয়ার্ডপ্রেসের জন্য একটি সম্পূর্ণ <strong>CRM ও ইনভয়েসিং প্লাগইন</strong>। এটি আপনার ক্লায়েন্ট, সার্ভিস, ইনভয়েস, পেমেন্ট, খরচ, ক্রয়, স্টাফ এবং কমিশন — সবকিছু ওয়ার্ডপ্রেস অ্যাডমিন প্যানেলের ভেতর থেকেই পরিচালনা করে।</p>
+            <p>এটি সার্ভিসভিত্তিক ব্যবসার জন্য তৈরি — এজেন্সি, ফ্রিল্যান্সার, কনসালট্যান্ট, IT ফার্ম এবং যেকোনো ব্যবসা যারা SaaS সাবস্ক্রিপশন ছাড়াই প্রফেশনাল ক্লায়েন্ট ট্র্যাকিং ও বিলিং চান।</p>
+        </div>
+    </div>
+
+    <div id="install" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">2. Installation &amp; Setup</span><span class="lang-bn">২. ইন্সটলেশন ও সেটআপ</span></h3>
+        <div class="lang-en">
+            <ol>
+                <li>Go to <strong>Plugins → Add New → Upload Plugin</strong> and upload the zip file. Click <strong>Activate</strong>.</li>
+                <li>The plugin automatically creates its own database tables on activation.</li>
+                <li>Go to <strong>Royal CRM → Settings</strong> to configure your company name, logo, currency, and invoice prefix.</li>
+                <li>Enter your license key under <strong>Royal CRM → License</strong> to activate premium features.</li>
+            </ol>
+        </div>
+        <div class="lang-bn">
+            <ol>
+                <li><strong>Plugins → Add New → Upload Plugin</strong>-এ zip ফাইল আপলোড করুন এবং <strong>Activate</strong> করুন।</li>
+                <li>একটিভেশনের সময় প্লাগইন স্বয়ংক্রিয়ভাবে তার নিজস্ব ডেটাবেজ টেবিল তৈরি করে নেয়।</li>
+                <li><strong>Royal CRM → Settings</strong>-এ গিয়ে কোম্পানির নাম, লোগো, কারেন্সি ও ইনভয়েস প্রিফিক্স সেট করুন।</li>
+                <li><strong>Royal CRM → License</strong>-এ লাইসেন্স কী দিয়ে প্রিমিয়াম ফিচার একটিভ করুন।</li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="clients" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">3. Managing Clients</span><span class="lang-bn">৩. ক্লায়েন্ট ম্যানেজমেন্ট</span></h3>
+        <div class="example-box">
+            <h5><span class="lang-en">How to add a new client</span><span class="lang-bn">নতুন ক্লায়েন্ট যোগ করা</span></h5>
+            <ol>
+                <li class="mb-2"><span class="lang-en">Go to <strong>Royal CRM → Clients → Add New Client</strong>.</span><span class="lang-bn"><strong>Royal CRM → Clients → Add New Client</strong>-এ যান।</span></li>
+                <li class="mb-2"><span class="lang-en">Fill in: <strong>Name</strong>, <strong>Email</strong>, <strong>Phone</strong>, <strong>Company</strong>, <strong>Address</strong>, and any custom notes.</span><span class="lang-bn">পূরণ করুন: <strong>নাম</strong>, <strong>ইমেইল</strong>, <strong>ফোন</strong>, <strong>কোম্পানি</strong>, <strong>ঠিকানা</strong> এবং যেকোনো নোট।</span></li>
+                <li class="mb-2"><span class="lang-en">Assign a <strong>WordPress user</strong> to the client so they can log in to a client portal (optional).</span><span class="lang-bn">ক্লায়েন্টকে একটি <strong>WordPress ইউজার</strong> অ্যাসাইন করুন যাতে তারা ক্লায়েন্ট পোর্টালে লগইন করতে পারেন (ঐচ্ছিক)।</span></li>
+                <li><span class="lang-en">Click <strong>Save Client</strong>. The client appears in the client list with a unique ID.</span><span class="lang-bn"><strong>Save Client</strong> ক্লিক করুন। ক্লায়েন্টটি একটি ইউনিক ID সহ তালিকায় যোগ হবে।</span></li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="services" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">4. Services &amp; Packages</span><span class="lang-bn">৪. সার্ভিস ও প্যাকেজ</span></h3>
+        <div class="lang-en">
+            <p>Before creating invoices, define your <strong>Services</strong>. These are the items that appear on your invoices (e.g., "Website Design", "SEO Package", "Monthly Maintenance").</p>
+            <ul>
+                <li>Go to <strong>Royal CRM → Services → Add New</strong>.</li>
+                <li>Enter the service <strong>Name</strong>, default <strong>Price</strong>, and <strong>Description</strong>.</li>
+                <li>Saved services can be quickly selected when creating an invoice — no need to type prices every time.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>ইনভয়েস তৈরির আগে আপনার <strong>সার্ভিসগুলো</strong> সংজ্ঞায়িত করুন। এগুলোই ইনভয়েসে আইটেম হিসেবে দেখাবে (যেমন: "ওয়েবসাইট ডিজাইন", "SEO প্যাকেজ", "মাসিক রক্ষণাবেক্ষণ")।</p>
+            <ul>
+                <li><strong>Royal CRM → Services → Add New</strong>-এ যান।</li>
+                <li>সার্ভিসের <strong>নাম</strong>, ডিফল্ট <strong>মূল্য</strong> এবং <strong>বিবরণ</strong> লিখুন।</li>
+                <li>সংরক্ষিত সার্ভিসগুলো ইনভয়েস তৈরির সময় দ্রুত সিলেক্ট করা যাবে — প্রতিবার মূল্য টাইপ করতে হবে না।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="invoices" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">5. Creating Invoices</span><span class="lang-bn">৫. ইনভয়েস তৈরি করা</span></h3>
+        <div class="example-box">
+            <h5><span class="lang-en">Scenario: Invoice for a Website Design project</span><span class="lang-bn">দৃশ্যপট: একটি ওয়েবসাইট ডিজাইন প্রজেক্টের ইনভয়েস</span></h5>
+            <ol>
+                <li class="mb-2"><span class="lang-en">Go to <strong>Royal CRM → Invoices → Add New Invoice</strong>.</span><span class="lang-bn"><strong>Royal CRM → Invoices → Add New Invoice</strong>-এ যান।</span></li>
+                <li class="mb-2"><span class="lang-en">Select the <strong>Client</strong> from the dropdown (e.g., "ABS Company").</span><span class="lang-bn">ড্রপডাউন থেকে <strong>ক্লায়েন্ট</strong> সিলেক্ট করুন (যেমন: "ABS Company")।</span></li>
+                <li class="mb-2"><span class="lang-en">Set the <strong>Invoice Date</strong> and <strong>Due Date</strong>.</span><span class="lang-bn"><strong>ইনভয়েসের তারিখ</strong> ও <strong>due date</strong> সেট করুন।</span></li>
+                <li class="mb-2"><span class="lang-en">Add line items: Select "Website Design" service → Quantity: 1 → Price: 25,000 Tk.</span><span class="lang-bn">লাইন আইটেম যোগ করুন: "Website Design" সিলেক্ট করুন → পরিমাণ: ১ → মূল্য: ২৫,০০০ টাকা।</span></li>
+                <li class="mb-2"><span class="lang-en">Apply a <strong>Discount</strong> or <strong>Tax</strong> if applicable, then click <strong>Save Invoice</strong>.</span><span class="lang-bn">প্রযোজ্য হলে <strong>ডিসকাউন্ট</strong> বা <strong>ট্যাক্স</strong> যোগ করুন, তারপর <strong>Save Invoice</strong> ক্লিক করুন।</span></li>
+                <li><span class="lang-en">The invoice is auto-assigned a serial number. You can <strong>Print</strong> or <strong>Email</strong> it directly to the client.</span><span class="lang-bn">ইনভয়েসটি স্বয়ংক্রিয়ভাবে একটি সিরিয়াল নম্বর পাবে। সরাসরি ক্লায়েন্টকে <strong>Print</strong> বা <strong>Email</strong> করা যাবে।</span></li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="payments" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">6. Recording Payments</span><span class="lang-bn">৬. পেমেন্ট রেকর্ড করা</span></h3>
+        <div class="lang-en">
+            <p>When a client pays against an invoice, record it in the system to update the invoice status.</p>
+            <ul>
+                <li>Go to <strong>Royal CRM → Payments → Add Payment</strong>.</li>
+                <li>Select the <strong>Invoice</strong>, enter the <strong>Amount Paid</strong>, <strong>Payment Method</strong> (Cash/Bank/bKash), and <strong>Date</strong>.</li>
+                <li>If the full amount is paid the invoice status changes to <strong style="color:green;">Paid</strong>. A partial payment changes it to <strong style="color:orange;">Partially Paid</strong>.</li>
+                <li>An automatic <strong>payment confirmation email</strong> can be sent to the client from Settings.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>কোনো ক্লায়েন্ট ইনভয়েসের বিপরীতে টাকা দিলে সিস্টেমে রেকর্ড করুন যাতে ইনভয়েসের স্ট্যাটাস আপডেট হয়।</p>
+            <ul>
+                <li><strong>Royal CRM → Payments → Add Payment</strong>-এ যান।</li>
+                <li><strong>ইনভয়েস</strong> সিলেক্ট করুন, <strong>পেমেন্টের পরিমাণ</strong>, <strong>পেমেন্ট মেথড</strong> (ক্যাশ/ব্যাংক/বিকাশ) এবং <strong>তারিখ</strong> দিন।</li>
+                <li>সম্পূর্ণ টাকা দিলে ইনভয়েসের স্ট্যাটাস <strong style="color:green;">Paid</strong> হবে। আংশিক পেলে <strong style="color:orange;">Partially Paid</strong> হবে।</li>
+                <li>Settings থেকে স্বয়ংক্রিয় <strong>পেমেন্ট কনফার্মেশন ইমেইল</strong> ক্লায়েন্টকে পাঠানো যায়।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="expenses" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">7. Expenses &amp; Purchases</span><span class="lang-bn">৭. খরচ ও ক্রয়</span></h3>
+        <div class="lang-en">
+            <p>Track your business costs alongside your revenue.</p>
+            <table class="table table-bordered table-custom mt-2">
+                <thead><tr><th>Module</th><th>What to record here</th><th>Example</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Expenses</strong></td><td>Day-to-day running costs</td><td>Office rent ৳5,000/month, Internet bill ৳500</td></tr>
+                    <tr><td><strong>Purchases</strong></td><td>Items/assets bought for business</td><td>New laptop ৳60,000, Server hosting ৳12,000/year</td></tr>
+                </tbody>
+            </table>
+            <p class="mt-3">Both modules feed into the <strong>Reports</strong> section, giving you a clear profit picture.</p>
+        </div>
+        <div class="lang-bn">
+            <p>আপনার আয়ের পাশাপাশি ব্যবসার খরচও ট্র্যাক করুন।</p>
+            <table class="table table-bordered table-custom mt-2">
+                <thead><tr><th>মডিউল</th><th>কী রেকর্ড করবেন</th><th>উদাহরণ</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Expenses</strong></td><td>দৈনন্দিন পরিচালনা খরচ</td><td>অফিস ভাড়া ৳৫,০০০/মাস, ইন্টারনেট বিল ৳৫০০</td></tr>
+                    <tr><td><strong>Purchases</strong></td><td>ব্যবসার জন্য কেনা আইটেম/সম্পদ</td><td>নতুন ল্যাপটপ ৳৬০,০০০, হোস্টিং ৳১২,০০০/বছর</td></tr>
+                </tbody>
+            </table>
+            <p class="mt-3">উভয় মডিউল <strong>Reports</strong> সেকশনে ফিড হয়, যা স্পষ্ট লাভের চিত্র দেয়।</p>
+        </div>
+    </div>
+
+    <div id="staff" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">8. Staff &amp; Commissions</span><span class="lang-bn">৮. স্টাফ ও কমিশন</span></h3>
+        <div class="lang-en">
+            <p>Manage your team and track their earnings automatically.</p>
+            <ul>
+                <li>Go to <strong>Royal CRM → Staff</strong> to add team members with their role and salary details.</li>
+                <li>A special <strong>royalclient_staff</strong> role is automatically created. Staff members with this role can log in and see only their assigned data.</li>
+                <li>Under <strong>Commissions</strong>, link a staff member to a client or invoice. The system calculates their commission percentage automatically.</li>
+                <li>At month-end, view the <strong>Commission Report</strong> to see how much each salesperson earned.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>আপনার টিম পরিচালনা করুন এবং তাদের উপার্জন স্বয়ংক্রিয়ভাবে ট্র্যাক করুন।</p>
+            <ul>
+                <li><strong>Royal CRM → Staff</strong>-এ গিয়ে রোল ও বেতনের বিবরণ সহ টিম মেম্বার যোগ করুন।</li>
+                <li>একটি বিশেষ <strong>royalclient_staff</strong> রোল স্বয়ংক্রিয়ভাবে তৈরি হয়। এই রোলের স্টাফ সদস্যরা লগইন করে শুধু তাদের নির্ধারিত ডেটা দেখতে পাবেন।</li>
+                <li><strong>Commissions</strong>-এ গিয়ে একজন স্টাফকে ক্লায়েন্ট বা ইনভয়েসের সাথে লিংক করুন। সিস্টেম স্বয়ংক্রিয়ভাবে তার কমিশনের পরিমাণ হিসাব করবে।</li>
+                <li>মাস শেষে <strong>Commission Report</strong> দেখুন — প্রতিটি সেলসপার্সন কত উপার্জন করেছে।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="reports" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">9. Reports</span><span class="lang-bn">৯. রিপোর্ট</span></h3>
+        <div class="lang-en">
+            <p>The Reports module consolidates all your business data into actionable summaries.</p>
+            <table class="table table-bordered table-custom mt-2">
+                <thead><tr><th>Report</th><th>What it shows</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Invoice Summary</strong></td><td>Total billed, paid, and outstanding amounts by period</td></tr>
+                    <tr><td><strong>Client Report</strong></td><td>Per-client billing history and outstanding balance</td></tr>
+                    <tr><td><strong>Payment Report</strong></td><td>All payments received, grouped by method or date</td></tr>
+                    <tr><td><strong>Expense Report</strong></td><td>Total expenses by category over a date range</td></tr>
+                    <tr><td><strong>Commission Report</strong></td><td>Earnings per staff/salesperson</td></tr>
+                    <tr><td><strong>Affiliate Report</strong></td><td>Referral earnings for affiliate partners</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="lang-bn">
+            <p>Reports মডিউল আপনার সকল ব্যবসায়িক ডেটা কার্যকর সারসংক্ষেপে একত্রিত করে।</p>
+            <table class="table table-bordered table-custom mt-2">
+                <thead><tr><th>রিপোর্ট</th><th>কী দেখায়</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Invoice Summary</strong></td><td>নির্দিষ্ট সময়ে মোট বিলকৃত, পেইড এবং বকেয়া পরিমাণ</td></tr>
+                    <tr><td><strong>Client Report</strong></td><td>প্রতি ক্লায়েন্টের বিলিং ইতিহাস ও বকেয়া ব্যালেন্স</td></tr>
+                    <tr><td><strong>Payment Report</strong></td><td>সব প্রাপ্ত পেমেন্ট, মেথড বা তারিখ অনুযায়ী গ্রুপ করা</td></tr>
+                    <tr><td><strong>Expense Report</strong></td><td>তারিখ পরিসরে ক্যাটাগরি অনুযায়ী মোট খরচ</td></tr>
+                    <tr><td><strong>Commission Report</strong></td><td>প্রতি স্টাফ/সেলসপার্সনের উপার্জন</td></tr>
+                    <tr><td><strong>Affiliate Report</strong></td><td>অ্যাফিলিয়েট পার্টনারদের রেফারেল উপার্জন</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="tech-stack" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">Technical Stack & Minimum Requirements</span><span class="lang-bn">টেকনিক্যাল স্ট্যাক ও রিকোয়ারমেন্টস</span></h3>
+        <div class="lang-en">
+            <ul>
+                <li><strong>Type:</strong> WordPress Plugin</li>
+                <li><strong>Framework/Language:</strong> PHP, JavaScript (jQuery/Ajax/React), HTML, CSS.</li>
+                <li><strong>Minimum Server Requirements:</strong>
+                    <ul>
+                        <li>WordPress 6.0+</li>
+                        <li>PHP 7.4 or 8.0+</li>
+                        <li>Standard cPanel Hosting</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <ul>
+                <li><strong>ধরন (Type):</strong> ওয়ার্ডপ্রেস প্লাগইন (WordPress Plugin)</li>
+                <li><strong>ফ্রেমওয়ার্ক/ল্যাঙ্গুয়েজ:</strong> PHP, JavaScript (jQuery/Ajax/React), HTML, CSS। এটি ওয়ার্ডপ্রেসের নিজস্ব ডাটাবেস টেবিল এবং কাস্টম পোস্ট টাইপ (CPT) ব্যবহার করে।</li>
+                <li><strong>মিনিমাম রিকোয়ারমেন্ট:</strong>
+                    <ul>
+                        <li>WordPress 6.0+</li>
+                        <li>PHP 7.4 বা 8.0+</li>
+                        <li>সাধারণ cPanel হোস্টিং (যেখানে ওয়ার্ডপ্রেস সাপোর্ট করে)</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <p class="mb-1 fw-bold text-dark">Royal Technologies</p>
+        <p class="mb-1">Innovative Solutions for Modern Businesses</p>
+        <p class="mb-0">Website: <a href="https://royaltechbd.com" target="_blank">royaltechbd.com</a></p>
+    </div>
+</div>
+<script>
+    document.getElementById('langToggle').addEventListener('click', function() {
+        const bn = Array.from(document.querySelectorAll('.lang-bn'));
+        const isHidden = window.getComputedStyle(bn[0]).display === 'none';
+        const en = document.querySelectorAll('.lang-en');
+        if (isHidden) { en.forEach(e=>e.style.display='none'); bn.forEach(e=>e.style.display='block'); document.getElementById('langText').innerText='Read in English'; }
+        else { bn.forEach(e=>e.style.display='none'); en.forEach(e=>e.style.display='block'); document.getElementById('langText').innerText='বাংলায় পড়ুন'; }
+    });
+</script>
+</body>
+</html>

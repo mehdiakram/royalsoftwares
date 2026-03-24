@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Sentinel - Tutorial</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{margin:0;padding:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background-color:#f8f9fa;}
+        .sidebar{height:100vh;width:280px;position:fixed;top:0;left:0;background:#fff;box-shadow:2px 0 5px rgba(0,0,0,.05);padding:20px 0;overflow-y:auto;z-index:1000;}
+        .sidebar-brand{text-align:center;padding:0 20px 20px;border-bottom:1px solid #eee;margin-bottom:20px;}
+        .sidebar-brand img{max-width:150px;height:auto;}
+        .nav-item{padding:5px 20px;}
+        .nav-link{color:#495057;font-weight:500;border-radius:5px;transition:all .2s;font-size:.95rem;}
+        .nav-link:hover,.nav-link.active{background:#e9ecef;color:#0d6efd;}
+        .content-area{margin-left:280px;padding:40px;}
+        .lang-bn{display:none;}
+        .tutorial-section{background:#fff;padding:35px;border-radius:8px;box-shadow:0 4px 15px rgba(0,0,0,.03);margin-bottom:35px;border-left:5px solid #0d6efd;}
+        html{scroll-behavior:smooth;scroll-padding-top:20px;}
+        .example-box{background:#f8f9fa;border:1px solid #dee2e6;padding:20px;margin-top:20px;border-radius:6px;}
+        .example-box h5{color:#0d6efd;font-weight:bold;margin-bottom:15px;}
+        .footer-info{text-align:center;margin-top:50px;padding-top:20px;border-top:1px solid #ddd;color:#6c757d;font-size:.9rem;}
+        .table-custom th{background-color:#f1f5f9;color:#495057;font-weight:600;}
+        @media(max-width:991px){.sidebar{width:100%;height:auto;position:relative;}.content-area{margin-left:0;padding:20px;}}
+    </style>
+</head>
+<body>
+<div class="sidebar">
+    <div class="sidebar-brand"><a href="https://www.royaltechbd.com/" target="_blank"><img src="../images/logo.png" alt="Royal Technologies"></a></div>
+    <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="#intro"><span class="lang-en">1. Introduction</span><span class="lang-bn">১. পরিচিতি</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#install"><span class="lang-en">2. Installation</span><span class="lang-bn">২. ইন্সটলেশন</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#login-protection"><span class="lang-en">3. Login Protection</span><span class="lang-bn">৩. লগইন সুরক্ষা</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#twofa"><span class="lang-en">4. Two-Factor Auth (2FA)</span><span class="lang-bn">৪. টু-ফ্যাক্টর অথেন্টিকেশন</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#firewall"><span class="lang-en">5. Firewall &amp; IP Blocking</span><span class="lang-bn">৫. ফায়ারওয়াল ও IP ব্লকিং</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#malware"><span class="lang-en">6. Malware Scanner</span><span class="lang-bn">৬. ম্যালওয়্যার স্ক্যানার</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#backup"><span class="lang-en">7. Backup</span><span class="lang-bn">৭. ব্যাকআপ</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#hardening"><span class="lang-en">8. Hardening &amp; Tweaks</span><span class="lang-bn">৮. হার্ডেনিং ও টুইকস</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#cloudflare"><span class="lang-en">9. Cloudflare Integration</span><span class="lang-bn">৯. Cloudflare ইন্টিগ্রেশন</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#tech-stack"><span class="lang-en">Tech Stack & Requirements</span><span class="lang-bn">টেক স্ট্যাক ও রিকোয়ারমেন্টস</span></a></li>
+    </ul>
+</div>
+<div class="content-area">
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom flex-wrap gap-3">
+        <h2 class="mb-0 fw-bold"><span class="lang-en">Mastering Royal Sentinel</span><span class="lang-bn">রয়্যাল সেন্টিনেল মাস্টারক্লাস টিউটোরিয়াল</span></h2>
+        <button id="langToggle" class="btn btn-outline-primary"><span id="langText">বাংলায় পড়ুন</span></button>
+    </div>
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-primary">Royal Sentinel</h1>
+        <p class="lead text-secondary"><span class="lang-en">All-in-One WordPress Security &amp; Performance Shield</span><span class="lang-bn">ওয়ার্ডপ্রেসের সম্পূর্ণ নিরাপত্তা ও পারফরম্যান্স সুরক্ষা</span></p>
+    </div>
+
+    <div id="intro" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">1. What is Royal Sentinel?</span><span class="lang-bn">১. রয়্যাল সেন্টিনেল কী?</span></h3>
+        <div class="lang-en">
+            <p>Royal Sentinel is an all-in-one <strong>security and performance optimization toolkit</strong> for WordPress. It protects your site from hackers, malware, brute-force attacks, and bad bots — while also improving performance with smart tweaks.</p>
+            <p>Key protection modules include: Login Protection, Two-Factor Authentication (2FA), Firewall, IP Blocking, Malware Scanner, Honeypot, Geoblocking, Security Headers, Session Management, Database Prefix Change, and Cloudflare integration.</p>
+        </div>
+        <div class="lang-bn">
+            <p>রয়্যাল সেন্টিনেল হলো ওয়ার্ডপ্রেসের জন্য একটি অল-ইন-ওয়ান <strong>নিরাপত্তা ও পারফরম্যান্স অপটিমাইজেশন টুলকিট</strong>। এটি আপনার সাইটকে হ্যাকার, ম্যালওয়্যার, ব্রুট-ফোর্স আক্রমণ এবং খারাপ বট থেকে রক্ষা করে — এবং স্মার্ট টুইকসের মাধ্যমে পারফরম্যান্সও উন্নত করে।</p>
+            <p>মূল সুরক্ষা মডিউলগুলো: লগইন সুরক্ষা, টু-ফ্যাক্টর অথেন্টিকেশন (2FA), ফায়ারওয়াল, IP ব্লকিং, ম্যালওয়্যার স্ক্যানার, হানিপট, জিওব্লকিং, সিকিউরিটি হেডার, সেশন ম্যানেজমেন্ট, ডেটাবেজ প্রিফিক্স পরিবর্তন এবং Cloudflare ইন্টিগ্রেশন।</p>
+        </div>
+    </div>
+
+    <div id="install" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">2. Installation</span><span class="lang-bn">২. ইন্সটলেশন</span></h3>
+        <div class="lang-en">
+            <ol>
+                <li>Upload and activate via <strong>Plugins → Add New → Upload Plugin</strong>.</li>
+                <li>On activation, the plugin creates its own <strong>bad IPs database table</strong> automatically.</li>
+                <li>Go to <strong>Royal Sentinel</strong> in the WordPress sidebar to see all security modules.</li>
+                <li>Enter your license key under <strong>Royal Sentinel → License</strong> to enable all features.</li>
+                <li><strong>Tip:</strong> If you are ever accidentally locked out, use the emergency unlock script included in the plugin folder.</li>
+            </ol>
+        </div>
+        <div class="lang-bn">
+            <ol>
+                <li><strong>Plugins → Add New → Upload Plugin</strong> থেকে আপলোড করে একটিভ করুন।</li>
+                <li>একটিভেশনের সময় প্লাগইন স্বয়ংক্রিয়ভাবে একটি <strong>bad IPs ডেটাবেজ টেবিল</strong> তৈরি করে।</li>
+                <li>ওয়ার্ডপ্রেস সাইডবারে <strong>Royal Sentinel</strong>-এ গিয়ে সব সিকিউরিটি মডিউল দেখুন।</li>
+                <li><strong>Royal Sentinel → License</strong>-এ লাইসেন্স কী দিয়ে সব ফিচার চালু করুন।</li>
+                <li><strong>টিপস:</strong> কখনো ভুলক্রমে লক আউট হলে প্লাগইন ফোল্ডারে থাকা emergency unlock স্ক্রিপ্ট ব্যবহার করুন।</li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="login-protection" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">3. Login Protection</span><span class="lang-bn">৩. লগইন সুরক্ষা</span></h3>
+        <div class="lang-en">
+            <p>Brute-force attacks try thousands of password combinations against your login page. Royal Sentinel stops this with multiple layers:</p>
+            <ul>
+                <li><strong>Limit Login Attempts:</strong> Set the max failed attempts (e.g., 5) before an IP is temporarily banned. Configure the lockout duration (e.g., 30 minutes).</li>
+                <li><strong>Hide Login URL:</strong> Change your login page from the default <code>/wp-admin</code> to a custom URL (e.g., <code>/my-login</code>) so bots can't even find it.</li>
+                <li><strong>Login Extras:</strong> Disable the "password reset" link, add a CAPTCHA to the login form, and show a custom error message that doesn't reveal whether username or password was wrong.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>ব্রুট-ফোর্স আক্রমণ আপনার লগইন পেজে হাজার হাজার পাসওয়ার্ড কম্বিনেশন চেষ্টা করে। রয়্যাল সেন্টিনেল একাধিক স্তরে এটি থামায়:</p>
+            <ul>
+                <li><strong>Login Attempt সীমিত করা:</strong> একটি IP থেকে সর্বোচ্চ ব্যর্থ চেষ্টার সংখ্যা (যেমন: ৫) এবং ব্লকের দৈর্ঘ্য (যেমন: ৩০ মিনিট) সেট করুন।</li>
+                <li><strong>লগইন URL লুকানো:</strong> ডিফল্ট <code>/wp-admin</code> থেকে একটি কাস্টম URL-এ (যেমন: <code>/my-login</code>) পরিবর্তন করুন যাতে বটরা এটি খুঁজে না পায়।</li>
+                <li><strong>Login Extras:</strong> "পাসওয়ার্ড রিসেট" লিঙ্ক অক্ষম করুন, লগইন ফর্মে CAPTCHA যোগ করুন এবং ইউজারনেম বা পাসওয়ার্ড কোনটা ভুল তা প্রকাশ না করে কাস্টম এরর মেসেজ দেখান।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="twofa" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">4. Two-Factor Authentication (2FA)</span><span class="lang-bn">৪. টু-ফ্যাক্টর অথেন্টিকেশন (2FA)</span></h3>
+        <div class="example-box">
+            <h5><span class="lang-en">Setting up 2FA for your admin account</span><span class="lang-bn">অ্যাডমিন একাউন্টের জন্য 2FA চালু করা</span></h5>
+            <ol>
+                <li class="mb-2"><span class="lang-en">Go to <strong>Royal Sentinel → 2FA</strong> and enable 2FA for the Administrator role.</span><span class="lang-bn"><strong>Royal Sentinel → 2FA</strong>-এ গিয়ে Administrator রোলের জন্য 2FA চালু করুন।</span></li>
+                <li class="mb-2"><span class="lang-en">Log out and log back in. After entering your username and password, a <strong>6-digit code</strong> will be sent to your email.</span><span class="lang-bn">লগ আউট করে আবার লগ ইন করুন। ইউজারনেম ও পাসওয়ার্ড দেওয়ার পর একটি <strong>৬ সংখ্যার কোড</strong> আপনার ইমেইলে পাঠানো হবে।</span></li>
+                <li class="mb-2"><span class="lang-en">Enter the code in the verification field to complete the login.</span><span class="lang-bn">লগইন সম্পন্ন করতে ভেরিফিকেশন ফিল্ডে কোডটি দিন।</span></li>
+                <li><span class="lang-en"><strong>Result:</strong> Even if a hacker knows your password, they still cannot log in without access to your email.</span><span class="lang-bn"><strong>ফলাফল:</strong> কোনো হ্যাকার আপনার পাসওয়ার্ড জানলেও আপনার ইমেইল অ্যাক্সেস ছাড়া লগইন করতে পারবে না।</span></li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="firewall" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">5. Firewall &amp; IP Blocking</span><span class="lang-bn">৫. ফায়ারওয়াল ও IP ব্লকিং</span></h3>
+        <div class="lang-en">
+            <p>Royal Sentinel's firewall module intercepts malicious requests before they reach WordPress.</p>
+            <ul>
+                <li><strong>Auto Block:</strong> After a configured number of failed login attempts, the offending IP is automatically added to the bad IPs list and blocked.</li>
+                <li><strong>Manual Block:</strong> Go to <strong>Royal Sentinel → Bad IPs</strong> and manually enter any IP address to block instantly.</li>
+                <li><strong>IP Whitelist:</strong> Add your own static IP so you are never accidentally blocked.</li>
+                <li><strong>Geoblocking:</strong> Block all traffic from specific countries entirely. Useful if your site only serves one region.</li>
+                <li><strong>Real-time Defense:</strong> Monitors for common attack patterns (SQL injection, XSS, file inclusion) and blocks attackers in real time.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>রয়্যাল সেন্টিনেলের ফায়ারওয়াল মডিউল ক্ষতিকর অনুরোধগুলো ওয়ার্ডপ্রেসে পৌঁছানোর আগেই আটকায়।</p>
+            <ul>
+                <li><strong>অটো ব্লক:</strong> নির্ধারিত সংখ্যক ব্যর্থ লগইন ক্যালকুলেশনের পর আক্রমণকারী IP স্বয়ংক্রিয়ভাবে bad IPs তালিকায় যোগ হয় এবং ব্লক হয়।</li>
+                <li><strong>ম্যানুয়াল ব্লক:</strong> <strong>Royal Sentinel → Bad IPs</strong>-এ গিয়ে যেকোনো IP ঠিকানা সাথে সাথে ব্লক করুন।</li>
+                <li><strong>IP হোয়াইটলিস্ট:</strong> আপনার নিজের স্ট্যাটিক IP যোগ করুন যাতে আপনি কখনো ভুলক্রমে ব্লক না হন।</li>
+                <li><strong>জিওব্লকিং:</strong> নির্দিষ্ট দেশের সব ট্র্যাফিক সম্পূর্ণভাবে ব্লক করুন। আপনার সাইট যদি একটি অঞ্চলেই সেবা দেয় তাহলে কার্যকর।</li>
+                <li><strong>Real-time Defense:</strong> সাধারণ আক্রমণের ধরন (SQL ইনজেকশন, XSS) পর্যবেক্ষণ করে এবং রিয়েল-টাইমে আক্রমণকারীদের ব্লক করে।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="malware" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">6. Malware Scanner</span><span class="lang-bn">৬. ম্যালওয়্যার স্ক্যানার</span></h3>
+        <div class="lang-en">
+            <p>The scanner analyzes your WordPress files for malicious code, backdoors, and known vulnerabilities.</p>
+            <ol>
+                <li>Go to <strong>Royal Sentinel → Malware Scanner</strong>.</li>
+                <li>Click <strong>Start Scan</strong>. The system scans all WordPress core files, themes, and plugins.</li>
+                <li>Suspicious files are listed with their path and threat type. Review each finding.</li>
+                <li>The <strong>Vulnerability Scanner</strong> additionally checks if your installed plugins and themes have known CVE vulnerabilities reported in public security databases.</li>
+            </ol>
+        </div>
+        <div class="lang-bn">
+            <p>স্ক্যানার আপনার ওয়ার্ডপ্রেস ফাইলগুলো ক্ষতিকর কোড, ব্যাকডোর এবং পরিচিত দুর্বলতার জন্য বিশ্লেষণ করে।</p>
+            <ol>
+                <li><strong>Royal Sentinel → Malware Scanner</strong>-এ যান।</li>
+                <li><strong>Start Scan</strong> ক্লিক করুন। সিস্টেম সব ওয়ার্ডপ্রেস কোর ফাইল, থিম এবং প্লাগইন স্ক্যান করবে।</li>
+                <li>সন্দেহজনক ফাইলগুলো তাদের পাথ ও হুমকির ধরন সহ তালিকাবদ্ধ হবে। প্রতিটি ফলাফল পর্যালোচনা করুন।</li>
+                <li><strong>Vulnerability Scanner</strong> অতিরিক্তভাবে চেক করে যে আপনার ইন্সটল করা প্লাগইন ও থিমে পাবলিক সিকিউরিটি ডেটাবেজে রিপোর্ট করা পরিচিত CVE দুর্বলতা আছে কিনা।</li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="backup" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">7. Backup</span><span class="lang-bn">৭. ব্যাকআপ</span></h3>
+        <div class="lang-en">
+            <p>Before making big changes to your site, always create a backup. Royal Sentinel's backup module lets you:</p>
+            <ul>
+                <li>Create an on-demand <strong>database backup</strong> or <strong>full-site backup</strong> (files + database) with one click.</li>
+                <li>Schedule <strong>automatic backups</strong> (daily, weekly) so you always have a recent copy.</li>
+                <li>Download backup archives directly to your computer for off-site storage.</li>
+                <li>Restore from a previous backup if something goes wrong after an update.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>সাইটে বড় পরিবর্তনের আগে সবসময় ব্যাকআপ তৈরি করুন। রয়্যাল সেন্টিনেলের ব্যাকআপ মডিউল দিয়ে:</p>
+            <ul>
+                <li>এক ক্লিকে অন-ডিমান্ড <strong>ডেটাবেজ ব্যাকআপ</strong> বা <strong>ফুল-সাইট ব্যাকআপ</strong> (ফাইল + ডেটাবেজ) তৈরি করুন।</li>
+                <li><strong>স্বয়ংক্রিয় ব্যাকআপ</strong> শিডিউল করুন (দৈনিক, সাপ্তাহিক) যাতে সবসময় একটি সাম্প্রতিক কপি থাকে।</li>
+                <li>অফ-সাইট স্টোরেজের জন্য সরাসরি আপনার কম্পিউটারে ব্যাকআপ আর্কাইভ ডাউনলোড করুন।</li>
+                <li>কোনো আপডেটের পর সমস্যা হলে পূর্ববর্তী ব্যাকআপ থেকে পুনরুদ্ধার করুন।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="hardening" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">8. Hardening &amp; Performance Tweaks</span><span class="lang-bn">৮. হার্ডেনিং ও পারফরম্যান্স টুইকস</span></h3>
+        <div class="lang-en">
+            <table class="table table-bordered table-custom mt-2">
+                <thead><tr><th>Feature</th><th>What it does</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>DB Prefix Change</strong></td><td>Changes the default <code>wp_</code> database prefix to a random one to prevent SQL injection attacks</td></tr>
+                    <tr><td><strong>User Hardening</strong></td><td>Disables user enumeration (prevents hackers from guessing usernames)</td></tr>
+                    <tr><td><strong>Security Headers</strong></td><td>Adds HTTP security headers (X-Frame-Options, CSP, HSTS) to protect against clickjacking</td></tr>
+                    <tr><td><strong>Session Management</strong></td><td>Limits concurrent logins per user, auto-expires idle sessions</td></tr>
+                    <tr><td><strong>Honeypot</strong></td><td>Adds invisible fields to forms; bots that fill them are blocked instantly</td></tr>
+                    <tr><td><strong>Monitoring</strong></td><td>Tracks admin changes, login history, and file modifications</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="lang-bn">
+            <table class="table table-bordered table-custom mt-2">
+                <thead><tr><th>ফিচার</th><th>কী করে</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>DB Prefix পরিবর্তন</strong></td><td>SQL ইনজেকশন আক্রমণ প্রতিরোধে ডিফল্ট <code>wp_</code> প্রিফিক্স একটি র‍্যান্ডম প্রিফিক্সে পরিবর্তন করে</td></tr>
+                    <tr><td><strong>User Hardening</strong></td><td>User enumeration অক্ষম করে (হ্যাকাররা ইউজারনেম অনুমান করতে পারে না)</td></tr>
+                    <tr><td><strong>Security Headers</strong></td><td>Clickjacking থেকে রক্ষায় HTTP সিকিউরিটি হেডার (X-Frame-Options, CSP, HSTS) যোগ করে</td></tr>
+                    <tr><td><strong>Session Management</strong></td><td>প্রতি ইউজারের একযোগে লগইন সীমিত করে, নিষ্ক্রিয় সেশন স্বয়ংক্রিয়ভাবে শেষ হয়</td></tr>
+                    <tr><td><strong>Honeypot</strong></td><td>ফর্মে অদৃশ্য ফিল্ড যোগ করে; যে বট সেগুলো পূরণ করে সে সাথে সাথে ব্লক হয়</td></tr>
+                    <tr><td><strong>Monitoring</strong></td><td>অ্যাডমিন পরিবর্তন, লগইন ইতিহাস এবং ফাইল পরিবর্তন ট্র্যাক করে</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="cloudflare" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">9. Cloudflare Integration</span><span class="lang-bn">৯. Cloudflare ইন্টিগ্রেশন</span></h3>
+        <div class="lang-en">
+            <p>Royal Sentinel can communicate directly with your Cloudflare account to block bad IPs at the network level — before they even reach your server.</p>
+            <ul>
+                <li>Go to <strong>Royal Sentinel → Cloudflare</strong> and enter your Cloudflare <strong>API Token</strong> and <strong>Zone ID</strong>.</li>
+                <li>Enable <strong>CF Sync</strong>. When Royal Sentinel blocks an IP locally, it automatically pushes the block to Cloudflare's firewall rules as well.</li>
+                <li>This provides <strong>double-layer protection</strong>: local WordPress block + Cloudflare edge block.</li>
+                <li>You can also manage Cloudflare firewall rules (allow/block by country or IP range) directly from the Royal Sentinel dashboard.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>রয়্যাল সেন্টিনেল আপনার Cloudflare একাউন্টের সাথে সরাসরি যোগাযোগ করে নেটওয়ার্ক স্তরে খারাপ IP ব্লক করতে পারে — এমনকি আপনার সার্ভারে পৌঁছানোর আগেই।</p>
+            <ul>
+                <li><strong>Royal Sentinel → Cloudflare</strong>-এ গিয়ে আপনার Cloudflare <strong>API Token</strong> এবং <strong>Zone ID</strong> দিন।</li>
+                <li><strong>CF Sync</strong> চালু করুন। রয়্যাল সেন্টিনেল যখন স্থানীয়ভাবে কোনো IP ব্লক করে, এটি স্বয়ংক্রিয়ভাবে Cloudflare-এর ফায়ারওয়াল নিয়মেও ব্লকটি পুশ করে।</li>
+                <li>এটি <strong>ডাবল-লেয়ার সুরক্ষা</strong> দেয়: স্থানীয় ওয়ার্ডপ্রেস ব্লক + Cloudflare এজ ব্লক।</li>
+                <li>রয়্যাল সেন্টিনেল ড্যাশবোর্ড থেকেই সরাসরি Cloudflare ফায়ারওয়াল নিয়ম পরিচালনা করা যায়।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="tech-stack" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">Technical Stack & Minimum Requirements</span><span class="lang-bn">টেকনিক্যাল স্ট্যাক ও রিকোয়ারমেন্টস</span></h3>
+        <div class="lang-en">
+            <ul>
+                <li><strong>Type:</strong> WordPress Plugin (with API)</li>
+                <li><strong>Framework/Language:</strong> PHP, JavaScript, WP REST API.</li>
+                <li><strong>Minimum Server Requirements:</strong>
+                    <ul>
+                        <li>WordPress 6.0+</li>
+                        <li>PHP 8.0+</li>
+                        <li>Good quality hosting or basic VPS</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <ul>
+                <li><strong>ধরন (Type):</strong> ওয়ার্ডপ্রেস প্লাগইন (WordPress Plugin - সম্ভবত API সহ)</li>
+                <li><strong>ফ্রেমওয়ার্ক/ল্যাঙ্গুয়েজ:</strong> PHP, JavaScript (Vue.js বা React দিয়ে ফ্রন্টএন্ড), ওয়ার্ডপ্রেস REST API (মোবাইল অ্যাপের সাথে কানেক্ট করার জন্য)।</li>
+                <li><strong>মিনিমাম রিকোয়ারমেন্ট:</strong>
+                    <ul>
+                        <li>WordPress 6.0+</li>
+                        <li>PHP 8.0+</li>
+                        <li>API কল ও QR স্ক্যান ডাটাবেসে সেভ করার জন্য ভালো মানের হোস্টিং বা বেসিক VPS।</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <p class="mb-1 fw-bold text-dark">Royal Technologies</p>
+        <p class="mb-1">Innovative Solutions for Modern Businesses</p>
+        <p class="mb-0">Website: <a href="https://royaltechbd.com" target="_blank">royaltechbd.com</a></p>
+    </div>
+</div>
+<script>
+    document.getElementById('langToggle').addEventListener('click', function() {
+        const bn = Array.from(document.querySelectorAll('.lang-bn'));
+        const isHidden = window.getComputedStyle(bn[0]).display === 'none';
+        const en = document.querySelectorAll('.lang-en');
+        if (isHidden) { en.forEach(e=>e.style.display='none'); bn.forEach(e=>e.style.display='block'); document.getElementById('langText').innerText='Read in English'; }
+        else { bn.forEach(e=>e.style.display='none'); en.forEach(e=>e.style.display='block'); document.getElementById('langText').innerText='বাংলায় পড়ুন'; }
+    });
+</script>
+</body>
+</html>

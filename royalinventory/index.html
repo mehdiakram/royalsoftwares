@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Inventory Solution - Tutorial</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{margin:0;padding:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background-color:#f8f9fa;}
+        .sidebar{height:100vh;width:280px;position:fixed;top:0;left:0;background:#fff;box-shadow:2px 0 5px rgba(0,0,0,.05);padding:20px 0;overflow-y:auto;z-index:1000;}
+        .sidebar-brand{text-align:center;padding:0 20px 20px;border-bottom:1px solid #eee;margin-bottom:20px;}
+        .sidebar-brand img{max-width:150px;height:auto;}
+        .nav-item{padding:5px 20px;}
+        .nav-link{color:#495057;font-weight:500;border-radius:5px;transition:all .2s;font-size:.95rem;}
+        .nav-link:hover,.nav-link.active{background:#e9ecef;color:#0d6efd;}
+        .content-area{margin-left:280px;padding:40px;}
+        .lang-bn{display:none;}
+        .tutorial-section{background:#fff;padding:35px;border-radius:8px;box-shadow:0 4px 15px rgba(0,0,0,.03);margin-bottom:35px;border-left:5px solid #0d6efd;}
+        html{scroll-behavior:smooth;scroll-padding-top:20px;}
+        .example-box{background:#f8f9fa;border:1px solid #dee2e6;padding:20px;margin-top:20px;border-radius:6px;}
+        .example-box h5{color:#0d6efd;font-weight:bold;margin-bottom:15px;}
+        .footer-info{text-align:center;margin-top:50px;padding-top:20px;border-top:1px solid #ddd;color:#6c757d;font-size:.9rem;}
+        .table-custom th{background-color:#f1f5f9;color:#495057;font-weight:600;}
+        .ledger-box{background:#eef2f5;padding:2px 10px;border-radius:4px;display:inline-block;font-family:monospace;font-weight:bold;border:1px solid #ced4da;margin:2px 3px;}
+        @media(max-width:991px){.sidebar{width:100%;height:auto;position:relative;}.content-area{margin-left:0;padding:20px;}}
+    </style>
+</head>
+<body>
+<div class="sidebar">
+    <div class="sidebar-brand"><a href="https://www.royaltechbd.com/" target="_blank"><img src="../images/logo.png" alt="Royal Technologies"></a></div>
+    <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="#intro"><span class="lang-en">1. Introduction</span><span class="lang-bn">১. পরিচিতি</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#setup"><span class="lang-en">2. Business Setup</span><span class="lang-bn">২. ব্যবসার সেটআপ</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#products"><span class="lang-en">3. Product Management</span><span class="lang-bn">৩. পণ্য ব্যবস্থাপনা</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#parties"><span class="lang-en">4. Suppliers &amp; Customers</span><span class="lang-bn">৪. সাপ্লায়ার ও কাস্টমার</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#purchases"><span class="lang-en">5. Purchases</span><span class="lang-bn">৫. ক্রয়</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#sales"><span class="lang-en">6. Sales &amp; POS</span><span class="lang-bn">৬. বিক্রয় ও POS</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#stock"><span class="lang-en">7. Stock Management</span><span class="lang-bn">৭. স্টক ব্যবস্থাপনা</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#staff"><span class="lang-en">8. Staff &amp; Roles</span><span class="lang-bn">৮. স্টাফ ও রোল</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#reports"><span class="lang-en">9. Reports</span><span class="lang-bn">৯. রিপোর্ট</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#tech-stack"><span class="lang-en">Tech Stack & Requirements</span><span class="lang-bn">টেক স্ট্যাক ও রিকোয়ারমেন্টস</span></a></li>
+    </ul>
+</div>
+<div class="content-area">
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom flex-wrap gap-3">
+        <h2 class="mb-0 fw-bold"><span class="lang-en">Mastering Royal Inventory Solution</span><span class="lang-bn">রয়্যাল ইনভেন্টরি সলিউশন মাস্টারক্লাস</span></h2>
+        <button id="langToggle" class="btn btn-outline-primary"><span id="langText">বাংলায় পড়ুন</span></button>
+    </div>
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-primary">Royal Inventory Solution</h1>
+        <p class="lead text-secondary"><span class="lang-en">Complete Business Management: Products, POS, Purchases, Sales &amp; Reports</span><span class="lang-bn">সম্পূর্ণ ব্যবসা ব্যবস্থাপনা: পণ্য, POS, ক্রয়, বিক্রয় ও রিপোর্ট</span></p>
+    </div>
+
+    <div id="intro" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">1. What is Royal Inventory Solution?</span><span class="lang-bn">১. রয়্যাল ইনভেন্টরি সলিউশন কী?</span></h3>
+        <div class="lang-en">
+            <p>Royal Inventory Solution is a full-featured <strong>Business Management System</strong> that handles everything a product-based business needs: inventory control, purchasing from suppliers, selling to customers via a <strong>POS terminal</strong>, managing multiple warehouses, staff commissions, and comprehensive reporting.</p>
+            <p>It supports <strong>multiple businesses</strong>, <strong>multiple store locations/warehouses</strong>, barcode scanning, thermal printing, and SMS/Email notifications — making it suitable for retail shops, wholesale businesses, pharmacies, and more.</p>
+        </div>
+        <div class="lang-bn">
+            <p>রয়্যাল ইনভেন্টরি সলিউশন হলো একটি পূর্ণাঙ্গ <strong>ব্যবসা ব্যবস্থাপনা সিস্টেম</strong> যা পণ্যভিত্তিক ব্যবসার সব প্রয়োজনীয়তা পূরণ করে: ইনভেন্টরি নিয়ন্ত্রণ, সাপ্লায়ার থেকে ক্রয়, <strong>POS টার্মিনালের</strong> মাধ্যমে বিক্রয়, একাধিক গুদাম পরিচালনা, স্টাফ কমিশন এবং ব্যাপক রিপোর্টিং।</p>
+            <p>এটি <strong>একাধিক ব্যবসা</strong>, <strong>একাধিক শাখা/গুদাম</strong>, বারকোড স্ক্যানিং, থার্মাল প্রিন্টিং এবং SMS/Email নোটিফিকেশন সাপোর্ট করে — খুচরা দোকান, পাইকারী ব্যবসা, ফার্মেসি এবং আরও অনেক ব্যবসার জন্য উপযুক্ত।</p>
+        </div>
+    </div>
+
+    <div id="setup" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">2. Initial Business Setup</span><span class="lang-bn">২. প্রাথমিক ব্যবসার সেটআপ</span></h3>
+        <div class="lang-en">
+            <p>The first time you open Royal Inventory, configure the basics before using other modules.</p>
+            <ol>
+                <li>Go to <strong>Settings → Business Settings</strong>: Enter your business name, logo, address, currency, time zone, and financial year start month.</li>
+                <li>Go to <strong>Settings → Locations</strong>: Add your store(s) or warehouse(s). Each location tracks its own stock independently.</li>
+                <li>Go to <strong>Settings → Tax Rates</strong>: Create tax rates (e.g., VAT 15%) that you charge on sales.</li>
+                <li>Go to <strong>Settings → Units</strong>: Create units of measurement (Piece, Kg, Litre, Box) for your products.</li>
+                <li>Set your default <strong>profit margin %</strong> — this helps auto-calculate selling prices from purchase price.</li>
+            </ol>
+        </div>
+        <div class="lang-bn">
+            <p>প্রথমবার রয়্যাল ইনভেন্টরি খোলার পর অন্যান্য মডিউল ব্যবহারের আগে মূল বিষয়গুলো কনফিগার করুন।</p>
+            <ol>
+                <li><strong>Settings → Business Settings</strong>-এ যান: ব্যবসার নাম, লোগো, ঠিকানা, কারেন্সি, টাইম জোন এবং আর্থিক বছরের শুরুর মাস দিন।</li>
+                <li><strong>Settings → Locations</strong>-এ যান: আপনার দোকান বা গুদাম যোগ করুন। প্রতিটি লোকেশন স্বাধীনভাবে নিজের স্টক ট্র্যাক করে।</li>
+                <li><strong>Settings → Tax Rates</strong>-এ যান: ট্যাক্স রেট তৈরি করুন (যেমন: ভ্যাট ১৫%) যা বিক্রয়ে চার্জ করা হবে।</li>
+                <li><strong>Settings → Units</strong>-এ যান: পণ্যের পরিমাপের একক তৈরি করুন (পিস, কেজি, লিটার, বক্স)।</li>
+                <li>ডিফল্ট <strong>লাভের মার্জিন %</strong> সেট করুন — এটি ক্রয়মূল্য থেকে স্বয়ংক্রিয়ভাবে বিক্রয়মূল্য হিসাব করতে সাহায্য করে।</li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="products" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">3. Product Management</span><span class="lang-bn">৩. পণ্য ব্যবস্থাপনা</span></h3>
+        <div class="example-box">
+            <h5><span class="lang-en">Adding a new product to the inventory</span><span class="lang-bn">ইনভেন্টরিতে নতুন পণ্য যোগ করা</span></h5>
+            <ol>
+                <li class="mb-2"><span class="lang-en">Go to <strong>Products → Add Product</strong>.</span><span class="lang-bn"><strong>Products → Add Product</strong>-এ যান।</span></li>
+                <li class="mb-2"><span class="lang-en">Enter <strong>Product Name</strong>, <strong>Category</strong>, <strong>Brand</strong>, and <strong>Unit</strong> (e.g., Piece).</span><span class="lang-bn"><strong>পণ্যের নাম</strong>, <strong>ক্যাটাগরি</strong>, <strong>ব্র্যান্ড</strong> এবং <strong>একক</strong> (যেমন: পিস) দিন।</span></li>
+                <li class="mb-2"><span class="lang-en">Set the <strong>Purchase Price</strong> and <strong>Selling Price</strong>. Enable <strong>Stock Management</strong> to track quantity.</span><span class="lang-bn"><strong>ক্রয়মূল্য</strong> ও <strong>বিক্রয়মূল্য</strong> সেট করুন। পরিমাণ ট্র্যাক করতে <strong>Stock Management</strong> চালু করুন।</span></li>
+                <li class="mb-2"><span class="lang-en">Optionally set a <strong>Low Stock Alert</strong> level (e.g., alert when quantity drops below 10).</span><span class="lang-bn">ঐচ্ছিকভাবে <strong>Low Stock Alert</strong> মাত্রা সেট করুন (যেমন: পরিমাণ ১০-এর নিচে গেলে সতর্কতা)।</span></li>
+                <li class="mb-2"><span class="lang-en">For products with expiry dates, enable <strong>Has Expiry</strong> to track lot numbers and expiry alerts.</span><span class="lang-bn">মেয়াদ উত্তীর্ণ হওয়া পণ্যের জন্য লট নম্বর ও মেয়াদ সতর্কতা ট্র্যাক করতে <strong>Has Expiry</strong> চালু করুন।</span></li>
+                <li><span class="lang-en">Click <strong>Save Product</strong>. The system auto-generates a <strong>SKU/barcode</strong> if enabled.</span><span class="lang-bn"><strong>Save Product</strong> ক্লিক করুন। চালু থাকলে সিস্টেম স্বয়ংক্রিয়ভাবে একটি <strong>SKU/বারকোড</strong> তৈরি করবে।</span></li>
+            </ol>
+        </div>
+        <div class="lang-en mt-3"><p>You can also <strong>import products in bulk</strong> via a CSV file from <strong>Products → Import</strong>. Print barcodes and shelf labels from <strong>Products → Print Labels</strong>.</p></div>
+        <div class="lang-bn mt-3"><p><strong>Products → Import</strong> থেকে CSV ফাইলের মাধ্যমে <strong>বাল্কে পণ্য ইম্পোর্ট</strong> করা যায়। <strong>Products → Print Labels</strong> থেকে বারকোড ও শেলফ লেবেল প্রিন্ট করুন।</p></div>
+    </div>
+
+    <div id="parties" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">4. Suppliers &amp; Customers</span><span class="lang-bn">৪. সাপ্লায়ার ও কাস্টমার</span></h3>
+        <div class="lang-en">
+            <p>In Royal Inventory, a contact can be a <strong>Supplier</strong>, a <strong>Customer</strong>, or <strong>Both</strong>.</p>
+            <ul>
+                <li>Go to <strong>Contacts → Add Contact</strong>. Fill in name, phone, email, and address.</li>
+                <li>Set the contact type: <strong>Supplier</strong> (you buy from them), <strong>Customer</strong> (they buy from you), or <strong>Both</strong>.</li>
+                <li>Set <strong>Pay Terms</strong> (e.g., Net 30 days) and enable <strong>payment alerts</strong> via SMS or email when dues are approaching.</li>
+                <li>From any contact's profile, view their complete <strong>purchase history</strong>, <strong>outstanding balance</strong>, and all associated transactions.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>রয়্যাল ইনভেন্টরিতে একটি কন্ট্যাক্ট <strong>সাপ্লায়ার</strong>, <strong>কাস্টমার</strong> বা <strong>উভয়ই</strong> হতে পারে।</p>
+            <ul>
+                <li><strong>Contacts → Add Contact</strong>-এ যান। নাম, ফোন, ইমেইল এবং ঠিকানা পূরণ করুন।</li>
+                <li>কন্ট্যাক্টের ধরন সেট করুন: <strong>Supplier</strong> (আপনি তাদের কাছ থেকে কেনেন), <strong>Customer</strong> (তারা আপনার কাছ থেকে কেনে), বা <strong>উভয়</strong>।</li>
+                <li><strong>Pay Terms</strong> সেট করুন (যেমন: ৩০ দিন) এবং বকেয়া আসন্ন হলে SMS বা ইমেইলে <strong>পেমেন্ট অ্যালার্ট</strong> চালু করুন।</li>
+                <li>যেকোনো কন্ট্যাক্টের প্রোফাইল থেকে তাদের সম্পূর্ণ <strong>ক্রয় ইতিহাস</strong>, <strong>বকেয়া ব্যালেন্স</strong> এবং সব সংশ্লিষ্ট লেনদেন দেখুন।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="purchases" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">5. Purchases (Buying Stock from Suppliers)</span><span class="lang-bn">৫. ক্রয় (সাপ্লায়ার থেকে স্টক কেনা)</span></h3>
+        <div class="example-box">
+            <h5><span class="lang-en">Recording a purchase from a supplier</span><span class="lang-bn">সাপ্লায়ার থেকে ক্রয় রেকর্ড করা</span></h5>
+            <ol>
+                <li class="mb-2"><span class="lang-en">Go to <strong>Purchases → Add Purchase</strong>.</span><span class="lang-bn"><strong>Purchases → Add Purchase</strong>-এ যান।</span></li>
+                <li class="mb-2"><span class="lang-en">Select the <strong>Supplier</strong>, <strong>Business Location</strong> (warehouse), and <strong>Purchase Date</strong>.</span><span class="lang-bn"><strong>সাপ্লায়ার</strong>, <strong>ব্যবসার লোকেশন</strong> (গুদাম) এবং <strong>ক্রয়ের তারিখ</strong> সিলেক্ট করুন।</span></li>
+                <li class="mb-2"><span class="lang-en">Search and add products. Enter <strong>Quantity</strong>, <strong>Purchase Price</strong>, and any applicable <strong>Tax</strong> or <strong>Discount</strong>.</span><span class="lang-bn">পণ্য খুঁজুন এবং যোগ করুন। <strong>পরিমাণ</strong>, <strong>ক্রয়মূল্য</strong> এবং প্রযোজ্য <strong>ট্যাক্স</strong> বা <strong>ডিসকাউন্ট</strong> দিন।</span></li>
+                <li class="mb-2"><span class="lang-en">Set payment status: <span class="badge bg-success">Paid</span>, <span class="badge bg-warning text-dark">Partial</span>, or <span class="badge bg-danger">Credit</span>. Add <strong>Shipping Charges</strong> if any.</span><span class="lang-bn">পেমেন্ট স্ট্যাটাস সেট করুন: <span class="badge bg-success">পেইড</span>, <span class="badge bg-warning text-dark">আংশিক</span>, বা <span class="badge bg-danger">বাকি</span>। কোনো <strong>শিপিং চার্জ</strong> থাকলে যোগ করুন।</span></li>
+                <li><span class="lang-en">Click <strong>Save Purchase</strong>. Stock levels at the selected location increase automatically.</span><span class="lang-bn"><strong>Save Purchase</strong> ক্লিক করুন। নির্বাচিত লোকেশনের স্টক স্তর স্বয়ংক্রিয়ভাবে বাড়বে।</span></li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="sales" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">6. Sales &amp; POS Terminal</span><span class="lang-bn">৬. বিক্রয় ও POS টার্মিনাল</span></h3>
+        <div class="lang-en">
+            <p>Royal Inventory features a fast <strong>Point of Sale (POS)</strong> terminal designed for busy retail counters.</p>
+            <ul>
+                <li>Go to <strong>Sales → POS</strong>. The POS screen loads instantly (no page reload, fully AJAX-powered).</li>
+                <li>Search products by name or <strong>scan a barcode</strong>. Products are added to the cart instantly.</li>
+                <li>Select or <strong>quick-add</strong> a walk-in customer.</li>
+                <li>Apply <strong>discounts</strong>, choose <strong>payment method</strong> (Cash, Card, Cheque, Bank Transfer, bKash), and split payments across multiple methods.</li>
+                <li>Use <strong>keyboard shortcuts</strong> to speed up checkout. Press Enter to add to cart, F2 to toggle payment, etc.</li>
+                <li>Print a POS receipt on a <strong>thermal printer (ESC/POS)</strong> instantly after checkout.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>রয়্যাল ইনভেন্টরিতে ব্যস্ত রিটেইল কাউন্টারের জন্য একটি দ্রুত <strong>POS (Point of Sale)</strong> টার্মিনাল আছে।</p>
+            <ul>
+                <li><strong>Sales → POS</strong>-এ যান। POS স্ক্রিন তাৎক্ষণিক লোড হয় (পেজ রিলোড নেই, সম্পূর্ণ AJAX)।</li>
+                <li>নাম দিয়ে পণ্য খুঁজুন বা <strong>বারকোড স্ক্যান করুন</strong>। পণ্য কার্টে তাৎক্ষণিক যোগ হয়।</li>
+                <li>ওয়াক-ইন কাস্টমার সিলেক্ট বা <strong>দ্রুত যোগ</strong> করুন।</li>
+                <li><strong>ডিসকাউন্ট</strong> প্রয়োগ করুন, <strong>পেমেন্ট মেথড</strong> বেছে নিন (ক্যাশ, কার্ড, চেক, ব্যাংক ট্রান্সফার, বিকাশ) এবং একাধিক মেথডে পেমেন্ট ভাগ করুন।</li>
+                <li>চেকআউট দ্রুত করতে <strong>কীবোর্ড শর্টকাট</strong> ব্যবহার করুন।</li>
+                <li>চেকআউটের পরপরই <strong>থার্মাল প্রিন্টারে (ESC/POS)</strong> রশিদ প্রিন্ট করুন।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="stock" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">7. Stock Management</span><span class="lang-bn">৭. স্টক ব্যবস্থাপনা</span></h3>
+        <div class="lang-en">
+            <table class="table table-bordered table-custom mt-2">
+                <thead><tr><th>Feature</th><th>What it does</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Current Stock</strong></td><td>View real-time stock levels for all products across all locations</td></tr>
+                    <tr><td><strong>Stock Adjustment</strong></td><td>Manually add or remove stock (e.g., breakage, theft, stock count correction)</td></tr>
+                    <tr><td><strong>Stock Transfer</strong></td><td>Move stock from one warehouse/location to another</td></tr>
+                    <tr><td><strong>Low Stock Alerts</strong></td><td>Auto-notifies when a product falls below its set threshold</td></tr>
+                    <tr><td><strong>Expiry Alerts</strong></td><td>Alerts for products approaching their expiry date</td></tr>
+                    <tr><td><strong>Sales Return</strong></td><td>Process customer returns — stock is added back automatically</td></tr>
+                    <tr><td><strong>Purchase Return</strong></td><td>Return goods to supplier — stock is deducted automatically</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="lang-bn">
+            <table class="table table-bordered table-custom mt-2">
+                <thead><tr><th>ফিচার</th><th>কী করে</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>বর্তমান স্টক</strong></td><td>সব লোকেশনের সব পণ্যের রিয়েল-টাইম স্টক স্তর দেখুন</td></tr>
+                    <tr><td><strong>স্টক অ্যাডজাস্টমেন্ট</strong></td><td>ম্যানুয়ালি স্টক যোগ বা বিয়োগ করুন (যেমন: ভাঙা, চুরি, স্টক গণনা সংশোধন)</td></tr>
+                    <tr><td><strong>স্টক ট্রান্সফার</strong></td><td>এক গুদাম থেকে অন্য গুদামে স্টক সরান</td></tr>
+                    <tr><td><strong>Low Stock অ্যালার্ট</strong></td><td>কোনো পণ্য সেট থ্রেশহোল্ডের নিচে গেলে স্বয়ংক্রিয় নোটিশ</td></tr>
+                    <tr><td><strong>মেয়াদ অ্যালার্ট</strong></td><td>মেয়াদ শেষ হওয়ার কাছাকাছি পণ্যের জন্য সতর্কতা</td></tr>
+                    <tr><td><strong>Sales Return</strong></td><td>কাস্টমারের ফেরত প্রক্রিয়া করুন — স্টক স্বয়ংক্রিয়ভাবে ফিরে আসে</td></tr>
+                    <tr><td><strong>Purchase Return</strong></td><td>সাপ্লায়ারকে পণ্য ফেরত দিন — স্টক স্বয়ংক্রিয়ভাবে কমে যায়</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="staff" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">8. Staff, Roles &amp; Commissions</span><span class="lang-bn">৮. স্টাফ, রোল ও কমিশন</span></h3>
+        <div class="lang-en">
+            <p>Royal Inventory includes an advanced user management system.</p>
+            <ul>
+                <li><strong>Predefined Roles:</strong> Admin (full access) and Cashier (POS only) roles are available by default.</li>
+                <li><strong>Custom Roles:</strong> Create custom roles and assign specific permissions per module (e.g., a role that can view reports but not edit products).</li>
+                <li><strong>Location Restrictions:</strong> Assign each staff member to specific business locations so they only see data for their store.</li>
+                <li><strong>Commission Agents:</strong> Link a salesperson to a sale. The system tracks how much business each salesperson brings.</li>
+                <li><strong>Staff Salary:</strong> Track monthly salary expenses and payroll history per employee.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>রয়্যাল ইনভেন্টরিতে উন্নত ইউজার ম্যানেজমেন্ট সিস্টেম আছে।</p>
+            <ul>
+                <li><strong>পূর্বনির্ধারিত রোল:</strong> Admin (সম্পূর্ণ অ্যাক্সেস) এবং Cashier (শুধু POS) রোল ডিফল্টে আছে।</li>
+                <li><strong>কাস্টম রোল:</strong> কাস্টম রোল তৈরি করুন এবং প্রতিটি মডিউলে নির্দিষ্ট অনুমতি (Permission) দিন।</li>
+                <li><strong>লোকেশন সীমাবদ্ধতা:</strong> প্রতিটি স্টাফ সদস্যকে নির্দিষ্ট লোকেশনে সীমিত করুন যাতে তারা শুধু তাদের দোকানের ডেটা দেখতে পায়।</li>
+                <li><strong>কমিশন এজেন্ট:</strong> একজন সেলসপার্সনকে বিক্রয়ের সাথে লিংক করুন। সিস্টেম ট্র্যাক করে প্রতিজন কতটুকু ব্যবসা এনেছে।</li>
+                <li><strong>স্টাফ বেতন:</strong> প্রতি কর্মচারীর মাসিক বেতন খরচ ও পেরোল ইতিহাস ট্র্যাক করুন।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="reports" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">9. Reports</span><span class="lang-bn">৯. রিপোর্ট</span></h3>
+        <div class="lang-en">
+            <p>Royal Inventory's reporting suite provides powerful insights with filters and charts.</p>
+            <table class="table table-bordered table-custom mt-2">
+                <thead><tr><th>Report</th><th>Insight it provides</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Profit &amp; Loss</strong></td><td>Total revenue, cost of goods, and net profit for any period</td></tr>
+                    <tr><td><strong>Purchase Report</strong></td><td>All purchases by supplier, date, or product</td></tr>
+                    <tr><td><strong>Sell Report</strong></td><td>All sales by customer, date, product, or salesperson</td></tr>
+                    <tr><td><strong>Stock Report</strong></td><td>Current stock value, low stock items, and expiry alerts</td></tr>
+                    <tr><td><strong>Trending Products</strong></td><td>Best-selling and slow-moving products</td></tr>
+                    <tr><td><strong>Tax Report</strong></td><td>VAT/tax collected and paid in a period</td></tr>
+                    <tr><td><strong>Expense Report</strong></td><td>Business expenses by category and date range</td></tr>
+                    <tr><td><strong>Customer/Supplier Report</strong></td><td>Outstanding balances and transaction history per contact</td></tr>
+                    <tr><td><strong>Cash Register Report</strong></td><td>Daily opening/closing cash balance at POS</td></tr>
+                    <tr><td><strong>Salesperson Report</strong></td><td>Sales and commissions per staff member</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="lang-bn">
+            <p>রয়্যাল ইনভেন্টরির রিপোর্টিং সিস্টেম ফিল্টার ও চার্ট সহ শক্তিশালী অন্তর্দৃষ্টি প্রদান করে।</p>
+            <table class="table table-bordered table-custom mt-2">
+                <thead><tr><th>রিপোর্ট</th><th>কী জানা যায়</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Profit &amp; Loss</strong></td><td>যেকোনো সময়কালে মোট রাজস্ব, পণ্যের খরচ এবং নিট লাভ</td></tr>
+                    <tr><td><strong>Purchase Report</strong></td><td>সাপ্লায়ার, তারিখ বা পণ্য অনুযায়ী সব ক্রয়</td></tr>
+                    <tr><td><strong>Sell Report</strong></td><td>কাস্টমার, তারিখ, পণ্য বা সেলসপার্সন অনুযায়ী সব বিক্রয়</td></tr>
+                    <tr><td><strong>Stock Report</strong></td><td>বর্তমান স্টকের মূল্য, কম স্টক আইটেম এবং মেয়াদ অ্যালার্ট</td></tr>
+                    <tr><td><strong>Trending Products</strong></td><td>সর্বাধিক বিক্রিত ও ধীরগতির পণ্য</td></tr>
+                    <tr><td><strong>Tax Report</strong></td><td>নির্দিষ্ট সময়ে সংগৃহীত ও পরিশোধিত ভ্যাট/ট্যাক্স</td></tr>
+                    <tr><td><strong>Expense Report</strong></td><td>ক্যাটাগরি ও তারিখ পরিসরে ব্যবসায়িক খরচ</td></tr>
+                    <tr><td><strong>Customer/Supplier Report</strong></td><td>প্রতি কন্ট্যাক্টের বকেয়া ব্যালেন্স ও লেনদেনের ইতিহাস</td></tr>
+                    <tr><td><strong>Cash Register Report</strong></td><td>POS-এ দৈনিক ক্যাশের শুরু/শেষ ব্যালেন্স</td></tr>
+                    <tr><td><strong>Salesperson Report</strong></td><td>প্রতি স্টাফ সদস্যের বিক্রয় ও কমিশন</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="tech-stack" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">Technical Stack & Minimum Requirements</span><span class="lang-bn">টেকনিক্যাল স্ট্যাক ও রিকোয়ারমেন্টস</span></h3>
+        <div class="lang-en">
+            <ul>
+                <li><strong>Type:</strong> Custom Web Application</li>
+                <li><strong>Framework/Language:</strong> PHP (Laravel), JavaScript, MySQL.</li>
+                <li><strong>Minimum Server Requirements:</strong>
+                    <ul>
+                        <li>PHP 8.1 or higher</li>
+                        <li>MySQL 8.0+ or MariaDB 10.3+</li>
+                        <li>Apache/Nginx Server</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <ul>
+                <li><strong>ধরন (Type):</strong> কাস্টম ওয়েব অ্যাপ্লিকেশন</li>
+                <li><strong>ফ্রেমওয়ার্ক/ল্যাঙ্গুয়েজ:</strong> PHP (Laravel), JavaScript, MySQL.</li>
+                <li><strong>মিনিমাম রিকোয়ারমেন্ট (সার্ভার):</strong>
+                    <ul>
+                        <li>PHP 8.1+</li>
+                        <li>MySQL 8.0+ বা MariaDB 10.3+</li>
+                        <li>Apache/Nginx সার্ভার (সাধারণ হোস্টিংয়েও চলবে)</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <p class="mb-1 fw-bold text-dark">Royal Technologies</p>
+        <p class="mb-1">Innovative Solutions for Modern Businesses</p>
+        <p class="mb-0">Website: <a href="https://royaltechbd.com" target="_blank">royaltechbd.com</a></p>
+    </div>
+</div>
+<script>
+    document.getElementById('langToggle').addEventListener('click', function() {
+        const bn = Array.from(document.querySelectorAll('.lang-bn'));
+        const isHidden = window.getComputedStyle(bn[0]).display === 'none';
+        const en = document.querySelectorAll('.lang-en');
+        if (isHidden) { en.forEach(e=>e.style.display='none'); bn.forEach(e=>e.style.display='block'); document.getElementById('langText').innerText='Read in English'; }
+        else { bn.forEach(e=>e.style.display='none'); en.forEach(e=>e.style.display='block'); document.getElementById('langText').innerText='বাংলায় পড়ুন'; }
+    });
+</script>
+</body>
+</html>
