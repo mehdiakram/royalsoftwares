@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Royal Softwares – টিউটোরিয়াল হাব</title>
+  <meta name="description" content="Royal Softwares-এর সকল সফটওয়্যারের বাংলা টিউটোরিয়াল। Royal Accounts, এবং আরও আসছে।" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0c14;
+      --bg2: #111320;
+      --accent: #6c63ff;
+      --accent2: #a78bfa;
+      --gold: #f59e0b;
+      --green: #10b981;
+      --cyan: #06b6d4;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --card-bg: rgba(255,255,255,0.04);
+      --card-border: rgba(255,255,255,0.08);
+      --radius: 20px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', 'Hind Siliguri', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Background orbs ── */
+    .bg-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb1 { width: 600px; height: 600px; background: rgba(108,99,255,0.15); top: -150px; left: -150px; }
+    .orb2 { width: 500px; height: 500px; background: rgba(16,185,129,0.10); bottom: -100px; right: -100px; }
+    .orb3 { width: 400px; height: 400px; background: rgba(245,158,11,0.08); top: 40%; left: 50%; transform: translateX(-50%); }
+
+    /* ── Layout ── */
+    .wrapper { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── Header ── */
+    header {
+      padding: 28px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 0 20px rgba(108,99,255,0.4);
+    }
+    .logo-text { font-size: 1.35rem; font-weight: 700; color: var(--text); letter-spacing: -0.5px; }
+    .logo-text span { color: var(--accent2); }
+
+    .badge {
+      background: rgba(108,99,255,0.15);
+      border: 1px solid rgba(108,99,255,0.3);
+      color: var(--accent2);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 100px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 80px 0 60px;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245,158,11,0.1);
+      border: 1px solid rgba(245,158,11,0.25);
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      letter-spacing: 0.5px;
+    }
+    .hero-tag::before { content: "✦"; }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+    .hero h1 .line1 { display: block; }
+    .hero h1 .gradient {
+      background: linear-gradient(90deg, var(--accent2), #818cf8, var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+
+    /* ── Section title ── */
+    .section-title {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .section-title h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+    .section-title p { color: var(--muted); font-family: 'Hind Siliguri', sans-serif; }
+
+    /* ── Grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      padding-bottom: 80px;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--card-accent, rgba(108,99,255,0.5));
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px var(--card-accent, rgba(108,99,255,0.2));
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--card-accent, var(--accent)), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .card:hover::before { opacity: 1; }
+
+    /* Glow on hover */
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      background: radial-gradient(400px circle at var(--mx,50%) var(--my,50%), rgba(108,99,255,0.06), transparent 60%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .card:hover::after { opacity: 1; }
+
+    .card-icon {
+      width: 56px; height: 56px;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px;
+      flex-shrink: 0;
+    }
+    .card-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 100px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+    .tag-live   { background: rgba(16,185,129,0.15); color: var(--green); border: 1px solid rgba(16,185,129,0.25); }
+    .tag-soon   { background: rgba(148,163,184,0.1);  color: var(--muted);  border: 1px solid rgba(148,163,184,0.2); }
+    .tag-new    { background: rgba(245,158,11,0.12); color: var(--gold);  border: 1px solid rgba(245,158,11,0.25); }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.3px;
+    }
+    .card-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+      flex: 1;
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 4px;
+    }
+    .card-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--card-accent-text, var(--accent2));
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+    .card:hover .card-link { gap: 10px; }
+    .card-link svg { flex-shrink: 0; }
+
+    .card-chapters {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* Specific card accent colors */
+    .card-royal    { --card-accent: rgba(108,99,255,0.6); --card-accent-text: var(--accent2); }
+    .card-pos      { --card-accent: rgba(16,185,129,0.5); --card-accent-text: var(--green);  }
+    .card-hr       { --card-accent: rgba(6,182,212,0.5);  --card-accent-text: var(--cyan);   }
+    .card-school   { --card-accent: rgba(245,158,11,0.5); --card-accent-text: var(--gold);   }
+    .card-inventory{ --card-accent: rgba(244,63,94,0.45); --card-accent-text: #fb7185;       }
+    .card-payroll  { --card-accent: rgba(139,92,246,0.5); --card-accent-text: #c084fc;       }
+
+    .icon-royal    { background: rgba(108,99,255,0.15); }
+    .icon-pos      { background: rgba(16,185,129,0.15); }
+    .icon-hr       { background: rgba(6,182,212,0.15);  }
+    .icon-school   { background: rgba(245,158,11,0.15); }
+    .icon-inventory{ background: rgba(244,63,94,0.12);  }
+    .icon-payroll  { background: rgba(139,92,246,0.15); }
+
+    /* ── Stats strip ── */
+    .stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+      padding: 32px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      margin-bottom: 70px;
+      backdrop-filter: blur(12px);
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent2), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -1px;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 2px; font-family: 'Hind Siliguri', sans-serif; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 32px 0;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--card-border);
+    }
+    footer a { color: var(--accent2); text-decoration: none; }
+
+    /* ── Coming Soon overlay ── */
+    .card-disabled { pointer-events: none; opacity: 0.55; }
+
+    @media (max-width:600px) {
+      .hero { padding: 50px 0 40px; }
+      .stats { gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-orb orb1"></div>
+  <div class="bg-orb orb2"></div>
+  <div class="bg-orb orb3"></div>
+
+  <div class="wrapper">
+
+    <!-- Header -->
+    <header>
+      <a class="logo" href="#">
+        <div class="logo-icon">👑</div>
+        <span class="logo-text">Royal<span>Softwares</span></span>
+      </a>
+      <span class="badge">Tutorial Hub</span>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-tag">বাংলা ভাষায় সম্পূর্ণ গাইড</div>
+      <h1>
+        <span class="line1">সকল সফটওয়্যারের</span>
+        <span class="gradient">টিউটোরিয়াল এখানে</span>
+      </h1>
+      <p>Royal Softwares-এর যেকোনো সফটওয়্যার সহজে শিখুন। ধাপে ধাপে বাংলায় তৈরি করা টিউটোরিয়াল — শুধু ক্লিক করুন এবং শিখুন।</p>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">১+</div>
+        <div class="stat-label">সক্রিয় টিউটোরিয়াল</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">৫+</div>
+        <div class="stat-label">সফটওয়্যার মডিউল</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">বাংলা</div>
+        <div class="stat-label">ভাষায় সম্পূর্ণ</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">বিনামূল্যে</div>
+        <div class="stat-label">সম্পূর্ণ ফ্রি</div>
+      </div>
+    </div>
+
+    <!-- Section title -->
+    <div class="section-title">
+      <h2>সফটওয়্যার বেছে নিন</h2>
+      <p>নিচের যেকোনো সফটওয়্যারে ক্লিক করে টিউটোরিয়াল শুরু করুন</p>
+    </div>
+
+    <!-- Grid of software cards -->
+    <div class="grid">
+
+      <!-- Royal Accounts -->
+      <a href="royalaccounts/index.html" class="card card-royal" id="card-accounts">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="card-icon icon-royal">📊</div>
+          <div>
+            <div class="card-meta">
+              <span class="tag tag-live">Live</span>
+              <span class="tag tag-new">New</span>
+            </div>
+            <div class="card-title">Royal Accounts</div>
+          </div>
+        </div>
+        <p class="card-desc">হিসাব-নিকাশ, ভাউচার, রিপোর্ট, দেনাদার-পাওনাদার, ব্যাংক রিকনসিলিয়েশন সহ সম্পূর্ণ অ্যাকাউন্টিং সফটওয়্যার টিউটোরিয়াল।</p>
+        <div class="card-footer">
+          <span class="card-link">
+            টিউটোরিয়াল দেখুন
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+          <span class="card-chapters">সম্পূর্ণ গাইড ➡</span>
+        </div>
+      </a>
+
+      <!-- Royal POS -->
+      <div class="card card-pos card-disabled">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="card-icon icon-pos">🛒</div>
+          <div>
+            <div class="card-meta"><span class="tag tag-soon">শীঘ্রই আসছে</span></div>
+            <div class="card-title">Royal POS</div>
+          </div>
+        </div>
+        <p class="card-desc">পয়েন্ট অব সেল, বিক্রয় ব্যবস্থাপনা, ইনভয়েস, পণ্য ও স্টক কনট্রোলের সম্পূর্ণ টিউটোরিয়াল।</p>
+        <div class="card-footer">
+          <span class="card-link" style="color:var(--muted);">শীঘ্রই আসছে…</span>
+        </div>
+      </div>
+
+      <!-- Royal HR -->
+      <div class="card card-hr card-disabled">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="card-icon icon-hr">👥</div>
+          <div>
+            <div class="card-meta"><span class="tag tag-soon">শীঘ্রই আসছে</span></div>
+            <div class="card-title">Royal HR</div>
+          </div>
+        </div>
+        <p class="card-desc">কর্মচারী ব্যবস্থাপনা, হাজিরা, ছুটি, এবং পেরোল সংক্রান্ত সম্পূর্ণ HR সফটওয়্যার গাইড।</p>
+        <div class="card-footer">
+          <span class="card-link" style="color:var(--muted);">শীঘ্রই আসছে…</span>
+        </div>
+      </div>
+
+      <!-- Royal School -->
+      <div class="card card-school card-disabled">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="card-icon icon-school">🎓</div>
+          <div>
+            <div class="card-meta"><span class="tag tag-soon">শীঘ্রই আসছে</span></div>
+            <div class="card-title">Royal School</div>
+          </div>
+        </div>
+        <p class="card-desc">শিক্ষা প্রতিষ্ঠান ব্যবস্থাপনা সফটওয়্যার — শিক্ষার্থী, ক্লাস, ফি, এবং রেজাল্ট ম্যানেজমেন্ট।</p>
+        <div class="card-footer">
+          <span class="card-link" style="color:var(--muted);">শীঘ্রই আসছে…</span>
+        </div>
+      </div>
+
+      <!-- Royal Inventory -->
+      <div class="card card-inventory card-disabled">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="card-icon icon-inventory">📦</div>
+          <div>
+            <div class="card-meta"><span class="tag tag-soon">শীঘ্রই আসছে</span></div>
+            <div class="card-title">Royal Inventory</div>
+          </div>
+        </div>
+        <p class="card-desc">গুদাম ব্যবস্থাপনা, স্টক ইন/আউট, পণ্য অর্ডার ও সাপ্লাই চেইন ম্যানেজমেন্ট টিউটোরিয়াল।</p>
+        <div class="card-footer">
+          <span class="card-link" style="color:var(--muted);">শীঘ্রই আসছে…</span>
+        </div>
+      </div>
+
+      <!-- Royal Payroll -->
+      <div class="card card-payroll card-disabled">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="card-icon icon-payroll">💰</div>
+          <div>
+            <div class="card-meta"><span class="tag tag-soon">শীঘ্রই আসছে</span></div>
+            <div class="card-title">Royal Payroll</div>
+          </div>
+        </div>
+        <p class="card-desc">বেতন হিসাব, বোনাস, ট্যাক্স কিছু কর্তন ও পেস্লিপ তৈরি করার সম্পূর্ণ টিউটোরিয়াল।</p>
+        <div class="card-footer">
+          <span class="card-link" style="color:var(--muted);">শীঘ্রই আসছে…</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrapper">
+      <p>© ২০২৬ <a href="#">Royal Softwares</a> — সর্বস্বত্ব সংরক্ষিত</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mouse-tracking glow effect on cards
+    document.querySelectorAll('.card:not(.card-disabled)').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+        const y = ((e.clientY - rect.top)  / rect.height * 100).toFixed(1);
+        card.style.setProperty('--mx', x + '%');
+        card.style.setProperty('--my', y + '%');
+      });
+    });
+  </script>
+</body>
+</html>
