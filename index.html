@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Royal Softwares – টিউটোরিয়াল হাব</title>
-  <meta name="description" content="Royal Softwares-এর সকল সফটওয়্যারের বাংলা টিউটোরিয়াল। Royal Accounts, এবং আরও আসছে।" />
+  <title>Royal Softwares – Tutorial Hub</title>
+  <meta name="description" content="Tutorial hub for all Royal Softwares products including Royal Accounts." />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -35,6 +36,8 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
+    
+    .lang-bn { display: none; } /* Hidden by default */
 
     /* ── Background orbs ── */
     .bg-orb {
@@ -67,16 +70,17 @@
       gap: 12px;
       text-decoration: none;
     }
-    .logo-icon {
-      width: 44px; height: 44px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px;
-      box-shadow: 0 0 20px rgba(108,99,255,0.4);
+    .logo img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
     }
-    .logo-text { font-size: 1.35rem; font-weight: 700; color: var(--text); letter-spacing: -0.5px; }
-    .logo-text span { color: var(--accent2); }
+    
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
 
     .badge {
       background: rgba(108,99,255,0.15);
@@ -89,11 +93,30 @@
       letter-spacing: 0.5px;
       text-transform: uppercase;
     }
+    
+    .btn-lang {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--text);
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 100px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-lang:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.3);
+    }
 
     /* ── Hero ── */
     .hero {
       text-align: center;
-      padding: 80px 0 60px;
+      padding: 70px 0 60px;
     }
     .hero-tag {
       display: inline-flex;
@@ -130,7 +153,7 @@
       max-width: 560px;
       margin: 0 auto;
       line-height: 1.7;
-      font-family: 'Hind Siliguri', sans-serif;
+      font-family: 'Hind Siliguri', 'Inter', sans-serif;
     }
 
     /* ── Section title ── */
@@ -144,7 +167,7 @@
       margin-bottom: 8px;
       letter-spacing: -0.5px;
     }
-    .section-title p { color: var(--muted); font-family: 'Hind Siliguri', sans-serif; }
+    .section-title p { color: var(--muted); font-family: 'Hind Siliguri', 'Inter', sans-serif; }
 
     /* ── Grid ── */
     .grid {
@@ -230,7 +253,7 @@
       color: var(--muted);
       line-height: 1.65;
       flex: 1;
-      font-family: 'Hind Siliguri', sans-serif;
+      font-family: 'Hind Siliguri', 'Inter', sans-serif;
     }
     .card-footer {
       display: flex;
@@ -294,7 +317,7 @@
       background-clip: text;
       letter-spacing: -1px;
     }
-    .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 2px; font-family: 'Hind Siliguri', sans-serif; }
+    .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 2px; font-family: 'Hind Siliguri', 'Inter', sans-serif; }
 
     /* ── Footer ── */
     footer {
@@ -326,46 +349,82 @@
     <!-- Header -->
     <header>
       <a class="logo" href="#">
-        <div class="logo-icon">👑</div>
-        <span class="logo-text">Royal<span>Softwares</span></span>
+        <img src="images/logo.png" alt="Royal Softwares Logo">
       </a>
-      <span class="badge">Tutorial Hub</span>
+      <div class="header-actions">
+        <span class="badge">Tutorial Hub</span>
+        <button id="langToggle" class="btn-lang" title="Toggle Language (English/Bangla)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286H4.545zm1.634-.736L5.5 3.956h-.049l-.679 2.022H6.18z"/>
+                <path d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2zm7.138 9.995c.193.301.402.583.63.846-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6.066 6.066 0 0 1-.415-.492 1.988 1.988 0 0 1-.94.31z"/>
+            </svg>
+            <span id="langText">বাংলায় পড়ুন</span>
+        </button>
+      </div>
     </header>
 
     <!-- Hero -->
     <section class="hero">
-      <div class="hero-tag">বাংলা ভাষায় সম্পূর্ণ গাইড</div>
+      <div class="hero-tag">
+        <span class="lang-en">Comprehensive Software Guides</span>
+        <span class="lang-bn">বাংলা ভাষায় সম্পূর্ণ গাইড</span>
+      </div>
       <h1>
-        <span class="line1">সকল সফটওয়্যারের</span>
-        <span class="gradient">টিউটোরিয়াল এখানে</span>
+        <span class="line1 lang-en">Official Tutorials for</span>
+        <span class="line1 lang-bn">সকল সফটওয়্যারের</span>
+        <span class="gradient lang-en">Royal Softwares</span>
+        <span class="gradient lang-bn">টিউটোরিয়াল এখানে</span>
       </h1>
-      <p>Royal Softwares-এর যেকোনো সফটওয়্যার সহজে শিখুন। ধাপে ধাপে বাংলায় তৈরি করা টিউটোরিয়াল — শুধু ক্লিক করুন এবং শিখুন।</p>
+      <p class="lang-en">Learn how to easily navigate and master any software from Royal Softwares. Step-by-step guides—just click and learn.</p>
+      <p class="lang-bn">Royal Softwares-এর যেকোনো সফটওয়্যার সহজে শিখুন। ধাপে ধাপে বাংলায় তৈরি করা টিউটোরিয়াল — শুধু ক্লিক করুন এবং শিখুন।</p>
     </section>
 
     <!-- Stats -->
     <div class="stats">
       <div class="stat">
-        <div class="stat-num">১+</div>
-        <div class="stat-label">সক্রিয় টিউটোরিয়াল</div>
+        <div class="stat-num">
+          <span class="lang-en">1+</span><span class="lang-bn">১+</span>
+        </div>
+        <div class="stat-label">
+          <span class="lang-en">Active Tutorials</span><span class="lang-bn">সক্রিয় টিউটোরিয়াল</span>
+        </div>
       </div>
       <div class="stat">
-        <div class="stat-num">৫+</div>
-        <div class="stat-label">সফটওয়্যার মডিউল</div>
+        <div class="stat-num">
+          <span class="lang-en">5+</span><span class="lang-bn">৫+</span>
+        </div>
+        <div class="stat-label">
+          <span class="lang-en">Software Modules</span><span class="lang-bn">সফটওয়্যার মডিউল</span>
+        </div>
       </div>
       <div class="stat">
-        <div class="stat-num">বাংলা</div>
-        <div class="stat-label">ভাষায় সম্পূর্ণ</div>
+        <div class="stat-num">
+          <span class="lang-en">Bi-lingual</span><span class="lang-bn">বাংলা ও ইংরেজি</span>
+        </div>
+        <div class="stat-label">
+          <span class="lang-en">Full Support</span><span class="lang-bn">ভাষার সুবিধা</span>
+        </div>
       </div>
       <div class="stat">
-        <div class="stat-num">বিনামূল্যে</div>
-        <div class="stat-label">সম্পূর্ণ ফ্রি</div>
+        <div class="stat-num">
+          <span class="lang-en">Free</span><span class="lang-bn">বিনামূল্যে</span>
+        </div>
+        <div class="stat-label">
+          <span class="lang-en">100% Free</span><span class="lang-bn">সম্পূর্ণ ফ্রি</span>
+        </div>
       </div>
     </div>
 
     <!-- Section title -->
     <div class="section-title">
-      <h2>সফটওয়্যার বেছে নিন</h2>
-      <p>নিচের যেকোনো সফটওয়্যারে ক্লিক করে টিউটোরিয়াল শুরু করুন</p>
+      <h2>
+        <span class="lang-en">Choose a Software</span>
+        <span class="lang-bn">সফটওয়্যার বেছে নিন</span>
+      </h2>
+      <p>
+        <span class="lang-en">Click on any software below to start watching the tutorial.</span>
+        <span class="lang-bn">নিচের যেকোনো সফটওয়্যারে ক্লিক করে টিউটোরিয়াল শুরু করুন।</span>
+      </p>
     </div>
 
     <!-- Grid of software cards -->
@@ -383,13 +442,16 @@
             <div class="card-title">Royal Accounts</div>
           </div>
         </div>
-        <p class="card-desc">হিসাব-নিকাশ, ভাউচার, রিপোর্ট, দেনাদার-পাওনাদার, ব্যাংক রিকনসিলিয়েশন সহ সম্পূর্ণ অ্যাকাউন্টিং সফটওয়্যার টিউটোরিয়াল।</p>
+        <p class="card-desc lang-en">Complete accounting software tutorial including vouchers, ledgers, P&L, balance sheets, and bank reconciliation.</p>
+        <p class="card-desc lang-bn">হিসাব-নিকাশ, ভাউচার, রিপোর্ট, দেনাদার-পাওনাদার, ব্যাংক রিকনসিলিয়েশন সহ সম্পূর্ণ অ্যাকাউন্টিং সফটওয়্যার টিউটোরিয়াল।</p>
         <div class="card-footer">
           <span class="card-link">
-            টিউটোরিয়াল দেখুন
+            <span class="lang-en">View Tutorial</span><span class="lang-bn">টিউটোরিয়াল দেখুন</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </span>
-          <span class="card-chapters">সম্পূর্ণ গাইড ➡</span>
+          <span class="card-chapters">
+            <span class="lang-en">Full Guide ➡</span><span class="lang-bn">সম্পূর্ণ গাইড ➡</span>
+          </span>
         </div>
       </a>
 
@@ -398,13 +460,19 @@
         <div style="display:flex;align-items:center;gap:14px;">
           <div class="card-icon icon-pos">🛒</div>
           <div>
-            <div class="card-meta"><span class="tag tag-soon">শীঘ্রই আসছে</span></div>
+            <div class="card-meta">
+              <span class="tag tag-soon lang-en">Coming Soon</span>
+              <span class="tag tag-soon lang-bn">শীঘ্রই আসছে</span>
+            </div>
             <div class="card-title">Royal POS</div>
           </div>
         </div>
-        <p class="card-desc">পয়েন্ট অব সেল, বিক্রয় ব্যবস্থাপনা, ইনভয়েস, পণ্য ও স্টক কনট্রোলের সম্পূর্ণ টিউটোরিয়াল।</p>
+        <p class="card-desc lang-en">Point of sale, sales management, invoicing, and stock control comprehensive tutorial.</p>
+        <p class="card-desc lang-bn">পয়েন্ট অব সেল, বিক্রয় ব্যবস্থাপনা, ইনভয়েস, পণ্য ও স্টক কনট্রোলের সম্পূর্ণ টিউটোরিয়াল।</p>
         <div class="card-footer">
-          <span class="card-link" style="color:var(--muted);">শীঘ্রই আসছে…</span>
+          <span class="card-link" style="color:var(--muted);">
+            <span class="lang-en">Coming Soon…</span><span class="lang-bn">শীঘ্রই আসছে…</span>
+          </span>
         </div>
       </div>
 
@@ -413,13 +481,19 @@
         <div style="display:flex;align-items:center;gap:14px;">
           <div class="card-icon icon-hr">👥</div>
           <div>
-            <div class="card-meta"><span class="tag tag-soon">শীঘ্রই আসছে</span></div>
+            <div class="card-meta">
+              <span class="tag tag-soon lang-en">Coming Soon</span>
+              <span class="tag tag-soon lang-bn">শীঘ্রই আসছে</span>
+            </div>
             <div class="card-title">Royal HR</div>
           </div>
         </div>
-        <p class="card-desc">কর্মচারী ব্যবস্থাপনা, হাজিরা, ছুটি, এবং পেরোল সংক্রান্ত সম্পূর্ণ HR সফটওয়্যার গাইড।</p>
+        <p class="card-desc lang-en">Complete HR software guide for employee management, attendance, payroll, and leave management.</p>
+        <p class="card-desc lang-bn">কর্মচারী ব্যবস্থাপনা, হাজিরা, ছুটি, এবং পেরোল সংক্রান্ত সম্পূর্ণ HR সফটওয়্যার গাইড।</p>
         <div class="card-footer">
-          <span class="card-link" style="color:var(--muted);">শীঘ্রই আসছে…</span>
+          <span class="card-link" style="color:var(--muted);">
+            <span class="lang-en">Coming Soon…</span><span class="lang-bn">শীঘ্রই আসছে…</span>
+          </span>
         </div>
       </div>
 
@@ -428,13 +502,19 @@
         <div style="display:flex;align-items:center;gap:14px;">
           <div class="card-icon icon-school">🎓</div>
           <div>
-            <div class="card-meta"><span class="tag tag-soon">শীঘ্রই আসছে</span></div>
+            <div class="card-meta">
+              <span class="tag tag-soon lang-en">Coming Soon</span>
+              <span class="tag tag-soon lang-bn">শীঘ্রই আসছে</span>
+            </div>
             <div class="card-title">Royal School</div>
           </div>
         </div>
-        <p class="card-desc">শিক্ষা প্রতিষ্ঠান ব্যবস্থাপনা সফটওয়্যার — শিক্ষার্থী, ক্লাস, ফি, এবং রেজাল্ট ম্যানেজমেন্ট।</p>
+        <p class="card-desc lang-en">Educational institution management software — covering students, classes, fees, and results.</p>
+        <p class="card-desc lang-bn">শিক্ষা প্রতিষ্ঠান ব্যবস্থাপনা সফটওয়্যার — শিক্ষার্থী, ক্লাস, ফি, এবং রেজাল্ট ম্যানেজমেন্ট।</p>
         <div class="card-footer">
-          <span class="card-link" style="color:var(--muted);">শীঘ্রই আসছে…</span>
+          <span class="card-link" style="color:var(--muted);">
+            <span class="lang-en">Coming Soon…</span><span class="lang-bn">শীঘ্রই আসছে…</span>
+          </span>
         </div>
       </div>
 
@@ -443,9 +523,92 @@
         <div style="display:flex;align-items:center;gap:14px;">
           <div class="card-icon icon-inventory">📦</div>
           <div>
-            <div class="card-meta"><span class="tag tag-soon">শীঘ্রই আসছে</span></div>
+            <div class="card-meta">
+              <span class="tag tag-soon lang-en">Coming Soon</span>
+              <span class="tag tag-soon lang-bn">শীঘ্রই আসছে</span>
+            </div>
             <div class="card-title">Royal Inventory</div>
           </div>
+        </div>
+        <p class="card-desc lang-en">Warehouse management, stock in/out, purchase orders, and supply chain management tutorial.</p>
+        <p class="card-desc lang-bn">গুদাম ব্যবস্থাপনা, স্টক ইন/আউট, পণ্য অর্ডার ও সাপ্লাই চেইন ম্যানেজমেন্ট টিউটোরিয়াল।</p>
+        <div class="card-footer">
+          <span class="card-link" style="color:var(--muted);">
+            <span class="lang-en">Coming Soon…</span><span class="lang-bn">শীঘ্রই আসছে…</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Royal Payroll -->
+      <div class="card card-payroll card-disabled">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="card-icon icon-payroll">💰</div>
+          <div>
+            <div class="card-meta">
+              <span class="tag tag-soon lang-en">Coming Soon</span>
+              <span class="tag tag-soon lang-bn">শীঘ্রই আসছে</span>
+            </div>
+            <div class="card-title">Royal Payroll</div>
+          </div>
+        </div>
+        <p class="card-desc lang-en">Complete tutorial for salary calculation, bonuses, tax deductions, and generating payslips.</p>
+        <p class="card-desc lang-bn">বেতন হিসাব, বোনাস, ট্যাক্স কিছু কর্তন ও পেস্লিপ তৈরি করার সম্পূর্ণ টিউটোরিয়াল।</p>
+        <div class="card-footer">
+          <span class="card-link" style="color:var(--muted);">
+            <span class="lang-en">Coming Soon…</span><span class="lang-bn">শীঘ্রই আসছে…</span>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrapper">
+      <p>
+        <span class="lang-en">© 2026 <a href="#">Royal Softwares</a> — All Rights Reserved.</span>
+        <span class="lang-bn">© ২০২৬ <a href="#">Royal Softwares</a> — সর্বস্বত্ব সংরক্ষিত</span>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Language Toggle Logic
+    document.getElementById('langToggle').addEventListener('click', function() {
+        const bnElements = Array.from(document.querySelectorAll('.lang-bn'));
+        const isBanglaHidden = window.getComputedStyle(bnElements[0]).display === 'none';
+        const enElements = document.querySelectorAll('.lang-en');
+        
+        if (isBanglaHidden) {
+            // Switch to Bangla
+            enElements.forEach(el => el.style.display = 'none');
+            bnElements.forEach(el => el.style.display = 'block');
+            document.getElementById('langText').innerText = 'Read in English';
+            document.documentElement.lang = 'bn';
+        } else {
+            // Switch to English
+            bnElements.forEach(el => el.style.display = 'none');
+            enElements.forEach(el => el.style.display = 'block');
+            document.getElementById('langText').innerText = 'বাংলায় পড়ুন';
+            document.documentElement.lang = 'en';
+        }
+    });
+
+    // Mouse-tracking glow effect on cards
+    document.querySelectorAll('.card:not(.card-disabled)').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
+        const y = ((e.clientY - rect.top)  / rect.height * 100).toFixed(1);
+        card.style.setProperty('--mx', x + '%');
+        card.style.setProperty('--my', y + '%');
+      });
+    });
+  </script>
+</body>
+</html>
+div>
         </div>
         <p class="card-desc">গুদাম ব্যবস্থাপনা, স্টক ইন/আউট, পণ্য অর্ডার ও সাপ্লাই চেইন ম্যানেজমেন্ট টিউটোরিয়াল।</p>
         <div class="card-footer">
