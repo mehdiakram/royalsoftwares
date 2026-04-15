@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Rent Manager - Tutorial</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{margin:0;padding:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background-color:#f8f9fa;}
+        .sidebar{height:100vh;width:280px;position:fixed;top:0;left:0;background:#fff;box-shadow:2px 0 5px rgba(0,0,0,.05);padding:20px 0;overflow-y:auto;z-index:1000;}
+        .sidebar-brand{text-align:center;padding:0 20px 20px;border-bottom:1px solid #eee;margin-bottom:20px;}
+        .sidebar-brand img{max-width:150px;height:auto;}
+        .nav-item{padding:5px 20px;}
+        .nav-link{color:#495057;font-weight:500;border-radius:5px;transition:all .2s;font-size:.95rem;}
+        .nav-link:hover,.nav-link.active{background:#e9ecef;color:#0d6efd;}
+        .content-area{margin-left:280px;padding:40px;}
+        .lang-bn{display:none;}
+        .tutorial-section{background:#fff;padding:35px;border-radius:8px;box-shadow:0 4px 15px rgba(0,0,0,.03);margin-bottom:35px;border-left:5px solid #0d6efd;}
+        html{scroll-behavior:smooth;scroll-padding-top:20px;}
+        .example-box{background:#f8f9fa;border:1px solid #dee2e6;padding:20px;margin-top:20px;border-radius:6px;}
+        .example-box h5{color:#0d6efd;font-weight:bold;margin-bottom:15px;}
+        .footer-info{text-align:center;margin-top:50px;padding-top:20px;border-top:1px solid #ddd;color:#6c757d;font-size:.9rem;}
+        .table-custom th{background-color:#f1f5f9;color:#495057;font-weight:600;}
+        @media(max-width:991px){.sidebar{width:100%;height:auto;position:relative;}.content-area{margin-left:0;padding:20px;}}
+    </style>
+</head>
+<body>
+<div class="sidebar">
+    <div class="sidebar-brand"><a href="https://www.royaltechbd.com/" target="_blank"><img src="../images/logo.png" alt="Royal Technologies"></a></div>
+    <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="#intro"><span class="lang-en">1. Introduction</span><span class="lang-bn">১. পরিচিতি</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#property-tenant"><span class="lang-en">2. Property & Tenant</span><span class="lang-bn">২. প্রপার্টি ও ভাড়াটিয়া</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#rent-collection"><span class="lang-en">3. Rent Collection</span><span class="lang-bn">৩. ভাড়া আদায়</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#ledger"><span class="lang-en">4. Accounting & Ledger</span><span class="lang-bn">৪. হিসাব ও লেজার</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#receipts"><span class="lang-en">5. PDF Receipts</span><span class="lang-bn">৫. পিডিএফ রিসিট</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#expenses"><span class="lang-en">6. Expenses & Advance</span><span class="lang-bn">৬. খরচ ও অগ্রিম</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#notifications"><span class="lang-en">7. Notifications</span><span class="lang-bn">৭. নোটিফিকেশন</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#tech-stack"><span class="lang-en">Tech Stack</span><span class="lang-bn">টেক স্ট্যাক</span></a></li>
+    </ul>
+</div>
+<div class="content-area">
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom flex-wrap gap-3">
+        <h2 class="mb-0 fw-bold"><span class="lang-en">Royal Rent Manager Guide</span><span class="lang-bn">রয়্যাল রেন্ট ম্যানেজার গাইড</span></h2>
+        <button id="langToggle" class="btn btn-outline-primary"><span id="langText">বাংলায় পড়ুন</span></button>
+    </div>
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-primary">Royal Rent Manager</h1>
+        <p class="lead text-secondary"><span class="lang-en">Professional Property Rental Management for WordPress</span><span class="lang-bn">ওয়ার্ডপ্রেসের জন্য পেশাদার প্রপার্টি রেন্টাল ম্যানেজমেন্ট</span></p>
+    </div>
+
+    <div id="intro" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">1. What is Royal Rent Manager?</span><span class="lang-bn">১. রয়্যাল রেন্ট ম্যানেজার কী?</span></h3>
+        <div class="lang-en">
+            <p>Royal Rent Manager is a powerful <strong>WordPress Plugin</strong> designed for landlords and property managers to handle rentals of houses, shops, and offices. It automates rent cycles, tracks tenant history, and manages all accounting from within your WordPress dashboard.</p>
+        </div>
+        <div class="lang-bn">
+            <p>রয়্যাল রেন্ট ম্যানেজার হলো একটি শক্তিশালী <strong>ওয়ার্ডপ্রেস প্লাগইন</strong> যা বাড়িওয়ালা এবং প্রপার্টি ম্যানেজারদের বাড়ি, দোকান এবং অফিস ভাড়া পরিচালনা করতে সাহায্য করে। এটি ভাড়ার সাইকেল স্বয়ংক্রিয় করে, ভাড়াটিয়ার ইতিহাস ট্র্যাক করে এবং ওয়ার্ডপ্রেস ড্যাশবোর্ড থেকেই সব হিসাব পরিচালনা করে।</p>
+        </div>
+    </div>
+
+    <div id="property-tenant" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">2. Property & Tenant Setup</span><span class="lang-bn">২. প্রপার্টি ও ভাড়াটিয়া সেটআপ</span></h3>
+        <div class="lang-en">
+            <p>Start by defining your physical assets and the people living/working in them.</p>
+            <ul>
+                <li><strong>Properties:</strong> Add buildings or floor sections. Categorize them as House, Shop, or Office.</li>
+                <li><strong>Tenant Onboarding:</strong> Add tenant details including contact info, ID proof, and agreement start dates.</li>
+                <li><strong>Assigned Units:</strong> Link a tenant to a specific unit with a fixed monthly rent and optional security deposit/advance.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>আপনার ভৌত সম্পদ এবং সেখানে বসবাসকারী বা কর্মরত ব্যক্তিদের তথ্য দিয়ে শুরু করুন।</p>
+            <ul>
+                <li><strong>প্রপার্টি:</strong> বিল্ডিং বা ফ্লোর সেকশন যোগ করুন। এগুলোকে বাড়ি, দোকান বা অফিস হিসেবে ক্যাটাগরি করুন।</li>
+                <li><strong>ভাড়াটিয়া অনবোর্ডিং:</strong> কন্ট্যাক্ট ইনফো, আইডি প্রুফ এবং চুক্তির তারিখ সহ ভাড়াটিয়ার তথ্য যোগ করুন।</li>
+                <li><strong>ইউনিট অ্যাসাইন:</strong> নির্দিষ্ট ইউনিটের সাথে ভাড়াটিয়াকে লিংক করুন এবং মাসিক ভাড়া ও অগ্রিম/সিকিউরিটি মানি সেট করুন।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="rent-collection" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">3. Rent Collection</span><span class="lang-bn">৩. ভাড়া আদায়</span></h3>
+        <div class="lang-en">
+            <p>Never miss a payment with automated rent tracking.</p>
+            <ul>
+                <li><strong>Monthly Billing:</strong> The system automatically tracks which month is due for each tenant.</li>
+                <li><strong>Recording Payment:</strong> Record rent received via Cash, Bank, or Mobile Banking.</li>
+                <li><strong>Due Tracking:</strong> View a list of all tenants who have not yet paid for the current month.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>স্বয়ংক্রিয় রেন্ট ট্র্যাকিংয়ের মাধ্যমে কোনো পেমেন্ট মিস হবে না।</p>
+            <ul>
+                <li><strong>মাসিক বিলিং:</strong> প্রতিটি ভাড়াটিয়ার কোন মাসের ভাড়া বাকি আছে তা সিস্টেম স্বয়ংক্রিয়ভাবে ট্র্যাক করে।</li>
+                <li><strong>পেমেন্ট রেকর্ড:</strong> নগদ, ব্যাংক বা মোবাইল ব্যাংকিংয়ের মাধ্যমে পাওয়া ভাড়া রেকর্ড করুন।</li>
+                <li><strong>বকেয়া ট্র্যাকিং:</strong> চলতি মাসের ভাড়া যারা দেননি তাদের তালিকা দেখুন।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="ledger" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">4. Accounting & Ledger</span><span class="lang-bn">৪. হিসাব ও লেজার</span></h3>
+        <div class="lang-en">
+            <p>Maintain transparent financial records for every property.</p>
+            <ul>
+                <li><strong>Tenant Ledger:</strong> A complete history of all rent paid and outstanding dues for a specific tenant.</li>
+                <li><strong>Property Ledger:</strong> Analyze income and expenses for specific buildings or locations.</li>
+                <li><strong>Payment Summaries:</strong> View total collection reports by date range.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>প্রতিটি প্রপার্টির জন্য স্বচ্ছ আর্থিক রেকর্ড রাখুন।</p>
+            <ul>
+                <li><strong>ভাড়াটিয়া লেজার:</strong> নির্দিষ্ট ভাড়াটিয়ার দেওয়া ভাড়া এবং বকেয়ার সম্পূর্ণ ইতিহাস।</li>
+                <li><strong>প্রপার্টি লেজার:</strong> নির্দিষ্ট বিল্ডিং বা লোকেশনের আয়-ব্যয় বিশ্লেষণ করুন।</li>
+                <li><strong>পেমেন্ট সামারি:</strong> তারিখ অনুযায়ী মোট কালেকশন রিপোর্ট দেখুন।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="receipts" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">5. PDF Receipts</span><span class="lang-bn">৫. পিডিএফ রিসিট ও ডকুমেন্টেশন</span></h3>
+        <div class="lang-en">
+            <p>Professional documentation for your tenants.</p>
+            <ul>
+                <li><strong>Auto-Generation:</strong> Generate a professional PDF money receipt immediately after recording a payment.</li>
+                <li><strong>Branding:</strong> Receipts include your company logo, address, and signature for authenticity.</li>
+                <li><strong>Download & Print:</strong> Landlords can download receipts as PDF or print them directly to small thermal or A4 printers.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>ভাড়াটিয়াদের জন্য পেশাদার ডকুমেন্টেশন।</p>
+            <ul>
+                <li><strong>স্বয়ংক্রিয় রিসিট:</strong> পেমেন্ট রেকর্ড করার সাথে সাথেই পেশাদার পিডিএফ মানি রিসিট তৈরি করুন।</li>
+                <li><strong>ব্র্যান্ডিং:</strong> রিসিটে আপনার লোগো, ঠিকানা এবং স্বাক্ষর যুক্ত থাকে।</li>
+                <li><strong>ডাউনলোড ও প্রিন্ট:</strong> রিসিট পিডিএফ হিসেবে ডাউনলোড বা সরাসরি প্রিন্ট করা যায়।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="expenses" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">6. Expenses & Advances</span><span class="lang-bn">৬. খরচ ও অগ্রিম ব্যবস্থাপনা</span></h3>
+        <div class="lang-en">
+            <p>Manage the outgoings and security deposits effectively.</p>
+            <ul>
+                <li><strong>Property Expenses:</strong> Record maintenance costs, utility bills, and tax payments associated with properties.</li>
+                <li><strong>Advance Management:</strong> Track security deposits (Advance). Manage deductions from advance during check-out.</li>
+                <li><strong>Net Income:</strong> The system calculates net profit after deducting expenses from total rent collection.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>খরচ এবং সিকিউরিটি ডিপোজিট কার্যকরভাবে ম্যানেজ করুন।</p>
+            <ul>
+                <li><strong>প্রপার্টি খরচ:</strong> মেইনটেন্যান্স খরচ, ইউটিলিটি বিল এবং ট্যাক্স পেমেন্ট রেকর্ড করুন।</li>
+                <li><strong>অগ্রিম ব্যবস্থাপনা:</strong> সিকিউরিটি ডিপোজিট (অ্যাডভান্স) ট্র্যাক করুন। চেক-আউটের সময় অগ্রিম থেকে টাকা কাটা ম্যানেজ করুন।</li>
+                <li><strong>নিট ইনকাম:</strong> মোট কালেকশন থেকে খরচ বাদ দিয়ে নিট লাভ হিসাব করুন।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="notifications" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">7. Notifications & Reminders</span><span class="lang-bn">৭. নোটিফিকেশন ও রিমাইন্ডার</span></h3>
+        <div class="lang-en">
+            <p>Keep your tenants informed via multiple channels.</p>
+            <ul>
+                <li><strong>Email Receipts:</strong> Automatically email the money receipt to the tenant after payment.</li>
+                <li><strong>Payment Reminders:</strong> Send notifications to tenants for upcoming or overdue rent.</li>
+                <li><strong>System Alerts:</strong> Get dashboard notifications for expiring agreements or low advance balances.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>ভাড়াটিয়াদের বিভিন্ন মাধ্যমে অবগত রাখুন।</p>
+            <ul>
+                <li><strong>ইমেইল রিসিট:</strong> পেমেন্টের পর ভাড়াটিয়ার ইমেইলে স্বয়ংক্রিয়ভাবে রিসিট পাঠিয়ে দিন।</li>
+                <li><strong>পেমেন্ট রিমাইন্ডার:</strong> বকেয়া বা আসন্ন ভাড়ার জন্য ভাড়াটিয়াকে নোটিফিকেশন পাঠান।</li>
+                <li><strong>সিস্টেম অ্যালার্ট:</strong> চুক্তির মেয়াদ শেষ বা অগ্রিম ব্যালেন্স কমে গেলে ড্যাশবোর্ড অ্যালার্ট পান।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="tech-stack" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">Technical Stack</span><span class="lang-bn">টেক স্ট্যাক</span></h3>
+        <div class="lang-en">
+            <ul>
+                <li><strong>Type:</strong> WordPress Plugin</li>
+                <li><strong>Language:</strong> PHP / JavaScript</li>
+                <li><strong>Requirements:</strong> WordPress 5.0+, PHP 7.4+</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <ul>
+                <li><strong>ধরন:</strong> ওয়ার্ডপ্রেস প্লাগইন</li>
+                <li><strong>ল্যাঙ্গুয়েজ:</strong> PHP / JavaScript</li>
+                <li><strong>রিকোয়ারমেন্ট:</strong> WordPress 5.0+, PHP 7.4+</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <p class="mb-1 fw-bold text-dark">Royal Technologies</p>
+        <p class="mb-1">Innovative Solutions for Modern Businesses</p>
+        <p class="mb-0">Website: <a href="https://royaltechbd.com" target="_blank">royaltechbd.com</a></p>
+    </div>
+</div>
+<script>
+    document.getElementById('langToggle').addEventListener('click', function() {
+        const bn = Array.from(document.querySelectorAll('.lang-bn'));
+        const isHidden = window.getComputedStyle(bn[0]).display === 'none';
+        const en = document.querySelectorAll('.lang-en');
+        if (isHidden) { en.forEach(e=>e.style.display='none'); bn.forEach(e=>e.style.display='block'); document.getElementById('langText').innerText='Read in English'; }
+        else { bn.forEach(e=>e.style.display='none'); en.forEach(e=>e.style.display='block'); document.getElementById('langText').innerText='বাংলায় পড়ুন'; }
+    });
+</script>
+</body>
+</html>

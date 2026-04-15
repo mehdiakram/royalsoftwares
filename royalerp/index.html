@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal ERP Solution - Tutorial</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{margin:0;padding:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background-color:#f8f9fa;}
+        .sidebar{height:100vh;width:280px;position:fixed;top:0;left:0;background:#fff;box-shadow:2px 0 5px rgba(0,0,0,.05);padding:20px 0;overflow-y:auto;z-index:1000;}
+        .sidebar-brand{text-align:center;padding:0 20px 20px;border-bottom:1px solid #eee;margin-bottom:20px;}
+        .sidebar-brand img{max-width:150px;height:auto;}
+        .nav-item{padding:5px 20px;}
+        .nav-link{color:#495057;font-weight:500;border-radius:5px;transition:all .2s;font-size:.95rem;}
+        .nav-link:hover,.nav-link.active{background:#e9ecef;color:#0d6efd;}
+        .content-area{margin-left:280px;padding:40px;}
+        .lang-bn{display:none;}
+        .tutorial-section{background:#fff;padding:35px;border-radius:8px;box-shadow:0 4px 15px rgba(0,0,0,.03);margin-bottom:35px;border-left:5px solid #0d6efd;}
+        html{scroll-behavior:smooth;scroll-padding-top:20px;}
+        .example-box{background:#f8f9fa;border:1px solid #dee2e6;padding:20px;margin-top:20px;border-radius:6px;}
+        .example-box h5{color:#0d6efd;font-weight:bold;margin-bottom:15px;}
+        .footer-info{text-align:center;margin-top:50px;padding-top:20px;border-top:1px solid #ddd;color:#6c757d;font-size:.9rem;}
+        .table-custom th{background-color:#f1f5f9;color:#495057;font-weight:600;}
+        .ledger-box{background:#eef2f5;padding:2px 10px;border-radius:4px;display:inline-block;font-family:monospace;font-weight:bold;border:1px solid #ced4da;margin:2px 3px;}
+        @media(max-width:991px){.sidebar{width:100%;height:auto;position:relative;}.content-area{margin-left:0;padding:20px;}}
+    </style>
+</head>
+<body>
+<div class="sidebar">
+    <div class="sidebar-brand"><a href="https://www.royaltechbd.com/" target="_blank"><img src="../images/logo.png" alt="Royal Technologies"></a></div>
+    <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="#intro"><span class="lang-en">1. Introduction</span><span class="lang-bn">১. পরিচিতি</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#accounting"><span class="lang-en">2. Accounting & Ledger</span><span class="lang-bn">২. অ্যাকাউন্টিং ও লেজার</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#crm"><span class="lang-en">3. Customers & Vendors</span><span class="lang-bn">৩. কাস্টমার ও ভেন্ডর</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#inventory"><span class="lang-en">4. Items & Inventory</span><span class="lang-bn">৪. পণ্য ও ইনভেন্টরি</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#manufacturing"><span class="lang-en">5. Manufacturing (BOM)</span><span class="lang-bn">৫. উৎপাদন (BOM)</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#payroll"><span class="lang-en">6. HR & Payroll</span><span class="lang-bn">৬. এইচআর ও পেরোল</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#assets"><span class="lang-en">7. Asset Management</span><span class="lang-bn">৭. সম্পদ ব্যবস্থাপনা</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#gatepass"><span class="lang-en">8. Gate Pass</span><span class="lang-bn">৮. গেট পাস</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#reports"><span class="lang-en">9. Reports</span><span class="lang-bn">৯. রিপোর্ট</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#tech-stack"><span class="lang-en">Tech Stack</span><span class="lang-bn">টেক স্ট্যাক</span></a></li>
+    </ul>
+</div>
+<div class="content-area">
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom flex-wrap gap-3">
+        <h2 class="mb-0 fw-bold"><span class="lang-en">Mastering Royal ERP Solution</span><span class="lang-bn">রয়্যাল ইআরপি সলিউশন মাস্টারক্লাস</span></h2>
+        <button id="langToggle" class="btn btn-outline-primary"><span id="langText">বাংলায় পড়ুন</span></button>
+    </div>
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-primary">Royal ERP Solution</h1>
+        <p class="lead text-secondary"><span class="lang-en">Enterprise Resource Planning: Accounts, Production, HR & Logistics</span><span class="lang-bn">এন্টারপ্রাইজ রিসোর্স প্ল্যানিং: অ্যাকাউন্টস, প্রোডাকশন, এইচআর ও লজিস্টিকস</span></p>
+    </div>
+
+    <div id="intro" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">1. What is Royal ERP Solution?</span><span class="lang-bn">১. রয়্যাল ইআরপি সলিউশন কী?</span></h3>
+        <div class="lang-en">
+            <p>Royal ERP Solution is a comprehensive <strong>Enterprise Resource Planning</strong> system designed to integrate all aspects of a business, including accounting, manufacturing, inventory, human resources, and supply chain management into a single platform.</p>
+            <p>It is built for complex business environments that require tight control over production lines, multi-step accounting, asset tracking, and employee management.</p>
+        </div>
+        <div class="lang-bn">
+            <p>রয়্যাল ইআরপি সলিউশন হলো একটি ব্যাপক <strong>এন্টারপ্রাইজ রিসোর্স প্ল্যানিং</strong> সিস্টেম যা ব্যবসার সব দিক যেমন অ্যাকাউন্টিং, উৎপাদন, ইনভেন্টরি, হিউম্যান রিসোর্স এবং সাপ্লাই চেইন ব্যবস্থাপনাকে একটি প্ল্যাটফর্মে সংহত করে।</p>
+            <p>এটি জটিল ব্যবসায়িক পরিবেশের জন্য তৈরি করা হয়েছে যেখানে প্রোডাকশন লাইন, মাল্টি-স্টেপ অ্যাকাউন্টিং, অ্যাসেট ট্র্যাকিং এবং কর্মচারী ব্যবস্থাপনার ওপর কঠোর নিয়ন্ত্রণ প্রয়োজন।</p>
+        </div>
+    </div>
+
+    <div id="accounting" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">2. Accounting & Financial Management</span><span class="lang-bn">২. অ্যাকাউন্টিং ও ফিনান্সিয়াল ম্যানেজমেন্ট</span></h3>
+        <div class="lang-en">
+            <p>The core of Royal ERP is its robust accounting module that follows standard financial practices.</p>
+            <ul>
+                <li><strong>Chart of Accounts (CoA):</strong> Organize your financial structure with Groups and Ledgers.</li>
+                <li><strong>General Ledger:</strong> Real-time tracking of all financial transactions.</li>
+                <li><strong>Trial Balance:</strong> Instantly check the balance of all ledgers for any period.</li>
+                <li><strong>Profit & Loss:</strong> Complete visibility into revenue, expenses, and net profit.</li>
+                <li><strong>Balance Sheet:</strong> Monitor assets, liabilities, and equity in real-time.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>রয়্যাল ইআরপি-এর মূল ভিত্তি হলো এর শক্তিশালী অ্যাকাউন্টিং মডিউল যা স্ট্যান্ডার্ড ফিনান্সিয়াল প্র্যাকটিস অনুসরণ করে।</p>
+            <ul>
+                <li><strong>Chart of Accounts (CoA):</strong> গ্রুপ এবং লেজারের মাধ্যমে আপনার ফিনান্সিয়াল কাঠামো সাজান।</li>
+                <li><strong>General Ledger:</strong> সব ধরনের লেনদেনের রিয়েল-টাইম ট্র্যাকিং।</li>
+                <li><strong>Trial Balance:</strong> যেকোনো সময়ের জন্য সব লেজারের ব্যালেন্স তাৎক্ষণিক চেক করুন।</li>
+                <li><strong>Profit & Loss:</strong> রেভিনিউ, খরচ এবং নিট লাভের ওপর পূর্ণ নিয়ন্ত্রণ।</li>
+                <li><strong>Balance Sheet:</strong> সম্পদ, দায় এবং ইক্যুইটি রিয়েল-টাইমে মনিটর করুন।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="crm" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">3. Customers & Vendors</span><span class="lang-bn">৩. কাস্টমার ও ভেন্ডর ব্যবস্থাপনা</span></h3>
+        <div class="lang-en">
+            <p>Manage all your business stakeholders in one place.</p>
+            <ul>
+                <li><strong>Customer Management:</strong> Track sales history, outstanding dues, and payments.</li>
+                <li><strong>Vendor/Supplier Management:</strong> Manage procurement, purchase returns, and supplier payments.</li>
+                <li><strong>Payment & Collection:</strong> Dedicated modules for recording collections from customers and payments to vendors.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>আপনার ব্যবসার সব স্টেকহোল্ডারদের এক জায়গায় পরিচালনা করুন।</p>
+            <ul>
+                <li><strong>কাস্টমার ম্যানেজমেন্ট:</strong> বিক্রয়ের ইতিহাস, বকেয়া এবং পেমেন্ট ট্র্যাক করুন।</li>
+                <li><strong>ভেন্ডর/সাপ্লায়ার ম্যানেজমেন্ট:</strong> ক্রয় পরিচালনা, পারচেজ রিটার্ন এবং সাপ্লায়ার পেমেন্ট ম্যানেজ করুন।</li>
+                <li><strong>পেমেন্ট ও কালেকশন:</strong> কাস্টমার থেকে কালেকশন এবং ভেন্ডরকে পেমেন্ট রেকর্ড করার জন্য বিশেষ মডিউল।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="inventory" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">4. Items & Inventory Control</span><span class="lang-bn">৪. পণ্য ও ইনভেন্টরি নিয়ন্ত্রণ</span></h3>
+        <div class="lang-en">
+            <p>Handle raw materials, semi-finished goods, and final products.</p>
+            <ul>
+                <li><strong>Product Profile:</strong> Create detailed entries for each item with unit, category, and group.</li>
+                <li><strong>Receive Master:</strong> Record bulk stock entries from suppliers with unique invoice numbers.</li>
+                <li><strong>Stock Adjustment:</strong> Manually correct stock levels for breakage or count mismatches.</li>
+                <li><strong>Stock Reports:</strong> Real-time visibility into current stock value and quantities.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>কাঁচামাল, সেমি-ফিনিশড পণ্য এবং চূড়ান্ত পণ্য পরিচালনা করুন।</p>
+            <ul>
+                <li><strong>Product Profile:</strong> ইউনিট, ক্যাটাগরি এবং গ্রুপ সহ প্রতিটি পণ্যের বিস্তারিত এন্ট্রি তৈরি করুন।</li>
+                <li><strong>Receive Master:</strong> সাপ্লায়ারদের কাছ থেকে বাল্ক স্টক এন্ট্রি রেকর্ড করুন।</li>
+                <li><strong>Stock Adjustment:</strong> ভাঙা বা গণনা ভুলের জন্য স্টক স্তর ম্যানুয়ালি ঠিক করুন।</li>
+                <li><strong>Stock Reports:</strong> বর্তমান স্টকের মূল্য এবং পরিমাণের রিয়েল-টাইম তথ্য।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="manufacturing" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">5. Manufacturing & BOM</span><span class="lang-bn">৫. উৎপাদন ও Bill of Materials (BOM)</span></h3>
+        <div class="lang-en">
+            <p>Designed for production-based businesses.</p>
+            <ul>
+                <li><strong>Bill of Materials (BOM):</strong> Define the recipe/formula for manufacturing a product. List all raw materials required for 1 unit.</li>
+                <li><strong>Production Master:</strong> Record production cycles. Selecting a BOM automatically calculates and deducts the required raw materials from stock.</li>
+                <li><strong>Wastage Tracking:</strong> Record material wastage during the production process.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>উৎপাদন ভিত্তিক ব্যবসার জন্য ডিজাইন করা হয়েছে।</p>
+            <ul>
+                <li><strong>Bill of Materials (BOM):</strong> পণ্য তৈরির রেসিপি বা ফর্মুলা নির্ধারণ করুন। ১ ইউনিট তৈরিতে প্রয়োজনীয় কাঁচামালের তালিকা।</li>
+                <li><strong>Production Master:</strong> প্রোডাকশন সাইকেল রেকর্ড করুন। BOM সিলেক্ট করলে স্বয়ংক্রিয়ভাবে কাঁচামাল স্টক থেকে কমে যাবে।</li>
+                <li><strong>Wastage Tracking:</strong> উৎপাদন প্রক্রিয়ার সময় অপচয় হওয়া কাঁচামাল রেকর্ড করুন।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="payroll" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">6. HR & Payroll Management</span><span class="lang-bn">৬. এইচআর ও পেরোল ব্যবস্থাপনা</span></h3>
+        <div class="lang-en">
+            <p>Manage your workforce and automate salary processing.</p>
+            <ul>
+                <li><strong>Employee Management:</strong> Maintain digital records for all staff, including departments and designations.</li>
+                <li><strong>Leave Management:</strong> Track leave applications and balances.</li>
+                <li><strong>Salary Generation:</strong> Automate monthly payroll. Generate pay slips instantly.</li>
+                <li><strong>Overtime Tracking:</strong> Record and bill overtime hours per employee.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>আপনার জনবল পরিচালনা করুন এবং বেতন প্রসেসিং স্বয়ংক্রিয় করুন।</p>
+            <ul>
+                <li><strong>Employee Management:</strong> ডিপার্টমেন্ট ও ডেজিগনেশন সহ সব স্টাফের ডিজিটাল রেকর্ড রাখুন।</li>
+                <li><strong>Leave Management:</strong> ছুটির আবেদন এবং ব্যালেন্স ট্র্যাক করুন।</li>
+                <li><strong>Salary Generation:</strong> মাসিক পেরোল স্বয়ংক্রিয় করুন। তাৎক্ষণিকভাবে পে-স্লিপ তৈরি করুন।</li>
+                <li><strong>Overtime Tracking:</strong> প্রতি কর্মচারীর ওভারটাইম ঘণ্টা রেকর্ড এবং বিল করুন।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="assets" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">7. Fixed Asset Management</span><span class="lang-bn">৭. স্থায়ী সম্পদ ব্যবস্থাপনা</span></h3>
+        <div class="lang-en">
+            <p>Track your business investment in machinery, furniture, and equipment.</p>
+            <ul>
+                <li><strong>Asset Register:</strong> Detailed logs of every fixed asset in the company.</li>
+                <li><strong>Asset Depreciation:</strong> Automate the calculation of monthly/yearly asset value reduction.</li>
+                <li><strong>Asset Revaluation:</strong> Record changes in market value of assets.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>মেশিনারি, ফার্নিচার এবং সরঞ্জামে আপনার ব্যবসায়িক বিনিয়োগ ট্র্যাক করুন।</p>
+            <ul>
+                <li><strong>Asset Register:</strong> কোম্পানির প্রতিটি স্থায়ী সম্পদের বিস্তারিত লগ।</li>
+                <li><strong>Asset Depreciation:</strong> মাসিক বা বার্ষিক সম্পদের মূল্য হ্রাসের হিসাব স্বয়ংক্রিয় করুন।</li>
+                <li><strong>Asset Revaluation:</strong> সম্পদের বাজার মূল্যের পরিবর্তন রেকর্ড করুন।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="gatepass" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">8. Gate Pass & Logistics</span><span class="lang-bn">৮. গেট পাস ও লজিস্টিকস</span></h3>
+        <div class="lang-en">
+            <p>Control the movement of goods in and out of your facility.</p>
+            <ul>
+                <li><strong>Gate Pass Master:</strong> Generate passes for goods delivery or item movements.</li>
+                <li><strong>Returnable Gate Pass:</strong> Track items that leave the facility and are expected to be returned.</li>
+                <li><strong>Security Logs:</strong> maintain a digital logbook of what left the gate and when.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>আপনার কারখানায় পণ্যের আসা-যাওয়া নিয়ন্ত্রণ করুন।</p>
+            <ul>
+                <li><strong>Gate Pass Master:</strong> পণ্য ডেলিভারি বা মুভমেন্টের জন্য পাস তৈরি করুন।</li>
+                <li><strong>Returnable Gate Pass:</strong> যেসব পণ্য বাইরে গিয়ে আবার ফিরে আসার কথা, সেগুলো ট্র্যাক করুন।</li>
+                <li><strong>Security Logs:</strong> গেট দিয়ে কখন কী পণ্য বের হয়েছে তার ডিজিটাল লগবুক।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="reports" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">9. Power Reports & Dashboard</span><span class="lang-bn">৯. শক্তিশালী রিপোর্ট ও ড্যাশবোর্ড</span></h3>
+        <div class="lang-en">
+            <p>Analyze your business performance with dynamic reports.</p>
+            <table class="table table-bordered table-custom mt-2">
+                <thead><tr><th>Report category</th><th>Insights</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Production Report</strong></td><td>Yesterday and this month's production summary</td></tr>
+                    <tr><td><strong>Party Ledger</strong></td><td>Complete transaction history for any customer/vendor</td></tr>
+                    <tr><td><strong>Pending Orders</strong></td><td>Orders that are yet to be produced or delivered</td></tr>
+                    <tr><td><strong>Collection Report</strong></td><td>Money collected via cash or bank</td></tr>
+                    <tr><td><strong>Bill vs AIT</strong></td><td>Tracking Advanced Income Tax on bills</td></tr>
+                    <tr><td><strong>Stock Report</strong></td><td>Detailed raw material and finished product stock</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="lang-bn">
+            <p>ডায়নামিক রিপোর্টের মাধ্যমে আপনার ব্যবসার পারফরম্যান্স বিশ্লেষণ করুন।</p>
+            <table class="table table-bordered table-custom mt-2">
+                <thead><tr><th>রিপোর্টের ধরন</th><th>কী জানা যায়</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Production Report</strong></td><td>গতকাল এবং চলতি মাসের উৎপাদনের সারাংশ</td></tr>
+                    <tr><td><strong>Party Ledger</strong></td><td>যেকোনো কাস্টমার বা ভেন্ডরের লেনদেনের ইতিহাস</td></tr>
+                    <tr><td><strong>Pending Orders</strong></td><td>যেসব অর্ডার এখনও উৎপাদন বা ডেলিভারি হয়নি</td></tr>
+                    <tr><td><strong>Collection Report</strong></td><td>নগদ বা ব্যাংকের মাধ্যমে সংগৃহীত টাকা</td></tr>
+                    <tr><td><strong>Bill vs AIT</strong></td><td>বিলের ওপর অগ্রিম আয়কর (AIT) ট্র্যাকিং</td></tr>
+                    <tr><td><strong>Stock Report</strong></td><td>কাঁচামাল এবং তৈরি পণ্যের বিস্তারিত স্টক</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="tech-stack" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">Technical Stack</span><span class="lang-bn">টেকনিক্যাল স্ট্যাক</span></h3>
+        <div class="lang-en">
+            <ul>
+                <li><strong>Framework:</strong> PHP (Laravel)</li>
+                <li><strong>Database:</strong> MySQL / MariaDB</li>
+                <li><strong>Backup:</strong> Google Drive Integration</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <ul>
+                <li><strong>ফ্রেমওয়ার্ক:</strong> PHP (Laravel)</li>
+                <li><strong>ডেটাবেস:</strong> MySQL / MariaDB</li>
+                <li><strong>ব্যাকআপ:</strong> গুগল ড্রাইভ ইন্টিগ্রেশন</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <p class="mb-1 fw-bold text-dark">Royal Technologies</p>
+        <p class="mb-1">Innovative Solutions for Modern Businesses</p>
+        <p class="mb-0">Website: <a href="https://royaltechbd.com" target="_blank">royaltechbd.com</a></p>
+    </div>
+</div>
+<script>
+    document.getElementById('langToggle').addEventListener('click', function() {
+        const bn = Array.from(document.querySelectorAll('.lang-bn'));
+        const isHidden = window.getComputedStyle(bn[0]).display === 'none';
+        const en = document.querySelectorAll('.lang-en');
+        if (isHidden) { en.forEach(e=>e.style.display='none'); bn.forEach(e=>e.style.display='block'); document.getElementById('langText').innerText='Read in English'; }
+        else { bn.forEach(e=>e.style.display='none'); en.forEach(e=>e.style.display='block'); document.getElementById('langText').innerText='বাংলায় পড়ুন'; }
+    });
+</script>
+</body>
+</html>
