@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Hostel Management - Tutorial</title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        body{margin:0;padding:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background-color:#f8f9fa;}
+        .sidebar{height:100vh;width:280px;position:fixed;top:0;left:0;background:#fff;box-shadow:2px 0 5px rgba(0,0,0,.05);padding:20px 0;overflow-y:auto;z-index:1000;}
+        .sidebar-brand{text-align:center;padding:0 20px 20px;border-bottom:1px solid #eee;margin-bottom:20px;}
+        .sidebar-brand img{max-width:150px;height:auto;}
+        .nav-item{padding:5px 20px;}
+        .nav-link{color:#495057;font-weight:500;border-radius:5px;transition:all .2s;font-size:.95rem; display: flex; align-items: center; gap: 10px;}
+        .nav-link:hover, .nav-link.active{background:#e9ecef;color:#0d6efd;}
+        .content-area{margin-left:280px;padding:40px;}
+        .lang-bn{display:none;}
+        .tutorial-section{background:#fff;padding:35px;border-radius:8px;box-shadow:0 4px 15px rgba(0,0,0,.03);margin-bottom:35px;border-left:5px solid #0d6efd;}
+        html{scroll-behavior:smooth;scroll-padding-top:20px;}
+        .example-box{background:#f8f9fa;border:1px solid #dee2e6;padding:20px;margin-top:20px;border-radius:6px;}
+        .example-box h5{color:#0d6efd;font-weight:bold;margin-bottom:15px;}
+        .footer-info{text-align:center;margin-top:50px;padding-top:20px;border-top:1px solid #ddd;color:#6c757d;font-size:.9rem;}
+        .table-custom th{background-color:#f1f5f9;color:#495057;font-weight:600;}
+        .badge-module { font-size: 0.8rem; padding: 0.3rem 0.6rem; border-radius: 4px; font-weight: 600; margin-bottom: 10px; display: inline-block; }
+        @media(max-width:991px){.sidebar{width:100%;height:auto;position:relative;}.content-area{margin-left:0;padding:20px;}}
+    </style>
+</head>
+<body>
+<div class="sidebar">
+    <div class="sidebar-brand"><a href="https://www.royaltechbd.com/" target="_blank"><img src="../images/logo.png" alt="Royal Technologies"></a></div>
+    <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="#intro"><i class="bi bi-info-circle"></i><span class="lang-en">1. Introduction</span><span class="lang-bn">১. পরিচিতি</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#setup"><i class="bi bi-gear"></i><span class="lang-en">2. Initial Setup</span><span class="lang-bn">২. প্রাথমিক সেটআপ</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#members"><i class="bi bi-people"></i><span class="lang-en">3. Member Management</span><span class="lang-bn">৩. মেম্বার ব্যবস্থাপনা</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#rooms"><i class="bi bi-door-open"></i><span class="lang-en">4. Room & Seat Management</span><span class="lang-bn">৪. রুম ও সিট ব্যবস্থাপনা</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#meals"><i class="bi bi-cup-hot"></i><span class="lang-en">5. Meal Management</span><span class="lang-bn">৫. মিল ব্যবস্থাপনা</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#billing"><i class="bi bi-wallet2"></i><span class="lang-en">6. Billing & Finance</span><span class="lang-bn">৬. বিলিং ও ফিন্যান্স</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#reports"><i class="bi bi-graph-up"></i><span class="lang-en">7. Reports Hub</span><span class="lang-bn">৭. রিপোর্টস হাব</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#admin"><i class="bi bi-shield-lock"></i><span class="lang-en">8. Administration</span><span class="lang-bn">৮. অ্যাডমিনিস্ট্রেশন</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#tech-stack"><i class="bi bi-code-slash"></i><span class="lang-en">Tech Stack</span><span class="lang-bn">টেক স্ট্যাক</span></a></li>
+    </ul>
+</div>
+
+<div class="content-area">
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom flex-wrap gap-3">
+        <h2 class="mb-0 fw-bold"><span class="lang-en">Mastering Royal Hostel Management</span><span class="lang-bn">রয়্যাল হোস্টেল ম্যানেজমেন্ট মাস্টারক্লাস</span></h2>
+        <button id="langToggle" class="btn btn-outline-primary shadow-sm"><i class="bi bi-translate me-2"></i><span id="langText">বাংলায় পড়ুন</span></button>
+    </div>
+
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-primary">Royal Hostel Management</h1>
+        <p class="lead text-secondary"><span class="lang-en">Efficiently manage members, rooms, meals, and finances – all in one place.</span><span class="lang-bn">মেম্বার, রুম, মিল এবং ফিন্যান্স - সবকিছুই এখন এক জায়গায়।</span></p>
+    </div>
+
+    <div id="intro" class="tutorial-section">
+        <span class="badge-module bg-primary text-white">MODULE 1</span>
+        <h3 class="fw-bold"><span class="lang-en">1. What is Royal Hostel Management?</span><span class="lang-bn">১. রয়্যাল হোস্টেল ম্যানেজমেন্ট কী?</span></h3>
+        <div class="lang-en">
+            <p>Royal Hostel Management is a comprehensive digital solution designed for hostels, boarding houses, and mess facilities. It simplifies the complexities of tracking boarder details, dynamic seat allocations, intricate meal logs, and monthly billing cycles.</p>
+            <p>Key benefits include real-time occupancy tracking, automated balance calculations, and a centralized reporting hub that provides instant financial clarity.</p>
+        </div>
+        <div class="lang-bn">
+            <p>রয়্যাল হোস্টেল ম্যানেজমেন্ট হলো একটি পূর্ণাঙ্গ ডিজিটাল সলিউশন যা হোস্টেল, বোর্ডিং হাউস এবং মেস পরিচালনার জন্য তৈরি। এটি মেম্বারদের তথ্য, সিট অ্যালোকেশন, প্রতিদিনের মিল লগ এবং মাসিক বিলিং এর জটিল কাজগুলোকে সহজ করে তোলে।</p>
+            <p>এর প্রধান সুবিধার মধ্যে রয়েছে রিয়েল-টাইম রুম অকুপেন্সি ট্র্যাকিং, অটোমেটেড ব্যালেন্স ক্যালকুলেশন এবং একটি শক্তিশালী রিপোর্টস হাব যা মুহূর্তেই ব্যবসার অবস্থা বুঝতে সাহায্য করে।</p>
+        </div>
+    </div>
+
+    <div id="setup" class="tutorial-section">
+        <span class="badge-module bg-success text-white">MODULE 2</span>
+        <h3 class="fw-bold"><span class="lang-en">2. Initial System Setup</span><span class="lang-bn">২. প্রাথমিক সিস্টেম সেটআপ</span></h3>
+        <div class="lang-en">
+            <p>Before registering boarders, configure your hostel's core settings:</p>
+            <ol>
+                <li><strong>Hostel Info:</strong> Go to <strong>Settings → Hostel Info</strong>. Set your hostel name, logo, phone, and address. This information appears on all invoices and reports.</li>
+                <li><strong>Branding:</strong> Customise the sidebar display, logo width, and primary theme colors to match your brand.</li>
+                <li><strong>Definitions:</strong> Set up your <strong>Floors</strong>, <strong>Room Types</strong>, and <strong>Seat Types</strong> under the basic configuration modules.</li>
+            </ol>
+        </div>
+        <div class="lang-bn">
+            <p>সফটওয়্যারে মেম্বার ভর্তি করার আগে হোস্টেলের প্রাথমিক কনফিগারেশন করে নিন:</p>
+            <ol>
+                <li><strong>Hostel Info:</strong> <strong>Settings → Hostel Info</strong>-তে যান। আপনার হোস্টেলের নাম, লোগো, ফোন এবং ঠিকানা দিন। এই তথ্যগুলো ইনভয়েস এবং রিপোর্টে প্রদর্শিত হবে।</li>
+                <li><strong>Branding:</strong> সাইডবার স্টাইল, লোগোর প্রস্থ এবং থিমের রঙ পরিবর্তন করুন আপনার পছন্দমতো।</li>
+                <li><strong>Definitions:</strong> হোস্টেলের ফ্লোর, রুম টাইপ এবং সিট টাইপগুলো আগে থেকে তৈরি করে নিন।</li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="members" class="tutorial-section">
+        <span class="badge-module bg-info text-white">MODULE 3</span>
+        <h3 class="fw-bold"><span class="lang-en">3. Member Management</span><span class="lang-bn">৩. মেম্বার ব্যবস্থাপনা</span></h3>
+        <div class="example-box">
+            <h5><span class="lang-en">How to Register a New Member</span><span class="lang-bn">কিভাবে নতুন মেম্বার রেজিস্ট্রেশন করবেন</span></h5>
+            <ol>
+                <li class="mb-2"><span class="lang-en">Navigate to <strong>Members → Add Member</strong>.</span><span class="lang-bn"><strong>Members → Add Member</strong>-এ যান।</span></li>
+                <li class="mb-2"><span class="lang-en">Fill in basic details (Name, Father's Name, Phone, NID).</span><span class="lang-bn">প্রাথমিক তথ্যগুলো (নাম, বাবার নাম, ফোন, NID) পূরণ করুন।</span></li>
+                <li class="mb-2"><span class="lang-en">Upload a photo for the member profile.</span><span class="lang-bn">মেম্বার প্রোফাইলের জন্য একটি ছবি আপলোড করুন।</span></li>
+                <li class="mb-2"><span class="lang-en">Assign they emergency contact and reference details.</span><span class="lang-bn">ইমার্জেন্সি কন্টাক্ট এবং রেফারেন্স তথ্যগুলো দিন।</span></li>
+                <li><span class="lang-en">Once saved, you can proceed to <strong>Seat Allocation</strong> to assign a room.</span><span class="lang-bn">সেভ করার পর আপনি <strong>Seat Allocation</strong> থেকে মেম্বারকে একটি রুম বরাদ্দ দিতে পারবেন।</span></li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="meals" class="tutorial-section">
+        <span class="badge-module bg-warning text-dark">MODULE 4</span>
+        <h3 class="fw-bold"><span class="lang-en">4. Meal Management Workflow</span><span class="lang-bn">৪. মিল ম্যানেজমেন্ট ওয়ার্কফ্লো</span></h3>
+        <div class="lang-en">
+            <p>Managing daily meals is simplified through three core features:</p>
+            <ul>
+                <li><strong>Daily Meal Log:</strong> Record breakfast, lunch, and dinner status for all active members each day. Use the "All On" or "All Off" feature for quick batch updates.</li>
+                <li><strong>Member Calendar:</strong> A monthly view where you can toggle specific meal shifts for individual members. Changes are saved instantly via AJAX.</li>
+                <li><strong>Monthly Summary:</strong> View total meal counts for the entire month per member. This is used to calculate the total food cost during billing.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>প্রতিদিনের মিল পরিচালনা এখন অনেক সহজ এই তিনটি ফিচারের মাধ্যমে:</p>
+            <ul>
+                <li><strong>Daily Meal Log:</strong> প্রতিদিন মেম্বারদের সকাল, দুপুর এবং রাতের মিল স্ট্যাটাস রেকর্ড করুন। দ্রুত আপডেটের জন্য "All On" বা "All Off" ব্যবহার করুন।</li>
+                <li><strong>Member Calendar:</strong> এখানে পুরো মাসের ক্যালেন্ডার ভিউ থেকে যেকোনো নির্দিষ্ট মেম্বারের মিল অন/অফ করা যায়। এটি অটো-সেভ হয়।</li>
+                <li><strong>Monthly Summary:</strong> এক নজরে পুরো মাসের কার কয়টি মিল আছে তা দেখা যায়, যা মাস শেষে মিল কারচুপির ঝামেলা কমায়।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="billing" class="tutorial-section">
+        <span class="badge-module bg-danger text-white">MODULE 5</span>
+        <h3 class="fw-bold"><span class="lang-en">5. Billing & Financial Control</span><span class="lang-bn">৫. বিলিং ও ফিনান্সিয়াল কন্ট্রোল</span></h3>
+        <div class="lang-en">
+            <p>Automate your hostel finances with precise tracking:</p>
+            <ul>
+                <li><strong>Invoices:</strong> Generate monthly bills including seat rent, fixed charges, and meal costs.</li>
+                <li><strong>Payments:</strong> Record cash or bank payments from members. The system automatically calculates remaining dues.</li>
+                <li><strong>Expenses:</strong> Log daily hostel operational costs (Grocery, Utility, Staff Salary) to track net profitability.</li>
+                <li><strong>Income:</strong> Track additional income sources like guest fees or application forms.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <p>নিঁখুত ট্র্যাকিংয়ের মাধ্যমে হোস্টেলের লেনদেন পরিচালনা করুন:</p>
+            <ul>
+                <li><strong>Invoices:</strong> প্রতি মাসে রুম রেন্ট, ফিক্সড চার্জ এবং মিলের খরচ মিলিয়ে মেম্বারদের জন্য ইনভয়েস তৈরি করুন।</li>
+                <li><strong>Payments:</strong> মেম্বাররা টাকা জমা দিলে রেকর্ড করুন। সিস্টেম স্বয়ংক্রিয়ভাবে কার কত বকেয়া (Due) আছে তা হিসেব করবে।</li>
+                <li><strong>Expenses:</strong> হোস্টেলের দৈনন্দিন খরচ (বাজার খরচ, ইউটিলিটি, বেতন) রেকর্ড করে নিট লাভের হিসেব রাখুন।</li>
+                <li><strong>Income:</strong> গেস্ট ফি বা ফরম বিক্রির মতো অন্যান্য ইনকামগুলো ট্র্যাক করুন।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="reports" class="tutorial-section">
+        <span class="badge-module bg-dark text-white">MODULE 6</span>
+        <h3 class="fw-bold"><span class="lang-en">6. Using the Reports Hub</span><span class="lang-bn">৬. রিপোর্টস হাবের ব্যবহার</span></h3>
+        <div class="lang-en">
+            <p>Get instant insights using our "Generate-First" reporting hub:</p>
+            <ol>
+                <li>Select a report from the sidebar (e.g., <strong>Due List</strong>, <strong>Collection Summary</strong>).</li>
+                <li>Choose the date range or specific hostel branch.</li>
+                <li>Click <strong>Generate Report</strong>. The data will load instantly via AJAX without a full page reload.</li>
+                <li>Use the <strong>Print</strong> button for a professional, print-optimised report layout.</li>
+            </ol>
+        </div>
+        <div class="lang-bn">
+            <p>এক ক্লিকে আপনার হোস্টেলের অবস্থা জানুন আমাদের রিপোর্টস হাবের মাধ্যমে:</p>
+            <ol>
+                <li>সাইডবার থেকে একটি নির্দিষ্ট রিপোর্ট ক্যাটাগরি বেছে নিন (যেমন: Due List বা Collection Summary)।</li>
+                <li>তারিখের রেঞ্জ (Date Range) সিলেক্ট করুন।</li>
+                <li><strong>Generate Report</strong> বাটনে ক্লিক করুন। AJAX এর মাধ্যমে তাৎক্ষণিক ডাটা চলে আসবে।</li>
+                <li>প্রয়োজনে <strong>Print</strong> বাটনে ক্লিক করে প্রফেশনাল রিপোর্ট প্রিন্ট করে নিতে পারেন।</li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="tech-stack" class="tutorial-section">
+        <h3 class="fw-bold"><span class="lang-en">Technical Stack</span><span class="lang-bn">টেকনিক্যাল স্ট্যাক</span></h3>
+        <div class="lang-en">
+            <ul>
+                <li><strong>Built With:</strong> Laravel 10+, Bootstrap 5, jQuery/AJAX.</li>
+                <li><strong>Database:</strong> MySQL 8.0+.</li>
+                <li><strong>Responsive:</strong> Full support for Laptops, Tablets, and Mobile devices.</li>
+            </ul>
+        </div>
+        <div class="lang-bn">
+            <ul>
+                <li><strong>টেকনোলজি:</strong> Laravel 10+, Bootstrap 5, jQuery/AJAX.</li>
+                <li><strong>ডাটাবেজ:</strong> MySQL 8.0+.</li>
+                <li><strong>ডিভাইস সাপোর্ট:</strong> ল্যাপটপ, ট্যাবলেট এবং মোবাইলে ব্যবহারের উপযোগী (Responsive)।</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <p class="mb-1 fw-bold text-dark">Royal Technologies</p>
+        <p class="mb-1">Innovative Solutions for Modern Mess & Hostel Businesses</p>
+        <p class="mb-0">Website: <a href="https://royaltechbd.com" target="_blank">royaltechbd.com</a></p>
+    </div>
+</div>
+
+<script>
+    const langToggle = document.getElementById('langToggle');
+    const langText = document.getElementById('langText');
+    let currentLang = 'en';
+
+    langToggle.addEventListener('click', function() {
+        if (currentLang === 'en') {
+            document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.lang-bn').forEach(el => el.style.display = 'block');
+            langText.innerText = 'Read in English';
+            currentLang = 'bn';
+        } else {
+            document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'block');
+            document.querySelectorAll('.lang-bn').forEach(el => el.style.display = 'none');
+            langText.innerText = 'বাংলায় পড়ুন';
+            currentLang = 'en';
+        }
+    });
+</script>
+</body>
+</html>

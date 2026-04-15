@@ -65,6 +65,9 @@
             <li class="nav-item"><a class="nav-link" href="#pdc">
                 <span class="lang-en">9. PDC & Bank Reconciliation</span><span class="lang-bn">৯. এডভান্স চেক ও ব্যাংক সমন্বয়</span>
             </a></li>
+            <li class="nav-item"><a class="nav-link" href="#settings">
+                <span class="lang-en">10. System Settings & Backup</span><span class="lang-bn">১০. সিস্টেম সেটিংস ও ব্যাকআপ</span>
+            </a></li>
             <li class="nav-item"><a class="nav-link" href="#tech-stack">
                 <span class="lang-en">Tech Stack & Requirements</span><span class="lang-bn">টেক স্ট্যাক ও রিকোয়ারমেন্টস</span>
             </a></li>
@@ -295,15 +298,106 @@
             </div>
         </div>
 
+        <div id="settings" class="tutorial-section">
+            <h3 class="fw-bold"><span class="lang-en">10. System Settings & Backup</span><span class="lang-bn">১০. সিস্টেম সেটিংস ও ব্যাকআপ</span></h3>
+            
+            <!-- Company Settings -->
+            <div class="example-box">
+                <h5><span class="lang-en">A. Company Identity</span><span class="lang-bn">ক. কোম্পানির পরিচিতি</span></h5>
+                <p class="lang-en">Set your business name, address, phone, and upload your official logo and favicon. These will appear on your reports and dashboard.</p>
+                <p class="lang-bn">সেটিংসের এই ট্যাবে আপনার ব্যবসার নাম, ঠিকানা, ফোন নম্বর এবং লোগো আপলোড করতে পারবেন। এগুলো আপনার সব রিপোর্ট এবং ড্যাশবোর্ডে প্রদর্শিত হবে।</p>
+            </div>
+
+            <!-- Currency & Tax -->
+            <div class="example-box">
+                <h5><span class="lang-en">B. Currency & Tax Localization</span><span class="lang-bn">খ. কারেন্সি ও ট্যাক্স সেটআপ</span></h5>
+                <p class="lang-en">Configure your currency symbol (e.g., ৳ or $), symbol position (Before/After), and decimal places. You can also enable VAT/Tax with custom rates.</p>
+                <p class="lang-bn">আপনার কাঙ্খিত কারেন্সি সিম্বল (যেমন: ৳ বা $), সিম্বলের অবস্থান (আগে না পরে) এবং দশমিক সংখ্যা ঠিক করতে পারবেন। এখান থেকে ভ্যাট বা ট্যাক্স এনাবেল করে পার্সেন্টেজ দেওয়া যায়।</p>
+            </div>
+
+            <!-- UI & Colors -->
+            <div class="example-box">
+                <h5><span class="lang-en">C. Interface Customization (UI & Colors)</span><span class="lang-bn">গ. ইন্টারফেস ও কালার কাস্টমাইজেশন</span></h5>
+                <p class="lang-en">Personalize the look of Royal Accounts. Change theme colors, button gradients, and even rename system labels (e.g., Change "Customer" to "Client").</p>
+                <p class="lang-bn">আপনার পছন্দ অনুযায়ী সফটওয়্যারের চেহারা বদলে নিতে পারেন। থিম কালার, বাটনের গ্রেডিয়েন্ট এবং সিস্টেমের বিভিন্ন নাম (যেমন: "Customer" এর বদলে "Client") এখান থেকেই পরিবর্তন করা যায়।</p>
+            </div>
+
+            <!-- Google Drive Backup & Troubleshooting -->
+            <div class="example-box border-primary">
+                <h5><span class="lang-en">D. Google Drive Backup & Detailed Troubleshooting</span><span class="lang-bn">ঘ. গুগল ড্রাইভ ব্যাকআপ ও বিস্তারিত সমস্যার সমাধান</span></h5>
+                
+                <div class="lang-en">
+                    <p>Royal Accounts uses OAuth 2.0 to securely upload backups. If you face issues, follow this detailed guide:</p>
+                    
+                    <h6 class="fw-bold mt-3">1. Error 403: access_denied</h6>
+                    <ul class="small">
+                        <li><strong>Why:</strong> Your Google Cloud project is in "Testing" mode, and the email you tried to log in with is NOT in the "Test users" list.</li>
+                        <li><strong>Solution:</strong> Go to <a href="https://console.cloud.google.com/apis/credentials/consent" target="_blank">OAuth Consent Screen</a>, scroll down to "Test users", click "+ ADD USERS", and enter your Gmail.</li>
+                    </ul>
+
+                    <h6 class="fw-bold mt-3">2. Error 400: redirect_uri_mismatch</h6>
+                    <ul class="small">
+                        <li><strong>Why:</strong> The URL in your Google Cloud Settings doesn't exactly match the app's callback URL.</li>
+                        <li><strong>Solution:</strong> Copy: <code>http://localhost/royalaccounts/public/settings/google/callback</code> and paste it into the "Authorized redirect URIs" section in your Google Cloud Credentials tab. Ensure <code>http</code> vs <code>https</code> is correct.</li>
+                    </ul>
+
+                    <h6 class="fw-bold mt-3">3. Stuck at "Google hasn't verified this app"</h6>
+                    <p class="small">This is normal for personal apps. Click <strong>"Advanced"</strong> and then <strong>"Go to Royal Accounts (unsafe)"</strong> to proceed.</p>
+                </div>
+
+                <div class="lang-bn">
+                    <p>রয়্যাল একাউন্টস আপনার ডাটা নিরাপদে আপলোড করতে OAuth 2.0 ব্যবহার করে। কোনো সমস্যা হলে নিচের গাইডটি অনুসরণ করুন:</p>
+                    
+                    <h6 class="fw-bold mt-3">১. Error 403: access_denied (অ্যাক্সেস ডিনাইড)</h6>
+                    <ul class="small">
+                        <li><strong>কেন হয়:</strong> আপনার গুগল প্রোজেক্টটি "Testing" মোডে আছে, কিন্তু আপনি যে জিমেইল দিয়ে লগইন করছেন সেটি "Test users" লিস্টে নেই।</li>
+                        <li><strong>সমাধান:</strong> <a href="https://console.cloud.google.com/apis/credentials/consent" target="_blank">OAuth Consent Screen</a> এ যান, নিচে "Test users" সেকশনে "+ ADD USERS" এ ক্লিক করে আপনার জিমেইলটি যোগ করুন।</li>
+                    </ul>
+
+                    <h6 class="fw-bold mt-3">২. Error 400: redirect_uri_mismatch (লিঙ্ক অমিল)</h6>
+                    <ul class="small">
+                        <li><strong>কেন হয়:</strong> গুগল কনসোলে দেওয়া রিডাইরেক্ট লিঙ্ক এবং সফটওয়্যারের লিঙ্ক হুবহু এক নয়।</li>
+                        <li><strong>সমাধান:</strong> এই লিঙ্কটি কপি করুন: <code>http://localhost/royalaccounts/public/settings/google/callback</code> এবং আপনার গুগল কনসোল ক্রেডেনশিয়াল ট্যাবের "Authorized redirect URIs" বক্সে পেস্ট করুন। খেয়াল রাখবেন <code>http</code> এবং <code>https</code> যেন সঠিক থাকে।</li>
+                    </ul>
+
+                    <h6 class="fw-bold mt-3">৩. "Google hasn't verified this app" লেখা আসলে কী করবেন?</h6>
+                    <p class="small">পার্সোনাল অ্যাপের ক্ষেত্রে এটি সাধারণ। স্ক্রিনের নিচে <strong>"Advanced"</strong> লিঙ্কে ক্লিক করুন এবং তারপর <strong>"Go to Royal Accounts (unsafe)"</strong> এ ক্লিক করে এগিয়ে যান।</p>
+                </div>
+            </div>
+
+            <!-- Document Serializing -->
+            <div class="example-box">
+                <h5><span class="lang-en">E. Document Serializing (Invoice & Voucher Numbering)</span><span class="lang-bn">ঙ. সিরিয়ালাইজেশন (ভাউচার ও ইনভয়েস নম্বর বিন্যাস)</span></h5>
+                <div class="lang-en small">
+                    <p>Manage how your documents (Purchase, Payment, Receipt, etc.) are numbered automatically. Use these placeholders:</p>
+                    <ul>
+                        <li><strong>MS:</strong> Master Serial (Automatic incrementing counter).</li>
+                        <li><strong>YY:</strong> Current Year (e.g., 24).</li>
+                        <li><strong>CUST:</strong> Short code of the Customer/Supplier.</li>
+                    </ul>
+                    <p><strong>Example Format:</strong> <code>REC-24-0010</code> (Prefix - Year - Serial). You can customize the separator (-) and the total digits (e.g., 001 vs 00001).</p>
+                </div>
+                <div class="lang-bn small">
+                    <p>আপনার ভাউচার এবং ইনভয়েস নম্বরগুলো স্বয়ংক্রিয়ভাবে কীভাবে তৈরি হবে তা এখান থেকে নিয়ন্ত্রণ করা যায়। নিচের লজিকগুলো খেয়াল করুন:</p>
+                    <ul>
+                        <li><strong>MS:</strong> মাস্টার সিরিয়াল (অটোমেটিক বাড়বে)।</li>
+                        <li><strong>YY:</strong> চলতি বছর (যেমন: ২৪)।</li>
+                        <li><strong>CUST:</strong> কাস্টমার বা সাপ্লায়ারের শর্ট কোড।</li>
+                    </ul>
+                    <p><strong>উদাহরণ বিন্যাস:</strong> <code>REC-24-0010</code> (প্রেফিক্স - বছর - সিরিয়াল)। আপনি চাইলে মাঝখানের সেপারেটর (-) এবং সিরিয়ালটি কত সংখ্যার হবে (যেমন: ০০০১ বনাম ০০০০১) তা বদলে নিতে পারেন।</p>
+                </div>
+            </div>
+        </div>
+
         <div id="tech-stack" class="tutorial-section">
             <h3 class="fw-bold"><span class="lang-en">Technical Stack & Minimum Requirements</span><span class="lang-bn">টেকনিক্যাল স্ট্যাক ও রিকোয়ারমেন্টস</span></h3>
             <div class="lang-en">
                 <ul>
                     <li><strong>Type:</strong> Custom Web Application</li>
-                    <li><strong>Framework/Language:</strong> PHP (Laravel), JavaScript (DataTables), HTML/CSS, MySQL.</li>
+                    <li><strong>Framework/Language:</strong> PHP 8.3 (Laravel 13.x), JavaScript (DataTables), HTML/CSS, MySQL.</li>
                     <li><strong>Minimum Server Requirements:</strong>
                         <ul>
-                            <li>PHP 8.1 or higher</li>
+                            <li>PHP 8.3 or higher</li>
                             <li>MySQL 5.7+ or MariaDB 10.3+</li>
                             <li>Web Server (Apache/Nginx)</li>
                             <li>cPanel Shared Hosting or VPS</li>
@@ -314,10 +408,10 @@
             <div class="lang-bn">
                 <ul>
                     <li><strong>ধরন (Type):</strong> কাস্টম ওয়েব অ্যাপ্লিকেশন</li>
-                    <li><strong>ফ্রেমওয়ার্ক/ল্যাঙ্গুয়েজ:</strong> PHP (Laravel), JavaScript (DataTables), HTML/CSS, MySQL.</li>
+                    <li><strong>ফ্রেমওয়ার্ক/ল্যাঙ্গুয়েজ:</strong> PHP 8.3 (Laravel 13.x), JavaScript (DataTables), HTML/CSS, MySQL.</li>
                     <li><strong>মিনিমাম রিকোয়ারমেন্ট (সার্ভার):</strong>
                         <ul>
-                            <li>PHP 8.1 বা তার উপরের ভার্সন</li>
+                            <li>PHP 8.3 বা তার উপরের ভার্সন</li>
                             <li>MySQL 5.7+ বা MariaDB 10.3+</li>
                             <li>Web Server (Apache/Nginx)</li>
                             <li>cPanel বা VPS (লারাভেলের জন্য রুট ফোল্ডার সেটআপ সাপোর্ট থাকতে হবে)</li>
